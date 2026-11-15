@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermodynamics Smart MCQ Set 2 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">02</div>
+    <h1>Thermodynamics<br>Smart MCQ Set 2</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical) · Subject 05</p>
+    <p class="sub hi" style="color:#c9d3e6">ऊष्मागतिकी – स्मार्ट MCQ सेट 2 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Basic Concepts",adv:1,
+ e:"A quasi-static process is necessarily:",
+ h:"एक अर्ध-स्थैतिक (quasi-static) प्रक्रम अनिवार्य रूप से होता है:",
+ o:[["Reversible","उत्क्रमणीय"],["Isothermal","समतापीय"],["Adiabatic","रुद्धोष्म"],["None of these","इनमें से कोई नहीं"]],a:3,
+ xe:"Quasi-static is necessary for reversibility but not sufficient – a slow process with friction is still irreversible. Reversible = quasi-static + no dissipation + heat transfer through zero ΔT.",
+ xh:"उत्क्रमणीयता के लिए अर्ध-स्थैतिक होना आवश्यक है, पर्याप्त नहीं – घर्षण वाला धीमा प्रक्रम भी अनुत्क्रमणीय है।"},
+{t:"Basic Concepts",
+ e:"In a constant-volume gas thermometer, the thermometric property is:",
+ h:"स्थिर-आयतन गैस थर्मामीटर में तापमापी गुणधर्म है:",
+ o:[["Volume","आयतन"],["Pressure","दाब"],["Resistance","प्रतिरोध"],["Length","लंबाई"]],a:1,
+ xe:"Volume is fixed, so pressure varies with T (P ∝ T). Platinum thermometer → resistance; thermocouple → thermo-emf (Seebeck); mercury → length.",
+ xh:"आयतन स्थिर है, अतः दाब T के साथ बदलता है। प्लैटिनम → प्रतिरोध; थर्मोकपल → थर्मो-emf; पारा → लंबाई।"},
+{t:"Basic Concepts · Numerical",adv:1,
+ e:"On scale P, water freezes at −20 °P and boils at 130 °P. 60 °C on this scale reads:",
+ h:"पैमाने P पर जल −20 °P पर जमता और 130 °P पर उबलता है। 60 °C इस पैमाने पर होगा:",
+ o:[["70 °P","70 °P"],["90 °P","90 °P"],["78 °P","78 °P"],["60 °P","60 °P"]],a:0,
+ xe:"(T<sub>P</sub> + 20)/150 = 60/100 → T<sub>P</sub> = 70 °P. 90 °P = forgetting the −20 offset.",
+ xh:"(T<sub>P</sub> + 20)/150 = 60/100 → T<sub>P</sub> = 70 °P। 90 °P = −20 घटाना भूलना।"},
+{t:"Gas Laws · Numerical",
+ e:"An ideal gas at 27 °C is heated at constant pressure till its volume triples. Final temperature:",
+ h:"27 °C पर आदर्श गैस को स्थिर दाब पर आयतन तीन गुना होने तक गर्म किया गया। अंतिम तापमान:",
+ o:[["81 °C","81 °C"],["627 °C","627 °C"],["900 °C","900 °C"],["327 °C","327 °C"]],a:1,
+ xe:"T<sub>2</sub> = 300 × 3 = 900 K = 627 °C. Traps: 81 °C (used °C), 900 °C (not converted back).",
+ xh:"T<sub>2</sub> = 300 × 3 = 900 K = 627 °C। जाल: 81 °C (°C में गुणा), 900 °C (वापस °C नहीं किया)।"},
+{t:"Gas Laws",adv:1,
+ e:"An ideal gas is throttled from 10 bar to 1 bar. Its temperature:",
+ h:"एक आदर्श गैस को 10 bar से 1 bar तक थ्रॉटल किया जाता है। इसका तापमान:",
+ o:[["Falls","घटता है"],["Rises","बढ़ता है"],["Remains same","समान रहता है"],["Becomes zero","शून्य हो जाता है"]],a:2,
+ xe:"Throttling: h constant. For an ideal gas h depends on T only → T constant (μ<sub>JT</sub> = 0). Only real gases (μ > 0) cool.",
+ xh:"थ्रॉटलिंग में h स्थिर। आदर्श गैस में h केवल T पर निर्भर → T स्थिर (μ<sub>JT</sub> = 0)। केवल वास्तविक गैस ठंडी होती है।"},
+{t:"First Law · Numerical",adv:1,
+ e:"A paddle wheel does 14 000 kJ of work on air in a rigid tank; 5 000 kJ of heat is lost. ΔU of air:",
+ h:"दृढ़ टैंक में पैडल व्हील वायु पर 14 000 kJ कार्य करता है; 5 000 kJ ऊष्मा खो जाती है। वायु का ΔU:",
+ o:[["+19 000 kJ","+19 000 kJ"],["−9 000 kJ","−9 000 kJ"],["−19 000 kJ","−19 000 kJ"],["+9 000 kJ","+9 000 kJ"]],a:3,
+ xe:"W = −14 000 (on system), Q = −5 000. ΔU = Q − W = −5 000 + 14 000 = +9 000 kJ.",
+ xh:"W = −14 000 (निकाय पर), Q = −5 000। ΔU = Q − W = +9 000 kJ।"},
+{t:"First Law",adv:1,
+ e:"Gas in a rigid, insulated tank is stirred by a paddle wheel. Which is correct?",
+ h:"दृढ़, ऊष्मारोधी टैंक में गैस को पैडल व्हील से हिलाया जाता है। कौन-सा सही है?",
+ o:[["W = 0, ΔU > 0","W = 0, ΔU > 0"],["Q = 0, ΔU = 0","Q = 0, ΔU = 0"],["Q = 0, ΔU > 0","Q = 0, ΔU > 0"],["W = 0, Q > 0","W = 0, Q > 0"]],a:2,
+ xe:"Insulated → Q = 0. Rigid → ∫P dV = 0, but paddle (shaft) work is done on the gas, so W ≠ 0 and ΔU = −W > 0. Trap: \"rigid means W = 0\".",
+ xh:"ऊष्मारोधी → Q = 0। दृढ़ → ∫P dV = 0, पर पैडल (शाफ्ट) कार्य गैस पर होता है, अतः W ≠ 0 और ΔU > 0। जाल: \"दृढ़ है तो W = 0\"।"},
+{t:"SFEE · Numerical",
+ e:"Steam enters an insulated nozzle with negligible velocity; enthalpy drop is 80 kJ/kg. Exit velocity:",
+ h:"भाप नगण्य वेग से ऊष्मारोधी नोज़ल में आती है; एन्थैल्पी में कमी 80 kJ/kg है। निकास वेग:",
+ o:[["400 m/s","400 m/s"],["12.6 m/s","12.6 m/s"],["283 m/s","283 m/s"],["126 m/s","126 m/s"]],a:0,
+ xe:"C<sub>2</sub> = √(2Δh) = √(2 × 80 000) = 400 m/s. Traps: 283 (missed 2), 12.6 (kJ not converted to J).",
+ xh:"C<sub>2</sub> = √(2Δh) = √(2 × 80 000) = 400 m/s। जाल: 283 (2 भूलना), 12.6 (kJ को J न करना)।"},
+{t:"Second Law",adv:1,
+ e:"A device converts all heat taken from a single reservoir into work in a cycle. It is a:",
+ h:"एक युक्ति चक्र में एक ही भंडार से ली गई पूरी ऊष्मा को कार्य में बदलती है। यह है:",
+ o:[["PMM-1","PMM-1"],["PMM-2","PMM-2"],["Carnot engine","कार्नो इंजन"],["Stirling engine","स्टर्लिंग इंजन"]],a:1,
+ xe:"Energy is conserved, so it is not PMM-1. 100 % conversion from one reservoir violates Kelvin–Planck → PMM-2.",
+ xh:"ऊर्जा संरक्षित है, इसलिए PMM-1 नहीं। एक भंडार से 100 % रूपांतरण केल्विन–प्लांक का उल्लंघन → PMM-2।"},
+{t:"Processes",adv:1,
+ e:"From the same state on a P–V diagram, the reversible adiabatic curve is:",
+ h:"P–V आरेख पर एक ही अवस्था से उत्क्रमणीय रुद्धोष्म वक्र होता है:",
+ o:[["γ times steeper","γ गुना अधिक खड़ा"],["(γ − 1) times steeper","(γ − 1) गुना अधिक खड़ा"],["1/γ times as steep","1/γ गुना खड़ा"],["Equally steep","समान रूप से खड़ा"]],a:0,
+ xe:"Isothermal slope = −P/V; adiabatic slope = −γP/V. They coincide only at absolute zero.",
+ xh:"समतापीय ढाल = −P/V; रुद्धोष्म ढाल = −γP/V। दोनों केवल परम शून्य पर मिलते हैं।"},
+{t:"Processes · Numerical",
+ e:"5 m³ of ideal gas at 1 bar is compressed reversibly and isothermally to 5 bar. |Work| ≈ (ln 5 = 1.609)",
+ h:"1 bar पर 5 m³ आदर्श गैस को उत्क्रमणीय समतापीय रूप से 5 bar तक संपीडित किया गया। |कार्य| ≈ (ln 5 = 1.609)",
+ o:[["400 kJ","400 kJ"],["2000 kJ","2000 kJ"],["1609 kJ","1609 kJ"],["804.7 kJ","804.7 kJ"]],a:3,
+ xe:"W = P<sub>1</sub>V<sub>1</sub> ln(P<sub>1</sub>/P<sub>2</sub>) = 100 × 5 × ln(1/5) = −804.7 kJ. ΔU = 0, so 804.7 kJ heat is rejected.",
+ xh:"W = 100 × 5 × ln(1/5) = −804.7 kJ। ΔU = 0, अतः 804.7 kJ ऊष्मा निष्कासित।"},
+{t:"Processes",adv:1,
+ e:"In a reversible polytropic expansion with 1 < n < γ, heat is:",
+ h:"1 < n < γ वाले उत्क्रमणीय बहुदैशिक प्रसार में ऊष्मा:",
+ o:[["Zero","शून्य"],["Rejected","निष्कासित"],["Equal to ΔU","ΔU के बराबर"],["Supplied","दी जाती है"]],a:3,
+ xe:"Q = [(γ − n)/(γ − 1)] W. Expansion: W > 0 and γ − n > 0 → Q > 0, yet Q < W, so temperature still falls.",
+ xh:"Q = [(γ − n)/(γ − 1)] W। प्रसार में W > 0 और γ − n > 0 → Q > 0, फिर भी Q < W, अतः तापमान गिरता है।"},
+{t:"Steam",up:1,
+ e:"The fusion line of water has a negative slope on the p–T diagram. Hence, raising the pressure:",
+ h:"p–T आरेख पर जल की गलन रेखा का ढाल ऋणात्मक है। अतः दाब बढ़ाने से:",
+ o:[["Lowers melting point","गलनांक घटता है"],["Raises melting point","गलनांक बढ़ता है"],["No effect on it","कोई प्रभाव नहीं"],["Shifts triple point","त्रिक बिंदु खिसकता है"]],a:0,
+ xe:"Ice is lighter than water (expands on freezing), so higher pressure favours the liquid → melting point falls. The triple point is a fixed state.",
+ xh:"बर्फ जल से हल्की है (जमने पर फैलती है), अतः अधिक दाब पर गलनांक घटता है। त्रिक बिंदु एक निश्चित अवस्था है।"},
+{t:"Steam",adv:1,
+ e:"Wet steam is throttled to a lower pressure. Its temperature and dryness fraction:",
+ h:"आर्द्र भाप को कम दाब तक थ्रॉटल किया जाता है। उसका तापमान और शुष्कता अंश:",
+ o:[["Both decrease","दोनों घटते हैं"],["T falls, x rises","T घटता, x बढ़ता"],["T rises, x falls","T बढ़ता, x घटता"],["Both unchanged","दोनों अपरिवर्तित"]],a:1,
+ xe:"h constant; t<sub>s</sub> falls with pressure while h<sub>fg</sub> rises, so the same h needs a higher x. Very dry steam may even superheat – the throttling calorimeter principle.",
+ xh:"h स्थिर; दाब घटने पर t<sub>s</sub> घटता और h<sub>fg</sub> बढ़ती है, अतः उसी h के लिए x बढ़ता है। बहुत शुष्क भाप अतितप्त भी हो सकती है।"},
+{t:"Steam",
+ e:"On a Mollier (h–s) chart, throttling and isentropic expansion appear respectively as:",
+ h:"मॉलियर (h–s) चार्ट पर थ्रॉटलिंग और समएन्ट्रॉपिक प्रसार क्रमशः दिखते हैं:",
+ o:[["Vertical, horizontal","ऊर्ध्वाधर, क्षैतिज"],["Both inclined","दोनों झुकी"],["Both vertical","दोनों ऊर्ध्वाधर"],["Horizontal, vertical","क्षैतिज, ऊर्ध्वाधर"]],a:3,
+ xe:"h on y-axis: h constant → horizontal; s constant → vertical. Slope of a constant-p line = T.",
+ xh:"y-अक्ष पर h: h स्थिर → क्षैतिज; s स्थिर → ऊर्ध्वाधर। स्थिर-दाब रेखा का ढाल = T।"},
+{t:"Steam · Numerical",
+ e:"Wet steam, x = 0.8, v<sub>g</sub> = 0.194 m³/kg. Its specific volume is nearly:",
+ h:"आर्द्र भाप, x = 0.8, v<sub>g</sub> = 0.194 m³/kg। इसका विशिष्ट आयतन लगभग:",
+ o:[["0.039 m³/kg","0.039 m³/kg"],["0.194 m³/kg","0.194 m³/kg"],["0.155 m³/kg","0.155 m³/kg"],["0.243 m³/kg","0.243 m³/kg"]],a:2,
+ xe:"v ≈ x v<sub>g</sub> = 0.8 × 0.194 = 0.155 (v<sub>f</sub> negligible). 0.243 = dividing by x.",
+ xh:"v ≈ x v<sub>g</sub> = 0.155 (v<sub>f</sub> नगण्य)। 0.243 = x से भाग देना।"},
+{t:"Entropy",adv:1,
+ e:"In an irreversible process of a closed system, the entropy of the system:",
+ h:"बंद निकाय के अनुत्क्रमणीय प्रक्रम में निकाय की एन्ट्रॉपी:",
+ o:[["Must increase","बढ़नी ही चाहिए"],["Must decrease","घटनी ही चाहिए"],["May rise or fall","बढ़ या घट सकती है"],["Stays constant","स्थिर रहती है"]],a:2,
+ xe:"A closed system can reject heat, so its entropy may fall. Only an isolated system (or the universe) must gain entropy; irreversible + adiabatic → definitely rises.",
+ xh:"बंद निकाय ऊष्मा निष्कासित कर सकता है, अतः एन्ट्रॉपी घट भी सकती है। केवल विलगित निकाय में एन्ट्रॉपी अवश्य बढ़ती है।"},
+{t:"Second Law",
+ e:"A refrigerator that works without any work input would violate the:",
+ h:"बिना किसी कार्य निवेश के चलने वाला प्रशीतक किसका उल्लंघन करेगा?",
+ o:[["Clausius statement","क्लॉसियस कथन"],["Kelvin–Planck statement","केल्विन–प्लांक कथन"],["First law","प्रथम नियम"],["Zeroth law","शून्यवाँ नियम"]],a:0,
+ xe:"Heat cannot flow by itself from cold to hot (Clausius). Energy is still conserved, so the first law holds. Kelvin–Planck is the heat-engine statement.",
+ xh:"ऊष्मा अपने-आप ठंडे से गर्म की ओर नहीं बहती (क्लॉसियस)। ऊर्जा संरक्षित है, अतः प्रथम नियम लागू है।"},
+{t:"Second Law · Numerical",up:1,
+ e:"A heat engine takes 950 J from the source and rejects 570 J. Its efficiency is:",
+ h:"एक ऊष्मा इंजन स्रोत से 950 J लेता है और 570 J निष्कासित करता है। दक्षता:",
+ o:[["60 %","60 %"],["40 %","40 %"],["62.5 %","62.5 %"],["37.5 %","37.5 %"]],a:1,
+ xe:"η = 1 − 570/950 = 40 % (UPSSSC Apr'22). 60 % = Q<sub>2</sub>/Q<sub>1</sub>, the trap.",
+ xh:"η = 1 − 570/950 = 40 %। 60 % = Q<sub>2</sub>/Q<sub>1</sub>, जाल।"},
+{t:"Second Law · Numerical",adv:1,
+ e:"A reversible engine has η = 30 %. Reversed as a heat pump, its COP is:",
+ h:"एक उत्क्रमणीय इंजन की η = 30 % है। उलटकर ऊष्मा पम्प बनाने पर COP:",
+ o:[["2.33","2.33"],["0.43","0.43"],["3.33","3.33"],["1.43","1.43"]],a:2,
+ xe:"COP<sub>HP</sub> = 1/η = 3.33. COP<sub>R</sub> = (1 − η)/η = 2.33 is the trap. COP<sub>HP</sub> = COP<sub>R</sub> + 1.",
+ xh:"COP<sub>HP</sub> = 1/η = 3.33। COP<sub>R</sub> = 2.33 जाल है। COP<sub>HP</sub> = COP<sub>R</sub> + 1।"},
+{t:"Second Law",adv:1,
+ e:"An engine between 500 K and 200 K is claimed to reject only 30 % of the heat absorbed. It is:",
+ h:"500 K और 200 K के बीच एक इंजन अवशोषित ऊष्मा का केवल 30 % निष्कासित करने का दावा करता है। यह है:",
+ o:[["Possible","संभव"],["Impossible","असंभव"],["Reversible","उत्क्रमणीय"],["Irreversible","अनुत्क्रमणीय"]],a:1,
+ xe:"Claimed η = 70 % > Carnot η = 1 − 200/500 = 60 %. No engine can beat Carnot.",
+ xh:"दावा η = 70 % > कार्नो η = 60 %। कोई इंजन कार्नो से अधिक दक्ष नहीं हो सकता।"},
+{t:"Second Law",
+ e:"For the same ΔT, Carnot efficiency increases more by:",
+ h:"समान ΔT के लिए कार्नो दक्षता अधिक बढ़ती है:",
+ o:[["Raising source T","स्रोत T बढ़ाने से"],["Both equally","दोनों से समान"],["Neither","किसी से नहीं"],["Lowering sink T","सिंक T घटाने से"]],a:3,
+ xe:"η = 1 − T<sub>2</sub>/T<sub>1</sub>; T<sub>2</sub> is in the numerator, so lowering it changes the ratio more.",
+ xh:"η = 1 − T<sub>2</sub>/T<sub>1</sub>; T<sub>2</sub> अंश में है, अतः उसे घटाने का प्रभाव अधिक है।"},
+{t:"Second Law",
+ e:"With perfect regeneration, which cycles give Carnot efficiency?",
+ h:"पूर्ण पुनर्जनन के साथ कौन-से चक्र कार्नो दक्षता देते हैं?",
+ o:[["Otto and Diesel","ओटो और डीजल"],["Brayton and Rankine","ब्रेटन और रैंकिन"],["Stirling and Ericsson","स्टर्लिंग और एरिक्सन"],["Dual and Otto","ड्यूल और ओटो"]],a:2,
+ xe:"Stirling (2 isothermal + 2 isochoric) and Ericsson (2 isothermal + 2 isobaric) take and reject all external heat at constant T.",
+ xh:"स्टर्लिंग (2 समतापीय + 2 समआयतनिक) और एरिक्सन (2 समतापीय + 2 समदाबी) सारी बाहरी ऊष्मा स्थिर T पर लेते-देते हैं।"},
+{t:"Entropy · Numerical",
+ e:"1 kg water at 100 °C becomes steam at 100 °C (L = 2257 kJ/kg). ΔS is nearly:",
+ h:"100 °C पर 1 kg जल 100 °C की भाप बनता है (L = 2257 kJ/kg)। ΔS लगभग:",
+ o:[["22.57 kJ/K","22.57 kJ/K"],["0.165 kJ/K","0.165 kJ/K"],["2257 kJ/K","2257 kJ/K"],["6.05 kJ/K","6.05 kJ/K"]],a:3,
+ xe:"ΔS = mL/T = 2257/373 = 6.05 kJ/K. Using 100 instead of 373 K gives the trap 22.57.",
+ xh:"ΔS = mL/T = 2257/373 = 6.05 kJ/K। 373 K की जगह 100 लेने पर जाल 22.57।"},
+{t:"Entropy",adv:1,
+ e:"For a cyclic device, ∮δQ/T = −0.5 kJ/K. The cycle is:",
+ h:"एक चक्रीय युक्ति के लिए ∮δQ/T = −0.5 kJ/K है। चक्र है:",
+ o:[["Irreversible","अनुत्क्रमणीय"],["Reversible","उत्क्रमणीय"],["Impossible","असंभव"],["Adiabatic","रुद्धोष्म"]],a:0,
+ xe:"Clausius inequality: = 0 reversible, < 0 irreversible (possible), > 0 impossible. Don't confuse with ∮dS, which is always 0.",
+ xh:"क्लॉसियस असमिका: = 0 उत्क्रमणीय, < 0 अनुत्क्रमणीय (संभव), > 0 असंभव। ∮dS सदैव 0 होता है।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">UPSSSC PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – thermodynamics is exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Formula Wall and Confusion Killers for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the Thermodynamics Smart Notes (Steam and Second Law first), then retry. / पहले नोट्स (भाप और द्वितीय नियम) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
