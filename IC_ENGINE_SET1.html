@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IC Engine Smart MCQ Set 1 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">01</div>
+    <h1>IC Engine<br>Smart MCQ Set 1</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">आई.सी. इंजन – स्मार्ट MCQ सेट 1 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Engine Basics · Numerical",adv:1,
+ e:"An engine has a compression ratio of 8 and a swept volume of 700 cc. Its clearance volume is:",
+ h:"एक इंजन का संपीडन अनुपात 8 और स्वेप्ट आयतन 700 cc है। इसका क्लीयरेंस आयतन है:",
+ o:[["87.5 cc","87.5 cc"],["100 cc","100 cc"],["800 cc","800 cc"],["700 cc","700 cc"]],a:1,
+ xe:"r = (V<sub>s</sub> + V<sub>c</sub>)/V<sub>c</sub> → V<sub>s</sub> = (r − 1)V<sub>c</sub> → V<sub>c</sub> = 700/7 = 100 cc. 87.5 cc (700/8) is the trap – r is total ÷ clearance, not swept ÷ clearance.",
+ xh:"r = (V<sub>s</sub> + V<sub>c</sub>)/V<sub>c</sub> → V<sub>c</sub> = 700/7 = 100 cc। 87.5 cc (700/8) जाल है – r = कुल ÷ क्लीयरेंस आयतन।"},
+{t:"Engine Basics",up:1,
+ e:"A four-stroke engine runs at 3000 rpm. The speed of its camshaft is:",
+ h:"एक चार-स्ट्रोक इंजन 3000 rpm पर चलता है। इसके कैमशाफ्ट की गति है:",
+ o:[["3000 rpm","3000 rpm"],["6000 rpm","6000 rpm"],["750 rpm","750 rpm"],["1500 rpm","1500 rpm"]],a:3,
+ xe:"Each valve opens once per cycle = once every 2 crank revolutions, so the camshaft runs at half the crankshaft speed.",
+ xh:"प्रत्येक वाल्व एक चक्र (2 क्रैंक चक्कर) में एक बार खुलता है, इसलिए कैमशाफ्ट क्रैंकशाफ्ट की आधी गति से घूमता है।"},
+{t:"2-Stroke vs 4-Stroke",adv:1,
+ e:"Compared with a four-stroke engine of the same size and speed, a two-stroke engine has higher:",
+ h:"समान आकार व गति के चार-स्ट्रोक इंजन की तुलना में दो-स्ट्रोक इंजन में अधिक होती है:",
+ o:[["Thermal efficiency","ऊष्मीय दक्षता"],["Volumetric efficiency","आयतनी दक्षता"],["Power output","शक्ति उत्पादन"],["Fuel economy","ईंधन मितव्ययिता"]],a:2,
+ xe:"One power stroke per revolution → more power (ideally double). But fresh charge escapes and intake time is short, so thermal and volumetric efficiency are both lower.",
+ xh:"हर चक्कर में एक पावर स्ट्रोक → अधिक शक्ति। पर ताज़ा चार्ज निकल जाता है और सक्शन समय कम है, इसलिए ऊष्मीय व आयतनी दक्षता दोनों कम।"},
+{t:"Air-Standard Cycles",adv:1,
+ e:"The air-standard efficiency of the Otto cycle depends on:",
+ h:"ओटो चक्र की वायु-मानक दक्षता किस पर निर्भर करती है?",
+ o:[["r and γ","r और γ"],["r and heat input","r और दी गई ऊष्मा"],["r and pressure ratio","r और दाब अनुपात"],["Peak temperature","अधिकतम तापमान"]],a:0,
+ xe:"η = 1 − 1/r<sup>γ−1</sup>. Only compression ratio and γ appear – not heat supplied, pressure ratio or fluid pressure. Pressure ratio affects work output and MEP, not η.",
+ xh:"η = 1 − 1/r<sup>γ−1</sup>। केवल संपीडन अनुपात और γ – दी गई ऊष्मा, दाब अनुपात नहीं। दाब अनुपात कार्य और MEP को प्रभावित करता है, η को नहीं।"},
+{t:"Air-Standard Cycles",up:1,
+ e:"For a fixed compression ratio, if the cut-off ratio of a Diesel cycle increases, its efficiency:",
+ h:"स्थिर संपीडन अनुपात पर डीजल चक्र का कट-ऑफ अनुपात बढ़ाने पर उसकी दक्षता:",
+ o:[["Increases","बढ़ती है"],["Remains same","समान रहती है"],["First rises, then falls","पहले बढ़ती, फिर घटती"],["Decreases","घटती है"]],a:3,
+ xe:"The bracket (ρ<sup>γ</sup> − 1)/[γ(ρ − 1)] grows with ρ, so η falls as cut-off increases. This is why Diesel is less efficient than Otto at the same r.",
+ xh:"कोष्ठक (ρ<sup>γ</sup> − 1)/[γ(ρ − 1)] ρ के साथ बढ़ता है, इसलिए कट-ऑफ बढ़ने पर η घटती है।"},
+{t:"Cycle Comparison",up:1,
+ e:"For the same compression ratio and the same heat input, the efficiency order is:",
+ h:"समान संपीडन अनुपात और समान दी गई ऊष्मा के लिए दक्षता का क्रम है:",
+ o:[["Diesel > Dual > Otto","डीजल > ड्यूल > ओटो"],["Dual > Otto > Diesel","ड्यूल > ओटो > डीजल"],["Otto > Dual > Diesel","ओटो > ड्यूल > डीजल"],["Otto = Dual = Diesel","ओटो = ड्यूल = डीजल"]],a:2,
+ xe:"Same r → Otto wins, Diesel last, Dual in the middle. Option A is the order for the same maximum pressure – the classic swap.",
+ xh:"समान r → ओटो सर्वाधिक, डीजल न्यूनतम, ड्यूल बीच में। विकल्प A समान अधिकतम दाब का क्रम है – यही अदला-बदली पूछी जाती है।"},
+{t:"Cycle Comparison",adv:1,
+ e:"For the same maximum pressure and the same heat input, the most efficient cycle is:",
+ h:"समान अधिकतम दाब और समान दी गई ऊष्मा के लिए सबसे दक्ष चक्र है:",
+ o:[["Otto","ओटो"],["Dual","ड्यूल"],["All equal","सभी समान"],["Diesel","डीजल"]],a:3,
+ xe:"With peak pressure fixed, Diesel can use a much higher compression ratio, so Diesel > Dual > Otto. Hook: same r → Otto wins; same peak → Diesel wins.",
+ xh:"अधिकतम दाब स्थिर हो तो डीजल बहुत अधिक संपीडन अनुपात ले सकता है, इसलिए डीजल > ड्यूल > ओटो।"},
+{t:"Air-Standard Cycles",up:1,
+ e:"If the cut-off ratio of a dual cycle approaches unity, the cycle becomes:",
+ h:"यदि ड्यूल चक्र का कट-ऑफ अनुपात इकाई (1) की ओर जाए, तो चक्र बन जाता है:",
+ o:[["Diesel","डीजल"],["Otto","ओटो"],["Carnot","कार्नो"],["Brayton","ब्रेटन"]],a:1,
+ xe:"ρ → 1 removes the constant-pressure heat addition, leaving only constant-volume addition → Otto. If instead the pressure ratio α → 1, Dual becomes Diesel.",
+ xh:"ρ → 1 होने पर स्थिर-दाब ऊष्मा योग हट जाता है, केवल स्थिर-आयतन बचता है → ओटो। दाब अनुपात α → 1 हो तो ड्यूल → डीजल।"},
+{t:"Cycles · Numerical",up:1,
+ e:"A diesel engine has a compression ratio of 21 and an expansion ratio of 10. Its cut-off ratio is:",
+ h:"एक डीजल इंजन का संपीडन अनुपात 21 और प्रसार अनुपात 10 है। इसका कट-ऑफ अनुपात है:",
+ o:[["2.1","2.1"],["11","11"],["0.48","0.48"],["1.1","1.1"]],a:0,
+ xe:"r = ρ × r<sub>e</sub> → ρ = 21/10 = 2.1. Ratios multiply, they don't subtract (11 is the trap).",
+ xh:"r = ρ × r<sub>e</sub> → ρ = 21/10 = 2.1। अनुपात गुणा होते हैं, घटाए नहीं जाते (11 जाल है)।"},
+{t:"Cycles · Numerical",up:1,
+ e:"An Otto cycle has a compression ratio of 5 (γ = 1.4; 5<sup>0.4</sup> = 1.904). Its air-standard efficiency is nearly:",
+ h:"एक ओटो चक्र का संपीडन अनुपात 5 है (γ = 1.4; 5<sup>0.4</sup> = 1.904)। इसकी वायु-मानक दक्षता लगभग है:",
+ o:[["80 %","80 %"],["52.5 %","52.5 %"],["47.5 %","47.5 %"],["35 %","35 %"]],a:2,
+ xe:"η = 1 − 1/1.904 = 1 − 0.525 = 47.5 %. Traps: 52.5 % (stopped at 1/r<sup>γ−1</sup>) and 80 % (1 − 1/r, forgot the power).",
+ xh:"η = 1 − 1/1.904 = 47.5 %। जाल: 52.5 % (केवल 1/r<sup>γ−1</sup>) और 80 % (1 − 1/r, घात भूलना)।"},
+{t:"Air-Standard Cycles",up:1,
+ e:"Which of the following is NOT an assumption of an air-standard cycle?",
+ h:"निम्न में से कौन वायु-मानक चक्र की मान्यता नहीं है?",
+ o:[["Air is a perfect gas","वायु आदर्श गैस है"],["Processes are reversible","प्रक्रम उत्क्रमणीय हैं"],["Specific heats vary","विशिष्ट ऊष्मा बदलती है"],["Mass of air is fixed","वायु का द्रव्यमान स्थिर है"]],a:2,
+ xe:"Specific heats are assumed constant, with no dissociation and no intake/exhaust. Variable c<sub>p</sub> and dissociation are exactly why a real engine's pressure rise is lower than the ideal value.",
+ xh:"विशिष्ट ऊष्मा स्थिर मानी जाती है, कोई वियोजन (dissociation) नहीं। परिवर्ती c<sub>p</sub> और वियोजन के कारण ही वास्तविक इंजन में दाब वृद्धि कम होती है।"},
+{t:"SI Engine",adv:1,
+ e:"Knocking in an SI engine can be reduced by increasing the:",
+ h:"SI इंजन में अपस्फोटन (knocking) किसे बढ़ाकर कम किया जा सकता है?",
+ o:[["Compression ratio","संपीडन अनुपात"],["Inlet temperature","प्रवेश तापमान"],["Supercharging","सुपरचार्जिंग"],["Engine speed","इंजन की गति"]],a:3,
+ xe:"Higher speed → more turbulence → flame reaches the end gas before it can auto-ignite. Raising r, inlet temperature or boost all increase SI knock.",
+ xh:"अधिक गति → अधिक विक्षोभ → ज्वाला अंतिम गैस (end gas) के स्वतः जलने से पहले पहुँच जाती है। r, प्रवेश तापमान या सुपरचार्जिंग बढ़ाने से SI नॉक बढ़ता है।"},
+{t:"SI Engine",up:1,
+ e:"In a carburetted petrol engine, a dirty (choked) air filter makes the mixture:",
+ h:"कार्बुरेटर वाले पेट्रोल इंजन में गंदा (चोक) एयर फ़िल्टर मिश्रण को बनाता है:",
+ o:[["Leaner","पतला (lean)"],["Richer","समृद्ध (rich)"],["Unchanged","अपरिवर्तित"],["Stoichiometric","स्टॉइकियोमेट्रिक"]],a:1,
+ xe:"Restricted air flow raises the venturi suction, drawing relatively more fuel → higher fuel–air ratio (richer). High altitude has the same effect.",
+ xh:"हवा का प्रवाह रुकने से वेंचुरी में चूषण बढ़ता है और अपेक्षाकृत अधिक ईंधन खिंचता है → मिश्रण समृद्ध। अधिक ऊँचाई पर भी यही होता है।"},
+{t:"CI Engine",up:1,
+ e:"Knocking in a CI engine occurs:",
+ h:"CI इंजन में नॉकिंग होती है:",
+ o:[["At start of combustion","दहन के प्रारंभ में"],["At end of combustion","दहन के अंत में"],["During after-burning","आफ्टर-बर्निंग के दौरान"],["During exhaust","निष्कासन के दौरान"]],a:0,
+ xe:"A long delay lets fuel accumulate and burn all at once at the start. SI knock is the opposite – end-gas auto-ignition near the end of combustion.",
+ xh:"लंबे विलंब में ईंधन जमा होकर प्रारंभ में एक साथ जलता है। SI नॉक इसके विपरीत – दहन के अंत में अंतिम गैस का स्वतः प्रज्वलन।"},
+{t:"CI Engine",adv:1,
+ e:"The ignition delay in a CI engine becomes shorter with:",
+ h:"CI इंजन में प्रज्वलन विलंब (ignition delay) छोटा होता है:",
+ o:[["Low cetane fuel","कम सीटेन ईंधन से"],["Low compression ratio","कम संपीडन अनुपात से"],["High cetane fuel","उच्च सीटेन ईंधन से"],["Low inlet temperature","कम प्रवेश तापमान से"]],a:2,
+ xe:"High cetane = ignites easily = short delay = less diesel knock. Higher r and inlet temperature also shorten delay – the mirror image of the SI case.",
+ xh:"उच्च सीटेन = आसानी से प्रज्वलन = छोटा विलंब = कम डीजल नॉक। अधिक r और प्रवेश तापमान भी विलंब घटाते हैं।"},
+{t:"CI Engine",up:1,
+ e:"The load on a diesel engine is controlled by:",
+ h:"डीजल इंजन का लोड नियंत्रित किया जाता है:",
+ o:[["Quantity governing","मात्रा गवर्निंग"],["Hit-and-miss","हिट-एंड-मिस"],["Throttle governing","थ्रॉटल गवर्निंग"],["Quality governing","गुणता गवर्निंग"]],a:3,
+ xe:"Diesel: air constant, fuel quantity varied → mixture strength changes (quality). Petrol: throttle varies the amount of charge, mixture strength same (quantity). Gas engines: hit-and-miss.",
+ xh:"डीजल: वायु स्थिर, ईंधन की मात्रा बदलती है → मिश्रण की शक्ति बदलती है (गुणता)। पेट्रोल: थ्रॉटल से चार्ज की मात्रा (मात्रा गवर्निंग)। गैस इंजन: हिट-एंड-मिस।"},
+{t:"CI Engine",up:1,
+ e:"If petrol is used in a diesel engine, the engine will:",
+ h:"यदि डीजल इंजन में पेट्रोल प्रयोग किया जाए, तो इंजन:",
+ o:[["Not run at all","चलेगा ही नहीं"],["Knock heavily","तेज़ नॉक करेगा"],["Run smoother","अधिक सुचारु चलेगा"],["Give more power","अधिक शक्ति देगा"]],a:1,
+ xe:"Petrol has a high self-ignition temperature (low cetane) → long delay → heavy knocking. The reverse – diesel in a petrol engine – will not run.",
+ xh:"पेट्रोल का स्वतः-प्रज्वलन ताप अधिक (कम सीटेन) → लंबा विलंब → तेज़ नॉक। उल्टा – पेट्रोल इंजन में डीजल – इंजन चलेगा ही नहीं।"},
+{t:"Fuels",up:1,
+ e:"A diesel fuel of cetane number 40 behaves like a mixture containing, by volume:",
+ h:"सीटेन संख्या 40 वाला डीजल ईंधन, आयतन के अनुसार, किस मिश्रण जैसा व्यवहार करता है?",
+ o:[["40 % cetane","40 % सीटेन"],["60 % cetane","60 % सीटेन"],["40 % iso-octane","40 % आइसो-ऑक्टेन"],["60 % n-heptane","60 % n-हेप्टेन"]],a:0,
+ xe:"Cetane number = % cetane in a cetane + α-methyl naphthalene blend → 40 % cetane, 60 % α-methyl naphthalene. Iso-octane and n-heptane are the octane (petrol) reference fuels.",
+ xh:"सीटेन संख्या = सीटेन + α-मिथाइल नैफ्थलीन मिश्रण में सीटेन का % → 40 % सीटेन। आइसो-ऑक्टेन और n-हेप्टेन ऑक्टेन (पेट्रोल) के संदर्भ ईंधन हैं।"},
+{t:"Fuels",adv:1,
+ e:"In the octane rating scale, the reference fuel assigned a rating of zero is:",
+ h:"ऑक्टेन रेटिंग पैमाने में शून्य रेटिंग वाला संदर्भ ईंधन है:",
+ o:[["Iso-octane","आइसो-ऑक्टेन"],["Cetane","सीटेन"],["n-Heptane","n-हेप्टेन"],["Methyl naphthalene","मिथाइल नैफ्थलीन"]],a:2,
+ xe:"Octane: iso-octane = 100, n-heptane = 0. Cetane: cetane = 100, α-methyl naphthalene = 0. A good petrol is a bad diesel fuel (CN ≈ 60 − ON/2).",
+ xh:"ऑक्टेन: आइसो-ऑक्टेन = 100, n-हेप्टेन = 0। सीटेन: सीटेन = 100, α-मिथाइल नैफ्थलीन = 0। अच्छा पेट्रोल खराब डीजल ईंधन है।"},
+{t:"Supercharging",up:1,
+ e:"Supercharging an SI engine makes its tendency to knock:",
+ h:"SI इंजन को सुपरचार्ज करने पर नॉकिंग की प्रवृत्ति:",
+ o:[["Increase","बढ़ती है"],["Decrease","घटती है"],["Remain same","समान रहती है"],["Vanish","समाप्त हो जाती है"]],a:0,
+ xe:"Denser, hotter charge → end gas auto-ignites more easily → SI knock rises. In a CI engine the same boost shortens delay and reduces knock.",
+ xh:"अधिक घना व गर्म चार्ज → अंतिम गैस आसानी से स्वतः जलती है → SI नॉक बढ़ता है। CI इंजन में यही विलंब घटाकर नॉक कम करता है।"},
+{t:"Performance · Numerical",adv:1,
+ e:"An engine gives 200 kW brake power at full load and needs 25 kW to motor it at the same speed. Its mechanical efficiency at half load is:",
+ h:"एक इंजन पूर्ण लोड पर 200 kW ब्रेक शक्ति देता है और समान गति पर उसे घुमाने (motoring) में 25 kW लगते हैं। आधे लोड पर यांत्रिक दक्षता:",
+ o:[["88.9 %","88.9 %"],["80 %","80 %"],["75 %","75 %"],["94.4 %","94.4 %"]],a:1,
+ xe:"Motoring power = FP = 25 kW, constant at the same speed. Half load: BP = 100, IP = 125 → η<sub>m</sub> = 100/125 = 80 %. 88.9 % is full load (200/225).",
+ xh:"मोटरिंग शक्ति = FP = 25 kW, समान गति पर स्थिर। आधा लोड: BP = 100, IP = 125 → η<sub>m</sub> = 80 %। 88.9 % पूर्ण लोड का मान है।"},
+{t:"Performance · Numerical",up:1,
+ e:"A diesel engine has bsfc = 200 g/kWh, and the calorific value of diesel is 40 MJ/kg. Its brake thermal efficiency is:",
+ h:"एक डीजल इंजन का bsfc = 200 g/kWh है और डीजल का ऊष्मीय मान 40 MJ/kg है। ब्रेक ऊष्मीय दक्षता:",
+ o:[["45 %","45 %"],["4.5 %","4.5 %"],["22.2 %","22.2 %"],["50 %","50 %"]],a:0,
+ xe:"η<sub>bth</sub> = 3600/(bsfc × CV) = 3600/(0.2 × 40 000) = 0.45. Convert g → kg and MJ → kJ first.",
+ xh:"η<sub>bth</sub> = 3600/(bsfc × CV) = 3600/(0.2 × 40 000) = 45 %। पहले g → kg और MJ → kJ करें।"},
+{t:"Performance",up:1,
+ e:"The Morse test is applicable to:",
+ h:"मोर्स परीक्षण (Morse test) लागू होता है:",
+ o:[["Single-cylinder engines","एकल-सिलिंडर इंजनों पर"],["Multi-cylinder engines","बहु-सिलिंडर इंजनों पर"],["Two-stroke engines only","केवल दो-स्ट्रोक इंजनों पर"],["Gas engines only","केवल गैस इंजनों पर"]],a:1,
+ xe:"One cylinder is cut out at a time and the drop in BP gives that cylinder's IP → total IP, FP and η<sub>m</sub>. Willan's line, Morse test and motoring test all give friction power.",
+ xh:"एक-एक सिलिंडर बंद कर BP में कमी से उस सिलिंडर की IP मिलती है → कुल IP, FP और η<sub>m</sub>। विलन रेखा, मोर्स और मोटरिंग परीक्षण – तीनों से घर्षण शक्ति मिलती है।"},
+{t:"Lubrication",up:1,
+ e:"Mist (petroil) lubrication is used in:",
+ h:"मिस्ट (पेट्रॉयल) स्नेहन प्रयोग होता है:",
+ o:[["Heavy trucks","भारी ट्रकों में"],["Aircraft engines","वायुयान इंजनों में"],["Two-stroke engines","दो-स्ट्रोक इंजनों में"],["Four-stroke diesels","चार-स्ट्रोक डीजल में"]],a:2,
+ xe:"Oil is mixed with petrol; the fuel vaporises and leaves an oil mist. It is not a wet-sump type, and lubrication is poor when the throttle is closed. Aircraft and racing engines use dry sump.",
+ xh:"तेल को पेट्रोल में मिलाया जाता है; ईंधन वाष्पित होकर तेल की धुंध छोड़ता है। यह वेट-संप प्रकार नहीं है। वायुयान व रेसिंग इंजनों में ड्राई संप।"},
+{t:"Performance",adv:1,
+ e:"In IP = p<sub>m</sub>LAnk/60 for a four-stroke engine running at N rpm, the value of n is:",
+ h:"N rpm पर चल रहे चार-स्ट्रोक इंजन के लिए IP = p<sub>m</sub>LAnk/60 में n का मान है:",
+ o:[["N","N"],["2N","2N"],["N/4","N/4"],["N/2","N/2"]],a:3,
+ xe:"n = power strokes per minute per cylinder. Four-stroke: one power stroke every 2 revolutions → N/2. Two-stroke: n = N.",
+ xh:"n = प्रति सिलिंडर प्रति मिनट पावर स्ट्रोक। चार-स्ट्रोक: हर 2 चक्कर में एक → N/2। दो-स्ट्रोक: n = N।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – IC Engine is exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the IC Engine notes (air-standard cycles and knocking first), then retry. / पहले नोट्स (वायु-मानक चक्र और नॉकिंग) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
