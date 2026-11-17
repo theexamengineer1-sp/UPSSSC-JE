@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IC Engine Smart MCQ Set 2 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">02</div>
+    <h1>IC Engine<br>Smart MCQ Set 2</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">आई.सी. इंजन – स्मार्ट MCQ सेट 2 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Engine Basics",up:1,
+ e:"Which of the following is NOT an internal combustion engine?",
+ h:"निम्न में से कौन आंतरिक दहन (IC) इंजन नहीं है?",
+ o:[["Wankel engine","वैंकेल इंजन"],["Petrol engine","पेट्रोल इंजन"],["Steam turbine","भाप टरबाइन"],["Diesel engine","डीजल इंजन"]],a:2,
+ xe:"Fuel burns in a separate boiler, so a steam turbine is an EC engine (like the steam engine and Stirling engine). The Wankel rotary engine is IC. IC engines have higher thermal efficiency and power-to-weight ratio.",
+ xh:"ईंधन अलग बॉयलर में जलता है, इसलिए भाप टरबाइन बाह्य दहन (EC) इंजन है। वैंकेल रोटरी इंजन IC है। IC इंजनों की ऊष्मीय दक्षता अधिक होती है।"},
+{t:"2-Stroke Engine",adv:1,
+ e:"During the power (downward) stroke of a two-stroke petrol engine, the port uncovered first is the:",
+ h:"दो-स्ट्रोक पेट्रोल इंजन के पावर (नीचे की ओर) स्ट्रोक में सबसे पहले खुलने वाला पोर्ट है:",
+ o:[["Exhaust port","निकास पोर्ट"],["Transfer port","ट्रांसफर पोर्ट"],["Inlet port","इनलेट पोर्ट"],["All together","सभी एक साथ"]],a:0,
+ xe:"Exhaust uncovers first so pressure drops before fresh charge enters through the transfer port. On the upward stroke the transfer port closes first, then the exhaust port. Two-stroke: suction + compression in one stroke.",
+ xh:"पहले निकास पोर्ट खुलता है ताकि दाब घटे, फिर ट्रांसफर पोर्ट से ताज़ा चार्ज आए। ऊपर जाते समय पहले ट्रांसफर पोर्ट बंद होता है, फिर निकास पोर्ट।"},
+{t:"Valve Timing",adv:1,
+ e:"In an actual four-stroke engine, the inlet valve closes:",
+ h:"वास्तविक चार-स्ट्रोक इंजन में इनलेट वाल्व बंद होता है:",
+ o:[["Before BDC","BDC से पहले"],["At BDC","ठीक BDC पर"],["After TDC","TDC के बाद"],["After BDC","BDC के बाद"]],a:3,
+ xe:"IVC ≈ 30°–40° after BDC to use the inertia of the incoming charge. IVO 10°–20° before TDC; EVO 30°–50° before BDC; EVC 10°–15° after TDC; spark ≈ 20°–35° before TDC.",
+ xh:"इनलेट वाल्व BDC के लगभग 30°–40° बाद बंद होता है ताकि आते चार्ज के जड़त्व का लाभ मिले। EVC TDC के 10°–15° बाद; स्पार्क TDC से 20°–35° पहले।"},
+{t:"Engine Basics",up:1,
+ e:"The maximum temperature in an IC engine cycle occurs at the:",
+ h:"IC इंजन चक्र में अधिकतम तापमान कहाँ होता है?",
+ o:[["End of suction","सक्शन के अंत में"],["Start of expansion","प्रसार के प्रारंभ में"],["End of compression","संपीडन के अंत में"],["End of exhaust","निकास के अंत में"]],a:1,
+ xe:"Combustion is completed just after TDC, so the peak temperature is at the beginning of the expansion stroke – higher than at the end of compression. During suction, cylinder pressure is slightly below atmospheric.",
+ xh:"दहन TDC के ठीक बाद पूरा होता है, इसलिए अधिकतम तापमान प्रसार स्ट्रोक के प्रारंभ में होता है। सक्शन के दौरान दाब वायुमंडल से थोड़ा कम।"},
+{t:"Engine Parts",up:1,
+ e:"In an IC engine piston, the side thrust is carried by the:",
+ h:"IC इंजन के पिस्टन में पार्श्व धक्का (side thrust) कौन सहन करता है?",
+ o:[["Crown","क्राउन"],["Ring belt","रिंग बेल्ट"],["Skirt","स्कर्ट"],["Gudgeon pin","गजन पिन"]],a:2,
+ xe:"The skirt guides the piston and takes side thrust. The centre of the crown is the hottest zone. The gudgeon pin joins the piston to the connecting rod; compression rings also pass heat to the cylinder wall.",
+ xh:"स्कर्ट पिस्टन को दिशा देता है और पार्श्व धक्का सहता है। क्राउन का केंद्र सबसे गर्म भाग है। गजन पिन पिस्टन को कनेक्टिंग रॉड से जोड़ता है।"},
+{t:"Engine Basics · Numerical",up:1,
+ e:"A four-cylinder engine has a bore of 80 mm and a stroke of 100 mm. Its total swept volume is nearly:",
+ h:"एक चार-सिलिंडर इंजन का बोर 80 mm और स्ट्रोक 100 mm है। कुल स्वेप्ट आयतन लगभग है:",
+ o:[["503 cc","503 cc"],["1005 cc","1005 cc"],["8042 cc","8042 cc"],["2011 cc","2011 cc"]],a:3,
+ xe:"Per cylinder V<sub>s</sub> = (π/4) × 8² × 10 = 502.7 cm³; × 4 cylinders = 2011 cc. 503 cc is a single cylinder – the common slip.",
+ xh:"प्रति सिलिंडर V<sub>s</sub> = (π/4) × 8² × 10 = 502.7 cm³; × 4 = 2011 cc। 503 cc केवल एक सिलिंडर का है।"},
+{t:"Performance · Numerical",adv:1,
+ e:"Clearance volume = 20 cc, compression ratio = 14, η<sub>v</sub> = 80 %, η<sub>m</sub> = 88 %. Actual volume of charge inducted per stroke:",
+ h:"क्लीयरेंस आयतन = 20 cc, संपीडन अनुपात = 14, η<sub>v</sub> = 80 %, η<sub>m</sub> = 88 %। प्रति स्ट्रोक वास्तव में लिया गया चार्ज:",
+ o:[["208 cc","208 cc"],["224 cc","224 cc"],["183 cc","183 cc"],["260 cc","260 cc"]],a:0,
+ xe:"V<sub>s</sub> = (r − 1)V<sub>c</sub> = 13 × 20 = 260 cc; actual = 0.8 × 260 = 208 cc. η<sub>m</sub> is a distractor; 224 cc comes from wrongly using rV<sub>c</sub> = 280 cc.",
+ xh:"V<sub>s</sub> = (r − 1)V<sub>c</sub> = 260 cc; वास्तविक = 0.8 × 260 = 208 cc। η<sub>m</sub> अनावश्यक है; 224 cc गलत rV<sub>c</sub> = 280 लेने से।"},
+{t:"Efficiencies",up:1,
+ e:"Relative efficiency (efficiency ratio) of an IC engine is:",
+ h:"IC इंजन की सापेक्ष दक्षता (efficiency ratio) है:",
+ o:[["Brake ÷ indicated power","ब्रेक ÷ सूचित शक्ति"],["Actual ÷ air-standard η","वास्तविक ÷ वायु-मानक η"],["Indicated ÷ brake power","सूचित ÷ ब्रेक शक्ति"],["Carnot ÷ actual η","कार्नो ÷ वास्तविक η"]],a:1,
+ xe:"η<sub>rel</sub> = actual thermal efficiency ÷ air-standard efficiency. BP ÷ IP is mechanical efficiency. Also, η<sub>bth</sub> = η<sub>ith</sub> × η<sub>m</sub>.",
+ xh:"η<sub>rel</sub> = वास्तविक ऊष्मीय दक्षता ÷ वायु-मानक दक्षता। BP ÷ IP यांत्रिक दक्षता है। η<sub>bth</sub> = η<sub>ith</sub> × η<sub>m</sub>।"},
+{t:"Other Cycles",up:1,
+ e:"The Stirling cycle consists of:",
+ h:"स्टर्लिंग चक्र में होते हैं:",
+ o:[["2 isothermal + 2 isobaric","2 समतापीय + 2 समदाबी"],["2 isentropic + 2 isochoric","2 समएन्ट्रॉपिक + 2 समआयतनिक"],["2 isothermal + 2 isochoric","2 समतापीय + 2 समआयतनिक"],["2 isentropic + 2 isobaric","2 समएन्ट्रॉपिक + 2 समदाबी"]],a:2,
+ xe:"Stirling = 2 T + 2 V; Ericsson = 2 T + 2 P; Otto = 2 s + 2 V; Joule/Brayton = 2 s + 2 P. Stirling and Ericsson use regeneration and are reversible.",
+ xh:"स्टर्लिंग = 2 T + 2 V; एरिक्सन = 2 T + 2 P; ओटो = 2 s + 2 V; जूल/ब्रेटन = 2 s + 2 P। स्टर्लिंग व एरिक्सन में पुनर्जनन होता है।"},
+{t:"Other Cycles",up:1,
+ e:"The Bell-Coleman (air refrigeration) cycle is a reversed:",
+ h:"बेल-कोलमैन (वायु प्रशीतन) चक्र किसका उल्टा चक्र है?",
+ o:[["Otto cycle","ओटो चक्र"],["Carnot cycle","कार्नो चक्र"],["Rankine cycle","रैंकिन चक्र"],["Joule cycle","जूल चक्र"]],a:3,
+ xe:"Bell-Coleman = reversed Joule (Brayton). Joule cycle → gas turbine; Rankine → steam power plant; reversed Carnot → ideal refrigerator.",
+ xh:"बेल-कोलमैन = उल्टा जूल (ब्रेटन)। जूल चक्र → गैस टरबाइन; रैंकिन → भाप शक्ति संयंत्र; उल्टा कार्नो → आदर्श प्रशीतक।"},
+{t:"Air-Standard Cycles",up:1,
+ e:"Mean effective pressure = net work per cycle divided by the:",
+ h:"माध्य प्रभावी दाब (MEP) = प्रति चक्र शुद्ध कार्य ÷ ?",
+ o:[["Clearance volume","क्लीयरेंस आयतन"],["Swept volume","स्वेप्ट आयतन"],["Total volume","कुल आयतन"],["Piston area","पिस्टन क्षेत्रफल"]],a:1,
+ xe:"MEP = W<sub>net</sub>/V<sub>s</sub> – the constant pressure that would give the same work over one stroke. From an indicator card: p<sub>m</sub> = (area/length) × spring scale.",
+ xh:"MEP = W<sub>net</sub>/V<sub>s</sub> – वह स्थिर दाब जो एक स्ट्रोक में उतना ही कार्य दे। इंडिकेटर कार्ड से: p<sub>m</sub> = (क्षेत्रफल/लंबाई) × स्प्रिंग स्केल।"},
+{t:"Air-Standard Cycles",up:1,
+ e:"In the dual combustion cycle, heat is added:",
+ h:"ड्यूल दहन चक्र में ऊष्मा दी जाती है:",
+ o:[["P = C, then V = C","पहले P = C, फिर V = C"],["V = C, then P = C","पहले V = C, फिर P = C"],["At V = C only","केवल V = C पर"],["At P = C only","केवल P = C पर"]],a:1,
+ xe:"Dual (mixed / limited-pressure) cycle: constant volume first, then constant pressure; heat rejected at constant volume. Most high-speed CI engines work on it. No isothermal process is involved.",
+ xh:"ड्यूल (मिश्रित) चक्र: पहले स्थिर आयतन, फिर स्थिर दाब; ऊष्मा निष्कासन स्थिर आयतन पर। अधिकांश उच्च-गति CI इंजन इसी पर चलते हैं।"},
+{t:"CI Engine",up:1,
+ e:"The intake charge of a CI (diesel) engine is:",
+ h:"CI (डीजल) इंजन का सक्शन चार्ज होता है:",
+ o:[["Air + fuel","वायु + ईंधन"],["Air + exhaust","वायु + निकास गैस"],["Air alone","केवल वायु"],["Fuel alone","केवल ईंधन"]],a:2,
+ xe:"Only air is inducted and compressed (r = 15–25); fuel is injected near TDC and ignites from the heat of compression. Mixing happens inside the cylinder, so combustion is heterogeneous (SI: homogeneous).",
+ xh:"केवल वायु ली और संपीडित की जाती है (r = 15–25); ईंधन TDC के पास इंजेक्ट होकर संपीडन की ऊष्मा से जलता है। मिश्रण सिलिंडर में होता है, इसलिए दहन विषमांगी है।"},
+{t:"SI Engine",adv:1,
+ e:"In a magneto ignition system, as engine speed increases, the spark:",
+ h:"मैग्नेटो इग्निशन प्रणाली में इंजन की गति बढ़ने पर स्पार्क:",
+ o:[["Weakens","कमज़ोर होता है"],["Stays same","समान रहता है"],["Fails","विफल हो जाता है"],["Gets stronger","अधिक प्रबल होता है"]],a:3,
+ xe:"A magneto generates its own current, which rises with speed – weak at starting, strong at high speed (bikes, racing, aircraft). Battery (coil) ignition is the reverse: good at low speed, sparking voltage drops as speed rises.",
+ xh:"मैग्नेटो स्वयं धारा बनाता है जो गति के साथ बढ़ती है – स्टार्ट पर कमज़ोर, उच्च गति पर प्रबल। बैटरी इग्निशन इसके विपरीत है।"},
+{t:"Fuels & Combustion",adv:1,
+ e:"The chemically correct air–fuel ratio for petrol is about:",
+ h:"पेट्रोल के लिए रासायनिक रूप से सही वायु–ईंधन अनुपात लगभग है:",
+ o:[["12.5 : 1","12.5 : 1"],["16 : 1","16 : 1"],["20 : 1","20 : 1"],["14.8 : 1","14.8 : 1"]],a:3,
+ xe:"Stoichiometric ≈ 14.8 : 1. Maximum power ≈ 12.5 : 1 (rich); best economy ≈ 16 : 1 (lean); diesel at rated load ≈ 20 : 1 (excess air); cold start 3–5 : 1.",
+ xh:"स्टॉइकियोमेट्रिक ≈ 14.8 : 1। अधिकतम शक्ति ≈ 12.5 : 1 (समृद्ध); सर्वोत्तम मितव्ययिता ≈ 16 : 1; डीजल ≈ 20 : 1 (अतिरिक्त वायु)।"},
+{t:"Fuels & Combustion",up:1,
+ e:"In the Orsat apparatus, the KOH solution absorbs:",
+ h:"ऑर्सेट उपकरण में KOH विलयन अवशोषित करता है:",
+ o:[["CO<sub>2</sub>","CO<sub>2</sub>"],["CO","CO"],["O<sub>2</sub>","O<sub>2</sub>"],["N<sub>2</sub>","N<sub>2</sub>"]],a:0,
+ xe:"Orsat = volumetric analysis of dry exhaust gas. KOH → CO<sub>2</sub>; alkaline pyrogallol → O<sub>2</sub>; cuprous chloride → CO; N<sub>2</sub> is the remainder.",
+ xh:"ऑर्सेट = शुष्क निकास गैस का आयतनी विश्लेषण। KOH → CO<sub>2</sub>; क्षारीय पाइरोगैलोल → O<sub>2</sub>; क्यूप्रस क्लोराइड → CO; शेष N<sub>2</sub>।"},
+{t:"Supercharging",up:1,
+ e:"Supercharging means supplying the intake air at a density:",
+ h:"सुपरचार्जिंग का अर्थ है सक्शन वायु को किस घनत्व पर देना?",
+ o:[["Below atmospheric","वायुमंडलीय से कम"],["Above atmospheric","वायुमंडलीय से अधिक"],["Equal to atmospheric","वायुमंडलीय के बराबर"],["Equal to exhaust","निकास गैस के बराबर"]],a:1,
+ xe:"The supercharger compresses air to raise power for the same size (and recover power at altitude). Turbocharger = compressor driven by an exhaust turbine. Scavenging is different – it sweeps out burnt gases.",
+ xh:"सुपरचार्जर वायु को संपीडित कर समान आकार में अधिक शक्ति देता है। टर्बोचार्जर = निकास टरबाइन से चलने वाला कंप्रेसर। स्कैवेंजिंग अलग है – जली गैसें बाहर निकालना।"},
+{t:"Lubrication",up:1,
+ e:"The most important property of a lubricating oil is its:",
+ h:"स्नेहक तेल का सबसे महत्वपूर्ण गुण है:",
+ o:[["Pour point","पोर पॉइंट"],["Flash point","फ्लैश पॉइंट"],["Viscosity","श्यानता"],["Density","घनत्व"]],a:2,
+ xe:"Viscosity decides film thickness: higher viscosity → less wear; heavy load needs high viscosity, high speed needs low. Pour point = lowest temperature at which oil still flows. Engine bearings work mainly under hydrodynamic lubrication.",
+ xh:"श्यानता फिल्म की मोटाई तय करती है: अधिक श्यानता → कम घिसाव; भारी लोड → उच्च श्यानता, उच्च गति → कम। पोर पॉइंट = सबसे कम ताप जिस पर तेल बहता है।"},
+{t:"Performance · Numerical",up:1,
+ e:"An engine runs at 3000 rpm and develops a torque of 100 N·m. Its brake power is nearly:",
+ h:"एक इंजन 3000 rpm पर 100 N·m बल-आघूर्ण देता है। इसकी ब्रेक शक्ति लगभग है:",
+ o:[["31.4 kW","31.4 kW"],["300 kW","300 kW"],["5.0 kW","5.0 kW"],["62.8 kW","62.8 kW"]],a:0,
+ xe:"BP = 2πNT/60 = 2π × 3000 × 100/60 = 31 416 W. 5.0 kW (missed 2π) and 62.8 kW (4π instead of 2π) are the traps.",
+ xh:"BP = 2πNT/60 = 2π × 3000 × 100/60 = 31.4 kW। 5.0 kW (2π भूलना) और 62.8 kW (2π की जगह 4π) जाल हैं।"},
+{t:"Performance · Numerical",up:1,
+ e:"An engine has IP = 15 kW, fuel consumption = 0.001 kg/s and CV = 40 000 kJ/kg. Its indicated thermal efficiency is:",
+ h:"एक इंजन की IP = 15 kW, ईंधन खपत = 0.001 kg/s और CV = 40 000 kJ/kg है। इसकी सूचित ऊष्मीय दक्षता:",
+ o:[["3.75 %","3.75 %"],["37.5 %","37.5 %"],["26.7 %","26.7 %"],["60 %","60 %"]],a:1,
+ xe:"Heat supplied = 0.001 × 40 000 = 40 kW; η<sub>ith</sub> = IP/(ṁ<sub>f</sub> × CV) = 15/40 = 37.5 %. Use BP instead of IP for brake thermal efficiency.",
+ xh:"दी गई ऊष्मा = 0.001 × 40 000 = 40 kW; η<sub>ith</sub> = 15/40 = 37.5 %। ब्रेक ऊष्मीय दक्षता के लिए IP की जगह BP लें।"},
+{t:"Fuels · Numerical",adv:1,
+ e:"An engine burns fuel at 1 g/s with an air–fuel ratio of 20. The mass flow rate of exhaust gas is:",
+ h:"एक इंजन 1 g/s ईंधन 20 के वायु–ईंधन अनुपात पर जलाता है। निकास गैस का द्रव्यमान प्रवाह:",
+ o:[["20 g/s","20 g/s"],["19 g/s","19 g/s"],["1 g/s","1 g/s"],["21 g/s","21 g/s"]],a:3,
+ xe:"Mass is conserved: exhaust = air + fuel = 20 + 1 = 21 g/s. 20 g/s (air only) is the trap. Also: 1 kg of carbon needs 2.67 kg O<sub>2</sub> ≈ 11.6 kg air.",
+ xh:"द्रव्यमान संरक्षित: निकास = वायु + ईंधन = 20 + 1 = 21 g/s। 20 g/s (केवल वायु) जाल है।"},
+{t:"Governing",up:1,
+ e:"Hit-and-miss governing is generally used in:",
+ h:"हिट-एंड-मिस गवर्निंग सामान्यतः प्रयोग होती है:",
+ o:[["Petrol engines","पेट्रोल इंजनों में"],["Diesel engines","डीजल इंजनों में"],["Gas engines","गैस इंजनों में"],["Steam engines","भाप इंजनों में"]],a:2,
+ xe:"Some cycles are skipped at light load, so a heavier flywheel is needed. Petrol → quantity governing (throttle, mixture strength same); diesel → quality governing.",
+ xh:"हल्के लोड पर कुछ चक्र छोड़ दिए जाते हैं, इसलिए भारी फ्लाईव्हील चाहिए। पेट्रोल → मात्रा गवर्निंग; डीजल → गुणता गवर्निंग।"},
+{t:"Cooling",adv:1,
+ e:"In an air-cooled engine, heat is removed from the fins mainly by:",
+ h:"वायु-शीतित इंजन में फिनों से ऊष्मा मुख्यतः किसके द्वारा हटाई जाती है?",
+ o:[["Convection","संवहन"],["Radiation","विकिरण"],["Conduction","चालन"],["Evaporation","वाष्पन"]],a:0,
+ xe:"Heat is conducted through the wall to the fins and carried away by convection to air blown over them. \"Radiation plays a significant role\" is the wrong statement asked. Air cooling → motorcycles, scooters; liquid cooling gives uniform cooling.",
+ xh:"ऊष्मा दीवार से फिनों तक चालन द्वारा और फिर बहती हवा में संवहन द्वारा जाती है। \"विकिरण की प्रमुख भूमिका\" गलत कथन है। वायु शीतन → मोटरसाइकिल।"},
+{t:"Lubrication",adv:1,
+ e:"In a dry-sump system, the capacity of the scavenging pump compared with the pressure pump is:",
+ h:"ड्राई-संप प्रणाली में स्कैवेंजिंग पम्प की क्षमता, प्रेशर पम्प की तुलना में:",
+ o:[["Greater","अधिक"],["Smaller","कम"],["Equal","बराबर"],["Zero","शून्य"]],a:0,
+ xe:"The scavenging pump must return oil (often foamy, with air) from the sump to the separate tank faster than it arrives, so it is larger. Dry sump → aircraft, racing and large engines; wet sump keeps oil in the crankcase.",
+ xh:"स्कैवेंजिंग पम्प को संप से तेल (जिसमें हवा मिली होती है) अलग टंकी में तेज़ी से लौटाना होता है, इसलिए यह बड़ा होता है। ड्राई संप → वायुयान, रेसिंग इंजन।"},
+{t:"Performance",up:1,
+ e:"An engine indicator is used to determine the:",
+ h:"इंजन इंडिकेटर से ज्ञात किया जाता है:",
+ o:[["IP and MEP","IP और MEP"],["Engine speed","इंजन की गति"],["Brake power","ब्रेक शक्ति"],["Fuel rate","ईंधन दर"]],a:0,
+ xe:"The indicator card (P–V diagram) gives MEP and hence indicated power. BP → dynamometer; FP → Willan's line, Morse test or motoring test.",
+ xh:"इंडिकेटर कार्ड (P–V आरेख) से MEP और फिर सूचित शक्ति मिलती है। BP → डायनेमोमीटर; FP → विलन रेखा, मोर्स या मोटरिंग परीक्षण।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – IC Engine is exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the IC Engine notes (air-standard cycles and knocking first), then retry. / पहले नोट्स (वायु-मानक चक्र और नॉकिंग) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
