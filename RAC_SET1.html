@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAC & Air Compressors Smart MCQ Set 1 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">01</div>
+    <h1>Refrigeration &amp; Air Compressors<br>Smart MCQ Set 1</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">प्रशीतन एवं वायु संपीडक – स्मार्ट MCQ सेट 1 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Basics · COP",up:1,
+ e:"One ton of refrigeration (1 TR) is nearly equal to:",
+ h:"एक टन प्रशीतन (1 TR) लगभग बराबर है:",
+ o:[["3.5 kW","3.5 kW"],["1 kW","1 kW"],["12.6 kW","12.6 kW"],["210 kW","210 kW"]],a:0,
+ xe:"1 TR ≈ 3.5 kW = 210 kJ/min = 50 kcal/min – heat to freeze or melt 1 ton of ice in 24 h. 210 is per minute in kJ, not kW (the trap).",
+ xh:"1 TR ≈ 3.5 kW = 210 kJ/min = 50 kcal/min – 24 घंटे में 1 टन बर्फ जमाने/पिघलाने की ऊष्मा। 210 kJ/min है, kW नहीं (जाल)।"},
+{t:"Basics · Numerical",up:1,
+ e:"A Carnot refrigerator with COP = 2 produces 5 kW of refrigeration. The work input is:",
+ h:"COP = 2 वाला कार्नो प्रशीतक 5 kW प्रशीतन देता है। कार्य निवेश है:",
+ o:[["10 kW","10 kW"],["7.5 kW","7.5 kW"],["3.3 kW","3.3 kW"],["2.5 kW","2.5 kW"]],a:3,
+ xe:"COP<sub>R</sub> = RE/W → W = 5/2 = 2.5 kW (UPSSSC Dec'21). 10 kW comes from multiplying instead of dividing.",
+ xh:"COP<sub>R</sub> = RE/W → W = 5/2 = 2.5 kW। 10 kW गुणा करने से आता है।"},
+{t:"Basics · Numerical",adv:1,
+ e:"A Carnot engine has an efficiency of 0.8. When reversed as a refrigerator, its COP is:",
+ h:"एक कार्नो इंजन की दक्षता 0.8 है। उलटकर प्रशीतक बनाने पर इसका COP:",
+ o:[["1.25","1.25"],["4","4"],["0.25","0.25"],["0.8","0.8"]],a:2,
+ xe:"COP<sub>R</sub> = (1 − η)/η = 0.2/0.8 = 0.25. As a heat pump: 1/η = 1.25 (trap). η = 0.5 → COP<sub>R</sub> = 1; η = 0.75 → 0.33.",
+ xh:"COP<sub>R</sub> = (1 − η)/η = 0.2/0.8 = 0.25। ऊष्मा पम्प के रूप में 1/η = 1.25 (जाल)।"},
+{t:"Basics · Numerical",adv:1,
+ e:"A Carnot refrigerator works between an evaporator at −23 °C and a condenser at 27 °C. Its COP is:",
+ h:"एक कार्नो प्रशीतक −23 °C के इवैपोरेटर और 27 °C के कंडेंसर के बीच कार्य करता है। इसका COP:",
+ o:[["6","6"],["5","5"],["4","4"],["0.2","0.2"]],a:1,
+ xe:"COP<sub>R</sub> = T<sub>2</sub>/(T<sub>1</sub> − T<sub>2</sub>) = 250/50 = 5. 6 is the heat-pump COP (300/50) – the trap. Always use kelvin.",
+ xh:"COP<sub>R</sub> = T<sub>2</sub>/(T<sub>1</sub> − T<sub>2</sub>) = 250/50 = 5। 6 ऊष्मा पम्प का COP (300/50) – जाल। सदैव केल्विन लें।"},
+{t:"Air Refrigeration",up:1,
+ e:"The Bell-Coleman cycle is a reversed:",
+ h:"बेल-कोलमैन चक्र किसका उल्टा चक्र है?",
+ o:[["Otto cycle","ओटो चक्र"],["Rankine cycle","रैंकिन चक्र"],["Carnot cycle","कार्नो चक्र"],["Joule cycle","जूल चक्र"]],a:3,
+ xe:"Bell-Coleman = reversed Joule (Brayton); refrigerant is air, which stays a gas. Refrigeration effect occurs at constant pressure. Vapour compression is a reversed Rankine cycle.",
+ xh:"बेल-कोलमैन = उल्टा जूल (ब्रेटन); प्रशीतक वायु है जो गैस ही रहती है। प्रशीतन प्रभाव स्थिर दाब पर। वाष्प संपीडन = उल्टा रैंकिन।"},
+{t:"Air Refrigeration",up:1,
+ e:"Air refrigeration is used in aircraft mainly because of its:",
+ h:"वायुयान में वायु प्रशीतन मुख्यतः किस कारण प्रयोग होता है?",
+ o:[["Higher COP than VCR","VCR से अधिक COP"],["Lower running cost","कम संचालन लागत"],["Needs no compressor","कंप्रेसर की आवश्यकता नहीं"],["Low weight per TR","प्रति TR कम भार"]],a:3,
+ xe:"Low machine weight per TR matters most in aircraft. Its COP is actually lower than vapour compression (no latent heat, large mass of air). Cooling-turbine exit pressure = cabin pressure.",
+ xh:"वायुयान में प्रति TR कम भार सबसे महत्वपूर्ण है। इसका COP वाष्प संपीडन से कम होता है (गुप्त ऊष्मा नहीं)।"},
+{t:"Vapour Compression",up:1,
+ e:"In a vapour compression system, the refrigerant has its highest temperature at the:",
+ h:"वाष्प संपीडन प्रणाली में प्रशीतक का तापमान सबसे अधिक कहाँ होता है?",
+ o:[["Compressor exit","कंप्रेसर निकास पर"],["Evaporator exit","इवैपोरेटर निकास पर"],["Condenser exit","कंडेंसर निकास पर"],["Expansion valve exit","एक्सपेंशन वाल्व निकास पर"]],a:0,
+ xe:"Between compressor and condenser the refrigerant is high-pressure superheated vapour – the hottest point. Lowest temperature: after expansion, in the evaporator.",
+ xh:"कंप्रेसर और कंडेंसर के बीच प्रशीतक उच्च दाब की अतितप्त वाष्प है – सबसे गर्म। सबसे कम तापमान: प्रसार के बाद, इवैपोरेटर में।"},
+{t:"Vapour Compression",adv:1,
+ e:"Sub-cooling of the liquid refrigerant in a vapour compression cycle results in:",
+ h:"वाष्प संपीडन चक्र में द्रव प्रशीतक की सब-कूलिंग से:",
+ o:[["RE ↑, work same","RE ↑, कार्य समान"],["RE ↑, work ↑","RE ↑, कार्य ↑"],["RE same, work ↓","RE समान, कार्य ↓"],["RE ↓, work same","RE ↓, कार्य समान"]],a:0,
+ xe:"Sub-cooling lowers h<sub>4</sub>, so refrigerating effect (h<sub>1</sub> − h<sub>4</sub>) rises while compressor work (h<sub>2</sub> − h<sub>1</sub>) is unchanged → COP increases. Done before throttling.",
+ xh:"सब-कूलिंग से h<sub>4</sub> घटता है, प्रशीतन प्रभाव बढ़ता है जबकि कंप्रेसर कार्य समान रहता है → COP बढ़ता है।"},
+{t:"Vapour Compression",adv:1,
+ e:"Keeping the condenser pressure fixed, if the evaporator pressure is lowered, the COP:",
+ h:"कंडेंसर दाब स्थिर रखकर इवैपोरेटर दाब घटाने पर COP:",
+ o:[["Increases","बढ़ता है"],["Unchanged","अपरिवर्तित"],["Doubles","दोगुना होता है"],["Decreases","घटता है"]],a:3,
+ xe:"Lower evaporator pressure → larger pressure ratio → more compressor work and less refrigerating effect → COP falls. Lowering the condenser temperature does the opposite (COP rises).",
+ xh:"कम इवैपोरेटर दाब → अधिक दाब अनुपात → अधिक कार्य, कम प्रशीतन प्रभाव → COP घटता है। कंडेंसर तापमान घटाने से COP बढ़ता है।"},
+{t:"VCR · Numerical",adv:1,
+ e:"Enthalpies (kJ/kg): compressor inlet 180, compressor outlet 200, condenser exit 90. The COP is:",
+ h:"एन्थैल्पी (kJ/kg): कंप्रेसर प्रवेश 180, कंप्रेसर निकास 200, कंडेंसर निकास 90। COP है:",
+ o:[["4.5","4.5"],["5.5","5.5"],["0.22","0.22"],["9","9"]],a:0,
+ xe:"Throttling: h<sub>4</sub> = h<sub>3</sub> = 90. COP = (h<sub>1</sub> − h<sub>4</sub>)/(h<sub>2</sub> − h<sub>1</sub>) = (180 − 90)/(200 − 180) = 90/20 = 4.5. 5.5 = (200 − 90)/20 is the heat-pump COP.",
+ xh:"थ्रॉटलिंग: h<sub>4</sub> = h<sub>3</sub> = 90। COP = (180 − 90)/(200 − 180) = 4.5। 5.5 ऊष्मा पम्प का COP है।"},
+{t:"Vapour Compression",up:1,
+ e:"Wet compression in a refrigeration compressor means:",
+ h:"प्रशीतन कंप्रेसर में वेट (आर्द्र) संपीडन का अर्थ है:",
+ o:[["Only vapour enters","केवल वाष्प प्रवेश करती है"],["Only liquid enters","केवल द्रव प्रवेश करता है"],["Superheated vapour","अतितप्त वाष्प"],["Droplets in vapour","वाष्प में द्रव की बूँदें"]],a:3,
+ xe:"Wet compression: liquid droplets in the vapour – they hurt heat transfer and can damage valves (UPSSSC Apr'22). Dry compression: only vapour enters and is superheated after compression.",
+ xh:"वेट संपीडन: वाष्प में द्रव की बूँदें – ऊष्मा स्थानांतरण घटाती हैं और वाल्व को नुकसान पहुँचाती हैं। ड्राई संपीडन: केवल वाष्प।"},
+{t:"Equipment",up:0,
+ e:"The expansion device commonly used in a domestic refrigerator is a:",
+ h:"घरेलू रेफ्रिजरेटर में सामान्यतः प्रयुक्त एक्सपेंशन युक्ति है:",
+ o:[["Capillary tube","केशिका नली"],["Thermostatic valve","थर्मोस्टैटिक वाल्व"],["Float valve","फ्लोट वाल्व"],["Expansion turbine","एक्सपेंशन टरबाइन"]],a:0,
+ xe:"A capillary tube is simple and cheap for small, steady loads. Throttling is isenthalpic; an expander is not used because the expansion work of a liquid is very small.",
+ xh:"केशिका नली छोटे, स्थिर लोड के लिए सरल व सस्ती है। थ्रॉटलिंग समएन्थैल्पिक है; द्रव का प्रसार कार्य बहुत कम होने से टरबाइन नहीं लगाते।"},
+{t:"Vapour Absorption",adv:1,
+ e:"In a lithium bromide–water absorption system, the refrigerant is:",
+ h:"लिथियम ब्रोमाइड–जल अवशोषण प्रणाली में प्रशीतक है:",
+ o:[["Lithium bromide","लिथियम ब्रोमाइड"],["Water","जल"],["Ammonia","अमोनिया"],["Hydrogen","हाइड्रोजन"]],a:1,
+ xe:"LiBr–water: water is the refrigerant, LiBr the absorbent (used in solar/AC). Aqua-ammonia: ammonia is the refrigerant, water the absorbent. Electrolux: NH<sub>3</sub>–water–H<sub>2</sub>, no pump.",
+ xh:"LiBr–जल: जल प्रशीतक, LiBr अवशोषक। एक्वा-अमोनिया: अमोनिया प्रशीतक, जल अवशोषक। इलेक्ट्रोलक्स: NH<sub>3</sub>–जल–H<sub>2</sub>, कोई पम्प नहीं।"},
+{t:"Vapour Absorption",adv:1,
+ e:"In a vapour absorption refrigeration system, heat is rejected in the:",
+ h:"वाष्प अवशोषण प्रशीतन प्रणाली में ऊष्मा कहाँ निष्कासित होती है?",
+ o:[["Generator","जनरेटर में"],["Evaporator","इवैपोरेटर में"],["Condenser + absorber","कंडेंसर + अवशोषक में"],["Generator + evaporator","जनरेटर + इवैपोरेटर में"]],a:2,
+ xe:"Heat is supplied in the generator and absorbed in the evaporator; it is rejected in the condenser and the absorber. The compressor is replaced by absorber + pump + generator; absorber pressure = evaporator pressure.",
+ xh:"जनरेटर में ऊष्मा दी जाती है, इवैपोरेटर में ली जाती है; निष्कासन कंडेंसर और अवशोषक में। कंप्रेसर की जगह अवशोषक + पम्प + जनरेटर।"},
+{t:"Refrigerants",up:1,
+ e:"Refrigerant R-717 is:",
+ h:"प्रशीतक R-717 है:",
+ o:[["Freon-12","फ्रेऑन-12"],["Air","वायु"],["CO₂","CO₂"],["Ammonia","अमोनिया"]],a:3,
+ xe:"R-717 = NH<sub>3</sub> (inorganic: 700 + molecular mass 17). Air = R-729, CO<sub>2</sub> = R-744, SO<sub>2</sub> = R-764, Freon-12 = CCl<sub>2</sub>F<sub>2</sub>. Ammonia is toxic and flammable – used in ice plants.",
+ xh:"R-717 = NH<sub>3</sub> (700 + आणविक द्रव्यमान 17)। वायु = R-729, CO<sub>2</sub> = R-744, SO<sub>2</sub> = R-764। अमोनिया विषैली व ज्वलनशील – बर्फ संयंत्रों में।"},
+{t:"Refrigerants",adv:1,
+ e:"When a halide torch detects a Freon leak, its flame turns:",
+ h:"हैलाइड टॉर्च से फ्रेऑन रिसाव का पता चलने पर उसकी ज्वाला हो जाती है:",
+ o:[["Bright green","चमकीली हरी"],["White smoke","सफ़ेद धुआँ"],["Deep blue","गहरी नीली"],["Bright red","चमकीली लाल"]],a:0,
+ xe:"Halide torch → green flame for halocarbons (Freon). Ammonia leaks are detected with a sulphur stick, which gives white smoke – the swap the examiner uses.",
+ xh:"हैलाइड टॉर्च → फ्रेऑन पर हरी ज्वाला। अमोनिया रिसाव सल्फर स्टिक से पकड़ा जाता है, जो सफ़ेद धुआँ देती है – यही अदला-बदली पूछी जाती है।"},
+{t:"Equipment",up:1,
+ e:"The condenser and evaporator tubes in a Freon refrigeration plant are made of:",
+ h:"फ्रेऑन प्रशीतन संयंत्र में कंडेंसर व इवैपोरेटर की नलियाँ किसकी बनी होती हैं?",
+ o:[["Steel","स्टील"],["Copper","ताँबा"],["Cast iron","कास्ट आयरन"],["Aluminium","एल्युमिनियम"]],a:1,
+ xe:"Freon plants use copper (UPSSSC Dec'15). Ammonia attacks copper, so ammonia plants use steel tubes and cast-steel fittings.",
+ xh:"फ्रेऑन संयंत्रों में ताँबा प्रयोग होता है। अमोनिया ताँबे को नुकसान पहुँचाती है, इसलिए अमोनिया संयंत्रों में स्टील।"},
+{t:"Refrigerants",up:0,
+ e:"Which property of a refrigerant is undesirable?",
+ h:"प्रशीतक का कौन-सा गुण अवांछनीय है?",
+ o:[["High latent heat","उच्च गुप्त ऊष्मा"],["Low boiling point","निम्न क्वथनांक"],["Low latent heat","निम्न गुप्त ऊष्मा"],["High conductivity","उच्च चालकता"]],a:2,
+ xe:"Low latent heat means more refrigerant must circulate per TR. A good refrigerant has high latent heat, low boiling point, high thermal conductivity, low freezing point, and is non-toxic and non-flammable.",
+ xh:"निम्न गुप्त ऊष्मा से प्रति TR अधिक प्रशीतक चलाना पड़ता है। अच्छे प्रशीतक में उच्च गुप्त ऊष्मा, निम्न क्वथनांक, उच्च चालकता होती है।"},
+{t:"Psychrometry",adv:1,
+ e:"During sensible heating of moist air, which property remains constant?",
+ h:"नम वायु के संवेदी तापन (sensible heating) के दौरान कौन-सा गुण स्थिर रहता है?",
+ o:[["Relative humidity","सापेक्ष आर्द्रता"],["Dry-bulb temperature","शुष्क-बल्ब तापमान"],["Specific humidity","विशिष्ट आर्द्रता"],["Wet-bulb temperature","आर्द्र-बल्ब तापमान"]],a:2,
+ xe:"No moisture is added or removed, so specific humidity ω and dew point stay constant; DBT and WBT rise, while RH falls. At saturation DBT = WBT = DPT.",
+ xh:"नमी न जुड़ती है न घटती है, इसलिए विशिष्ट आर्द्रता ω और ओसांक स्थिर; DBT व WBT बढ़ते हैं, RH घटती है।"},
+{t:"Air Compressors",up:1,
+ e:"For the same pressure ratio, the work of compression is minimum when compression is:",
+ h:"समान दाब अनुपात पर संपीडन कार्य न्यूनतम कब होता है?",
+ o:[["Adiabatic","रुद्धोष्म"],["Isothermal","समतापीय"],["Polytropic","बहुदैशिक"],["Isentropic","समएन्ट्रॉपिक"]],a:1,
+ xe:"Isothermal → least work; adiabatic (isentropic) → most; work rises with n. Isothermal is impractical because the compressor would have to run very slowly – hence cooling, water jackets and intercooling.",
+ xh:"समतापीय → न्यूनतम कार्य; रुद्धोष्म → अधिकतम; n बढ़ने पर कार्य बढ़ता है। समतापीय अव्यावहारिक है क्योंकि कंप्रेसर बहुत धीरे चलाना पड़ेगा।"},
+{t:"Air Compressors",up:1,
+ e:"As the pressure ratio of a reciprocating compressor increases, its volumetric efficiency:",
+ h:"प्रत्यागामी कंप्रेसर का दाब अनुपात बढ़ने पर उसकी आयतनी दक्षता:",
+ o:[["Increases","बढ़ती है"],["Decreases","घटती है"],["Unchanged","अपरिवर्तित"],["First rises","पहले बढ़ती है"]],a:1,
+ xe:"η<sub>v</sub> = 1 + C − C(P<sub>2</sub>/P<sub>1</sub>)<sup>1/n</sup>. A higher pressure ratio means more re-expansion of clearance air, so η<sub>v</sub> falls. (An old UPSSSC key wrongly said \"increases\".)",
+ xh:"η<sub>v</sub> = 1 + C − C(P<sub>2</sub>/P<sub>1</sub>)<sup>1/n</sup>। अधिक दाब अनुपात → क्लीयरेंस वायु का अधिक पुनः-प्रसार → η<sub>v</sub> घटती है।"},
+{t:"Compressor · Numerical",adv:1,
+ e:"A two-stage compressor with perfect intercooling takes air at 1 bar and delivers it at 16 bar. For minimum work, the intercooler pressure is:",
+ h:"पूर्ण इंटरकूलिंग वाला दो-चरण कंप्रेसर 1 bar पर वायु लेकर 16 bar पर देता है। न्यूनतम कार्य के लिए इंटरकूलर दाब:",
+ o:[["8.5 bar","8.5 bar"],["4 bar","4 bar"],["8 bar","8 bar"],["2 bar","2 bar"]],a:1,
+ xe:"P<sub>2</sub> = √(P<sub>1</sub>P<sub>3</sub>) = √(1 × 16) = 4 bar – equal pressure ratio (4) and equal work in each stage. 8.5 bar (arithmetic mean) is the trap.",
+ xh:"P<sub>2</sub> = √(P<sub>1</sub>P<sub>3</sub>) = √16 = 4 bar – हर चरण में समान दाब अनुपात व समान कार्य। 8.5 bar (समांतर माध्य) जाल है।"},
+{t:"Air Compressors",up:1,
+ e:"Which of the following is NOT an advantage of multistage compression?",
+ h:"निम्न में से कौन बहुचरणीय संपीडन का लाभ नहीं है?",
+ o:[["Less work","कम कार्य"],["Better η<sub>v</sub>","बेहतर η<sub>v</sub>"],["Lower cost","कम लागत"],["Cooler air","ठंडी वायु"]],a:2,
+ xe:"Multistaging saves work, improves volumetric efficiency, gives cooler air and better balance – but needs more cylinders and an intercooler, so it is costlier (UPSSSC Apr'22).",
+ xh:"बहुचरण से कार्य घटता है, η<sub>v</sub> सुधरती है, वायु ठंडी रहती है – पर अधिक सिलिंडर व इंटरकूलर से यह महँगा है।"},
+{t:"Air Compressors",up:1,
+ e:"The compressor that handles the largest volume flow of air is the:",
+ h:"सबसे अधिक आयतन प्रवाह वाला कंप्रेसर है:",
+ o:[["Reciprocating","प्रत्यागामी"],["Centrifugal","अपकेंद्री"],["Axial flow","अक्षीय प्रवाह"],["Roots blower","रूट्स ब्लोअर"]],a:2,
+ xe:"Axial compressors give the largest flow and more air per unit frontal area – used in gas turbines and jets. Reciprocating: small quantity at high pressure; rotary: large discharge at low pressure.",
+ xh:"अक्षीय कंप्रेसर सबसे अधिक प्रवाह और प्रति फ्रंटल क्षेत्र अधिक वायु देता है – गैस टरबाइन व जेट में। प्रत्यागामी: कम मात्रा, उच्च दाब।"},
+{t:"Air Compressors",up:1,
+ e:"In a centrifugal compressor, kinetic energy is converted into pressure mainly in the:",
+ h:"अपकेंद्री कंप्रेसर में गतिज ऊर्जा मुख्यतः कहाँ दाब में बदलती है?",
+ o:[["Impeller","इम्पेलर"],["Diffuser","डिफ्यूज़र"],["Inlet casing","इनलेट केसिंग"],["Suction pipe","सक्शन पाइप"]],a:1,
+ xe:"The impeller adds kinetic energy to the air; the diffuser slows it down and converts KE into pressure (UPSSSC Dec'15). Rotary/centrifugal/axial compressors are judged by isentropic efficiency.",
+ xh:"इम्पेलर वायु को गतिज ऊर्जा देता है; डिफ्यूज़र उसे धीमा कर दाब में बदलता है। अपकेंद्री/अक्षीय कंप्रेसरों के लिए समएन्ट्रॉपिक दक्षता।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – RAC & compressors are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the RAC notes (COP, compressors and vapour compression first), then retry. / पहले नोट्स (COP, कंप्रेसर और वाष्प संपीडन) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
