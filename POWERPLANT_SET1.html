@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steam & Power Plant Smart MCQ Set 1 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">01</div>
+    <h1>Steam &amp; Power Plant<br>Smart MCQ Set 1</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">भाप एवं शक्ति संयंत्र – स्मार्ट MCQ सेट 1 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Rankine Cycle",up:1,
+ e:"The Rankine cycle consists of:",
+ h:"रैंकिन चक्र में होते हैं:",
+ o:[["2 isentropic + 2 isobaric","2 समएन्ट्रॉपिक + 2 समदाबी"],["2 isothermal + 2 isobaric","2 समतापीय + 2 समदाबी"],["2 isentropic + 2 isochoric","2 समएन्ट्रॉपिक + 2 समआयतनिक"],["2 isothermal + 2 isentropic","2 समतापीय + 2 समएन्ट्रॉपिक"]],a:0,
+ xe:"Pump (isentropic) → boiler (constant p) → turbine (isentropic) → condenser (constant p). Asked twice by UPSSSC. Trap options: 2 T + 2 P is Ericsson, 2 s + 2 V is Otto, 2 T + 2 s is Carnot. A constant-volume process and a compressor are NOT part of Rankine. Gas turbine (Brayton) also has 2 s + 2 P, but with a gas instead of a vapour.",
+ xh:"पम्प (समएन्ट्रॉपिक) → बॉयलर (स्थिर दाब) → टरबाइन (समएन्ट्रॉपिक) → कंडेंसर (स्थिर दाब)। जाल विकल्प: 2 T + 2 P एरिक्सन, 2 s + 2 V ओटो, 2 T + 2 s कार्नो। स्थिर-आयतन प्रक्रम और कंप्रेसर रैंकिन में नहीं होते।"},
+{t:"Rankine Cycle",up:1,
+ e:"The efficiency of a Rankine cycle can be increased by:",
+ h:"रैंकिन चक्र की दक्षता किससे बढ़ाई जा सकती है?",
+ o:[["Higher condenser pressure","कंडेंसर दाब बढ़ाकर"],["Lower condenser pressure","कंडेंसर दाब घटाकर"],["Lower boiler pressure","बॉयलर दाब घटाकर"],["Wetter inlet steam","अधिक आर्द्र प्रवेश भाप से"]],a:1,
+ xe:"Lower condenser (exhaust) pressure → lower heat-rejection temperature → larger enthalpy drop in the turbine → η rises (UPSSSC Jul'16). The side-effect is more wetness at turbine exit. Other ways: raise boiler pressure, superheat, reheat, regenerate – all raise the mean temperature of heat addition. \"Increasing condenser pressure\" is the incorrect way asked by SSC.",
+ xh:"कम कंडेंसर दाब → निष्कासन तापमान कम → टरबाइन में अधिक एन्थैल्पी गिरावट → η बढ़ती है। साइड-इफ़ेक्ट: टरबाइन निकास पर अधिक नमी। अन्य उपाय: बॉयलर दाब बढ़ाना, अतिताप, रीहीट, पुनर्जनन – सब ऊष्मा योग का माध्य तापमान बढ़ाते हैं।"},
+{t:"Thermal Plant",up:1,
+ e:"The overall efficiency of a conventional thermal (steam) power plant is about:",
+ h:"एक पारंपरिक तापीय (भाप) शक्ति संयंत्र की समग्र दक्षता लगभग होती है:",
+ o:[["60 %","60 %"],["30 %","30 %"],["80 %","80 %"],["10 %","10 %"]],a:1,
+ xe:"About 30 % (modern plants 35–40 %) – UPSSSC Dec'15. η<sub>overall</sub> = η<sub>boiler</sub> × η<sub>cycle</sub> × η<sub>turbine</sub> × η<sub>generator</sub>, e.g. 0.90 × 0.47 × 0.92 × 0.87 ≈ 0.34, then auxiliaries take a little more. The unused heat (largest share) is rejected to the atmosphere through condenser cooling water and the cooling tower.",
+ xh:"लगभग 30 % (आधुनिक 35–40 %)। η<sub>समग्र</sub> = η<sub>बॉयलर</sub> × η<sub>चक्र</sub> × η<sub>टरबाइन</sub> × η<sub>जनित्र</sub>। अप्रयुक्त ऊष्मा (सबसे बड़ा भाग) कंडेंसर जल व कूलिंग टावर से वायुमंडल में जाती है।"},
+{t:"Rankine Cycle",adv:1,
+ e:"The main purpose of reheating steam in a Rankine cycle is to:",
+ h:"रैंकिन चक्र में भाप को रीहीट करने का मुख्य उद्देश्य है:",
+ o:[["Lower boiler pressure","बॉयलर दाब घटाना"],["Reduce pump work","पम्प कार्य घटाना"],["Raise exit dryness","निकास शुष्कता बढ़ाना"],["Raise condenser pressure","कंडेंसर दाब बढ़ाना"]],a:2,
+ xe:"Partly expanded steam is sent back to the boiler and reheated, so it leaves the turbine drier – less blade erosion (exit moisture is kept below about 15 %). Net work per kg rises, so steam rate falls; the efficiency gain is small. \"Steam rate increases\" is the incorrect statement asked for a reheat cycle. Pump work is unchanged by reheating.",
+ xh:"आंशिक रूप से फैली भाप को बॉयलर में फिर गर्म किया जाता है, इसलिए वह टरबाइन से अधिक शुष्क निकलती है – ब्लेड क्षरण कम। प्रति kg शुद्ध कार्य बढ़ता है, स्टीम रेट घटता है; दक्षता में लाभ थोड़ा है। पम्प कार्य पर कोई असर नहीं।"},
+{t:"Rankine Cycle",adv:1,
+ e:"Regenerative feed heating (bleeding steam from the turbine) results in:",
+ h:"पुनर्योजी फीड तापन (टरबाइन से भाप निकालना) का परिणाम है:",
+ o:[["η ↑, work per kg ↑","η ↑, प्रति kg कार्य ↑"],["η ↓, work per kg ↑","η ↓, प्रति kg कार्य ↑"],["η ↑, work per kg ↓","η ↑, प्रति kg कार्य ↓"],["η ↓, work per kg ↓","η ↓, प्रति kg कार्य ↓"]],a:2,
+ xe:"Bled steam heats the feed water, so the mean temperature of heat addition rises → thermal efficiency increases. But the bled steam does not expand fully in the turbine, so work per kg of steam decreases. Contrast with reheating, which raises work per kg. Both are used together in large plants.",
+ xh:"निकाली गई भाप फीड जल को गर्म करती है, ऊष्मा योग का माध्य तापमान बढ़ता है → दक्षता बढ़ती है। पर वह भाप टरबाइन में पूरी नहीं फैलती, इसलिए प्रति kg कार्य घटता है। रीहीटिंग इसके उलट प्रति kg कार्य बढ़ाती है।"},
+{t:"Rankine · Numerical",adv:1,
+ e:"In a Rankine cycle, the boiler pressure is 35 bar and condenser pressure is 1 bar. If v<sub>f</sub> = 1.043 × 10⁻³ m³/kg, the pump work is nearly:",
+ h:"एक रैंकिन चक्र में बॉयलर दाब 35 bar और कंडेंसर दाब 1 bar है। यदि v<sub>f</sub> = 1.043 × 10⁻³ m³/kg हो, तो पम्प कार्य लगभग है:",
+ o:[["36.5 kJ/kg","36.5 kJ/kg"],["0.355 kJ/kg","0.355 kJ/kg"],["35.5 kJ/kg","35.5 kJ/kg"],["3.55 kJ/kg","3.55 kJ/kg"]],a:3,
+ xe:"W<sub>P</sub> = v<sub>f</sub>(p<sub>1</sub> − p<sub>2</sub>) = 1.043 × 10⁻³ × (3500 − 100) kPa = 3.55 kJ/kg. Convert bar to kPa (1 bar = 100 kPa); using 35 bar directly gives the wrong scale, and forgetting to subtract 1 bar gives ≈ 3.65. Pump work is tiny compared with turbine work (~1000 kJ/kg) because a liquid has a very small specific volume – that is why work ratio of Rankine is high.",
+ xh:"W<sub>P</sub> = v<sub>f</sub>(p<sub>1</sub> − p<sub>2</sub>) = 1.043 × 10⁻³ × 3400 kPa = 3.55 kJ/kg। bar को kPa में बदलें (1 bar = 100 kPa)। द्रव का विशिष्ट आयतन बहुत कम होने से पम्प कार्य टरबाइन कार्य की तुलना में नगण्य है – इसलिए रैंकिन का वर्क रेश्यो अधिक होता है।"},
+{t:"Boilers",up:1,
+ e:"A Benson boiler does NOT have a:",
+ h:"बेन्सन बॉयलर में क्या नहीं होता?",
+ o:[["Feed pump","फीड पम्प"],["Superheater","अतितापक"],["Economiser","इकोनोमाइज़र"],["Steam drum","स्टीम ड्रम"]],a:3,
+ xe:"Benson is a supercritical (≈ 250 bar), once-through, forced-circulation water-tube boiler. Above the critical pressure water turns to steam without boiling, so no drum is needed to separate steam and water. It still needs a feed pump (high pressure) and a superheater. UPSSSC Dec'15 asked it as the \"high-pressure boiler\".",
+ xh:"बेन्सन सुपरक्रिटिकल (≈ 250 bar), वन्स-थ्रू, बलात् परिसंचरण वाला जल-नली बॉयलर है। क्रांतिक दाब से ऊपर जल बिना उबले भाप बनता है, इसलिए ड्रम की आवश्यकता नहीं। फीड पम्प और अतितापक फिर भी चाहिए।"},
+{t:"Boilers",adv:1,
+ e:"Which one is the odd one out among the following boilers?",
+ h:"निम्न बॉयलरों में से कौन-सा भिन्न (odd one out) है?",
+ o:[["Lancashire","लंकाशायर"],["Locomotive","लोकोमोटिव"],["Stirling","स्टर्लिंग"],["Cochran","कॉक्रन"]],a:2,
+ xe:"Lancashire, Locomotive and Cochran are fire-tube boilers (hot gases inside tubes). Stirling is a water-tube boiler, like Babcock & Wilcox, La Mont and Benson. Fire-tube list to remember: Cochran, Cornish, Lancashire, Locomotive, Scotch marine.",
+ xh:"लंकाशायर, लोकोमोटिव और कॉक्रन अग्नि-नली बॉयलर हैं (गैसें नलियों के अंदर)। स्टर्लिंग जल-नली बॉयलर है, जैसे बैबकॉक-विलकॉक्स, ला मॉन्ट, बेन्सन। अग्नि-नली सूची: कॉक्रन, कॉर्निश, लंकाशायर, लोकोमोटिव, स्कॉच मरीन।"},
+{t:"Boilers · Draught",up:0,
+ e:"The draught in a locomotive boiler is produced by:",
+ h:"लोकोमोटिव बॉयलर में ड्राफ्ट किसके द्वारा उत्पन्न होता है?",
+ o:[["Natural chimney","प्राकृतिक चिमनी"],["Forced-draught fan","फोर्स्ड-ड्राफ्ट पंखा"],["Induced-draught fan","इंड्यूस्ड-ड्राफ्ट पंखा"],["Exhaust steam jet","निकास भाप जेट"]],a:3,
+ xe:"A locomotive has no tall chimney, so exhaust steam blasted through the smoke box creates the draught – asked in three SSC papers. Natural draught → chimney; forced → fan before the furnace; induced → fan at the chimney base; balanced → both. Locomotive is also the best boiler for fluctuating demand and uses a spring-loaded safety valve.",
+ xh:"लोकोमोटिव में ऊँची चिमनी नहीं होती, इसलिए स्मोक बॉक्स में निकास भाप का जेट ड्राफ्ट बनाता है। प्राकृतिक → चिमनी; फोर्स्ड → भट्टी से पहले पंखा; इंड्यूस्ड → चिमनी के आधार पर पंखा। लोकोमोटिव में स्प्रिंग-लोडेड सेफ्टी वाल्व।"},
+{t:"Boilers",up:0,
+ e:"The numbers of flue tubes in Lancashire and Cornish boilers are respectively:",
+ h:"लंकाशायर और कॉर्निश बॉयलरों में फ्लू ट्यूबों की संख्या क्रमशः है:",
+ o:[["1 and 2","1 और 2"],["2 and 1","2 और 1"],["2 and 2","2 और 2"],["1 and 1","1 और 1"]],a:1,
+ xe:"Lancashire = 2 flue tubes, Cornish = 1 (ratio 2 : 1). Both are horizontal, internally fired, stationary fire-tube boilers; Lancashire works up to about 16 bar and has a large storage of steam and water. Hook: \"Lanca-TWO-shire\".",
+ xh:"लंकाशायर = 2 फ्लू ट्यूब, कॉर्निश = 1। दोनों क्षैतिज, आंतरिक रूप से जलने वाले, स्थिर अग्नि-नली बॉयलर हैं; लंकाशायर लगभग 16 bar तक, बड़े भाप-जल भंडार वाला।"},
+{t:"Boilers",up:1,
+ e:"A Babcock & Wilcox boiler is a:",
+ h:"बैबकॉक एवं विलकॉक्स बॉयलर है:",
+ o:[["Water-tube, natural circulation","जल-नली, प्राकृतिक परिसंचरण"],["Fire-tube, natural circulation","अग्नि-नली, प्राकृतिक परिसंचरण"],["Water-tube, forced circulation","जल-नली, बलात् परिसंचरण"],["Fire-tube, forced circulation","अग्नि-नली, बलात् परिसंचरण"]],a:0,
+ xe:"B&W: externally fired, inclined water tubes, natural (thermo-siphon) circulation; baffles make the flue gases pass over the tubes several times. Forced circulation is used in La Mont and Benson. Water-tube boilers give higher pressure and higher efficiency than fire-tube boilers (UPSSSC Dec'21).",
+ xh:"B&W: बाह्य रूप से जलने वाला, झुकी जल-नलियाँ, प्राकृतिक (थर्मो-साइफन) परिसंचरण; बैफल गैसों को बार-बार नलियों पर से गुज़ारते हैं। बलात् परिसंचरण ला मॉन्ट और बेन्सन में। जल-नली बॉयलरों की दक्षता अधिक होती है।"},
+{t:"Mountings",up:1,
+ e:"The fusible plug of a boiler is made of an alloy of:",
+ h:"बॉयलर का फ्यूज़िबल प्लग किस मिश्रधातु का बना होता है?",
+ o:[["Lead, tin, bismuth","सीसा, टिन, बिस्मथ"],["Copper, zinc, tin","ताँबा, जस्ता, टिन"],["Nickel, chromium, iron","निकल, क्रोमियम, लोहा"],["Aluminium, copper, zinc","एल्युमिनियम, ताँबा, जस्ता"]],a:0,
+ xe:"The low-melting core is Pb + Sn + Bi (UPSSSC Dec'15). When the water level falls too low, the plug overheats, the alloy melts and steam rushes in to put out the fire. It sits over the combustion chamber, mainly in fire-tube boilers. Trap: the outer gun-metal body is Cu + Sn + Zn – that is the plug's casing, not the fusible metal.",
+ xh:"कम गलनांक वाला भाग Pb + Sn + Bi होता है। जल स्तर बहुत गिरने पर प्लग गर्म होकर पिघलता है और भाप आग बुझा देती है। यह दहन कक्ष के ऊपर, मुख्यतः अग्नि-नली बॉयलरों में। जाल: बाहरी गन-मेटल खोल Cu + Sn + Zn का होता है।"},
+{t:"Mountings & Accessories",up:1,
+ e:"A superheater fitted to a boiler is classified as a:",
+ h:"बॉयलर में लगा अतितापक (superheater) वर्गीकृत होता है:",
+ o:[["Mounting","माउंटिंग"],["Accessory","एक्सेसरी"],["Both","दोनों"],["Neither","कोई नहीं"]],a:1,
+ xe:"Mountings are for safety and control and are compulsory (safety valve, fusible plug, pressure gauge, water-level indicator, blow-off cock, stop valve, feed check valve). Accessories raise efficiency and are optional (superheater, economiser, air preheater, feed pump). The superheater raises steam temperature without raising pressure – UPSSSC asked this in three papers.",
+ xh:"माउंटिंग सुरक्षा व नियंत्रण के लिए, अनिवार्य (सेफ्टी वाल्व, फ्यूज़िबल प्लग, दाब गेज, जल-स्तर संकेतक)। एक्सेसरी दक्षता बढ़ाने के लिए, वैकल्पिक (अतितापक, इकोनोमाइज़र, एयर प्रीहीटर, फीड पम्प)। अतितापक दाब बढ़ाए बिना तापमान बढ़ाता है।"},
+{t:"Accessories",up:1,
+ e:"In a radiant superheater, as the boiler load increases, the steam temperature:",
+ h:"रेडिएंट अतितापक में बॉयलर लोड बढ़ने पर भाप का तापमान:",
+ o:[["Rises","बढ़ता है"],["Stays same","समान रहता है"],["Doubles","दोगुना होता है"],["Falls","घटता है"]],a:3,
+ xe:"Furnace radiation does not grow as fast as steam flow, so each kg gets less heat → temperature falls with load (UPSSSC Jul'16). A convective superheater behaves the opposite way (rises with load, as more flue gas flows). Using both gives a nearly flat characteristic. Attemperation = reducing steam temperature.",
+ xh:"भट्टी का विकिरण भाप प्रवाह जितना नहीं बढ़ता, इसलिए प्रति kg कम ऊष्मा → लोड बढ़ने पर तापमान घटता है। संवहनी अतितापक में उलटा (लोड के साथ बढ़ता)। दोनों मिलाने से लगभग सपाट विशेषता मिलती है।"},
+{t:"Accessories",up:0,
+ e:"An economiser in a boiler plant heats the:",
+ h:"बॉयलर संयंत्र में इकोनोमाइज़र गर्म करता है:",
+ o:[["Feed water","फीड जल"],["Combustion air","दहन वायु"],["Fuel oil","ईंधन तेल"],["Saturated steam","संतृप्त भाप"]],a:0,
+ xe:"The economiser recovers heat from flue gases to heat the feed water; the air preheater (placed after it) heats combustion air. Flue-gas path: furnace → superheater → economiser → air preheater → ID fan/chimney. \"Economiser produces superheated steam\" is the false statement asked by SSC.",
+ xh:"इकोनोमाइज़र फ्लू गैसों की ऊष्मा से फीड जल गर्म करता है; एयर प्रीहीटर (उसके बाद) दहन वायु गर्म करता है। गैस पथ: भट्टी → अतितापक → इकोनोमाइज़र → एयर प्रीहीटर → चिमनी।"},
+{t:"Feed Water",up:1,
+ e:"Boiler blow-down is carried out mainly to control the:",
+ h:"बॉयलर ब्लो-डाउन मुख्यतः किसे नियंत्रित करने के लिए किया जाता है?",
+ o:[["Steam pressure","भाप दाब"],["Water level","जल स्तर"],["Dissolved solids","घुले ठोस (TDS)"],["Steam temperature","भाप तापमान"]],a:2,
+ xe:"As water evaporates, salts concentrate; the blow-off cock removes some water with sludge and scale-forming solids to keep total dissolved solids in check (UPSSSC Apr'22). Excess pressure is the safety valve's job; water level is shown by the water-level indicator.",
+ xh:"जल वाष्पित होने पर लवण सांद्र होते हैं; ब्लो-ऑफ कॉक कीचड़ व घुले ठोस सहित कुछ जल बाहर निकालता है ताकि TDS नियंत्रित रहे। अधिक दाब सेफ्टी वाल्व का कार्य है।"},
+{t:"Steam Nozzles",up:0,
+ e:"The critical pressure ratio for superheated steam flowing through a nozzle (n = 1.3) is about:",
+ h:"नोज़ल से बहती अतितप्त भाप (n = 1.3) का क्रांतिक दाब अनुपात लगभग है:",
+ o:[["0.528","0.528"],["0.546","0.546"],["0.577","0.577"],["0.500","0.500"]],a:1,
+ xe:"p<sub>c</sub>/p<sub>1</sub> = [2/(n + 1)]<sup>n/(n−1)</sup>: air (1.4) → 0.528, superheated steam (1.3) → 0.546, dry saturated steam (1.135) → 0.577. Hook: wetter / lower n → higher ratio. At this ratio the mass flow is maximum (choked) – UPSSSC Dec'15 asked the formula.",
+ xh:"p<sub>c</sub>/p<sub>1</sub> = [2/(n + 1)]<sup>n/(n−1)</sup>: वायु → 0.528, अतितप्त भाप → 0.546, शुष्क संतृप्त भाप → 0.577। इस अनुपात पर द्रव्यमान प्रवाह अधिकतम (चोक्ड) होता है।"},
+{t:"Nozzles · Numerical",adv:1,
+ e:"Dry saturated steam at 8 bar enters a nozzle (n = 1.135). For maximum discharge, the exit pressure should be nearly:",
+ h:"8 bar की शुष्क संतृप्त भाप एक नोज़ल में प्रवेश करती है (n = 1.135)। अधिकतम प्रवाह के लिए निकास दाब लगभग होना चाहिए:",
+ o:[["4.22 bar","4.22 bar"],["4.37 bar","4.37 bar"],["4.62 bar","4.62 bar"],["4.00 bar","4.00 bar"]],a:2,
+ xe:"For dry saturated steam p<sub>c</sub>/p<sub>1</sub> = 0.577 → p<sub>c</sub> = 0.577 × 8 = 4.62 bar. Traps: 4.22 bar uses the air value (0.528), 4.37 bar uses the superheated value (0.546). Lowering the back pressure below 4.62 bar in a convergent nozzle does not raise the flow further.",
+ xh:"शुष्क संतृप्त भाप के लिए p<sub>c</sub>/p<sub>1</sub> = 0.577 → p<sub>c</sub> = 4.62 bar। जाल: 4.22 bar (वायु का 0.528), 4.37 bar (अतितप्त का 0.546)। अभिसारी नोज़ल में बैक प्रेशर इससे कम करने पर भी प्रवाह नहीं बढ़ता।"},
+{t:"Steam Nozzles",up:1,
+ e:"Compared with a venturimeter, the energy loss in a nozzle meter is:",
+ h:"वेंचुरीमीटर की तुलना में नोज़ल मीटर में ऊर्जा हानि होती है:",
+ o:[["More","अधिक"],["Less","कम"],["Equal","बराबर"],["Zero","शून्य"]],a:0,
+ xe:"A nozzle meter has no gradual divergent cone, so the jet expands suddenly with eddies and a large head loss (UPSSSC Jul'16). A venturimeter recovers most pressure in its long diverging section. Nozzle efficiency = actual ÷ isentropic enthalpy drop.",
+ xh:"नोज़ल मीटर में धीरे-धीरे फैलने वाला शंकु नहीं होता, इसलिए जेट अचानक फैलता है और भँवर से अधिक हानि होती है। वेंचुरीमीटर अपने लंबे अपसारी भाग में अधिकांश दाब वापस पा लेता है।"},
+{t:"Steam Turbines",up:1,
+ e:"In an impulse turbine, the steam pressure across the moving blades:",
+ h:"इम्पल्स टरबाइन में गतिशील ब्लेडों के आर-पार भाप का दाब:",
+ o:[["Decreases","घटता है"],["Increases","बढ़ता है"],["Remains same","समान रहता है"],["Becomes zero","शून्य हो जाता है"]],a:2,
+ xe:"In an impulse turbine the whole pressure drop occurs in the nozzles; the moving blades only change the direction of the jet, so pressure is the same on both sides (UPSSSC Dec'15). In a reaction (Parsons) turbine pressure drops in both fixed and moving blades. De Laval = single-stage impulse, very high speed.",
+ xh:"इम्पल्स टरबाइन में पूरा दाब पतन नोज़ल में होता है; गतिशील ब्लेड केवल जेट की दिशा बदलते हैं, इसलिए दोनों ओर दाब समान रहता है। रिएक्शन (पार्सन्स) टरबाइन में स्थिर व गतिशील दोनों ब्लेडों में दाब गिरता है।"},
+{t:"Steam Turbines",up:1,
+ e:"The Curtis turbine is a:",
+ h:"कर्टिस टरबाइन है:",
+ o:[["50 % reaction","50 % रिएक्शन"],["Pressure compounded","दाब संयोजित"],["Pure reaction","शुद्ध रिएक्शन"],["Velocity compounded","वेग संयोजित"]],a:3,
+ xe:"Curtis = velocity-compounded impulse turbine: one set of nozzles, then several rows of moving blades with fixed guide blades between them (UPSSSC Dec'15). Rateau = pressure compounded (nozzles before every row). Parsons = 50 % reaction. Compounding is done to reduce rotor speed.",
+ xh:"कर्टिस = वेग-संयोजित इम्पल्स टरबाइन: एक नोज़ल सेट, फिर बीच में स्थिर गाइड ब्लेडों सहित कई गतिशील पंक्तियाँ। रेटो = दाब संयोजित। पार्सन्स = 50 % रिएक्शन। संयोजन रोटर गति घटाने हेतु।"},
+{t:"Turbines · Numerical",up:1,
+ e:"For single-stage impulse blading with symmetrical blades and nozzle angle α = 20°, the maximum blade efficiency is about (cos 20° = 0.94):",
+ h:"सममित ब्लेडों वाली एकल-चरण इम्पल्स ब्लेडिंग में नोज़ल कोण α = 20° हो, तो अधिकतम ब्लेड दक्षता लगभग है (cos 20° = 0.94):",
+ o:[["94.0 %","94.0 %"],["88.3 %","88.3 %"],["47.0 %","47.0 %"],["34.2 %","34.2 %"]],a:1,
+ xe:"η<sub>b,max</sub> = cos²α = 0.94² ≈ 0.883 (UPSSSC Dec'15). It occurs at speed ratio u/V = cos α/2 = 0.47 – that number is a trap option. 94 % is cos α (not squared). For 50 % reaction: η<sub>max</sub> = 2cos²α/(1 + cos²α) at u/V = cos α.",
+ xh:"η<sub>b,max</sub> = cos²α = 0.94² ≈ 88.3 %। यह u/V = cos α/2 = 0.47 पर मिलती है – यह संख्या जाल है। 94 % केवल cos α है। 50 % रिएक्शन: η<sub>max</sub> = 2cos²α/(1 + cos²α)।"},
+{t:"Feed Water",up:1,
+ e:"Temporary hardness of boiler feed water is caused by:",
+ h:"बॉयलर फीड जल की अस्थायी कठोरता किसके कारण होती है?",
+ o:[["Ca/Mg bicarbonates","Ca/Mg बाइकार्बोनेट"],["Ca/Mg sulphate salts","Ca/Mg सल्फेट लवण"],["Ca/Mg chloride salts","Ca/Mg क्लोराइड लवण"],["Sodium silicates","सोडियम सिलिकेट"]],a:0,
+ xe:"Bicarbonates of calcium and magnesium decompose on boiling, so this hardness is \"temporary\" (UPSSSC Dec'15). Sulphates and chlorides cause permanent hardness – they need chemical treatment. Hardness salts form scale, which cuts heat transfer; oil causes foaming; turbidity causes sludge.",
+ xh:"कैल्शियम व मैग्नीशियम के बाइकार्बोनेट उबालने पर विघटित हो जाते हैं, इसलिए कठोरता \"अस्थायी\" है। सल्फेट व क्लोराइड स्थायी कठोरता देते हैं। कठोरता लवण स्केल बनाते हैं; तेल से फोमिंग; गंदलापन से कीचड़।"},
+{t:"Boiler Performance",up:0,
+ e:"Equivalent evaporation of a boiler is defined \"from and at\":",
+ h:"बॉयलर का समतुल्य वाष्पन \"from and at\" किस तापमान पर परिभाषित है?",
+ o:[["0 °C","0 °C"],["4 °C","4 °C"],["212 °C","212 °C"],["100 °C","100 °C"]],a:3,
+ xe:"Water at 100 °C converted to dry saturated steam at 100 °C (h<sub>fg</sub> = 2257 kJ/kg). m<sub>e</sub> = m<sub>a</sub>(h − h<sub>f1</sub>)/2257; it lets you compare any boilers under any conditions. Trap: 212 is the same point in °F, not °C.",
+ xh:"100 °C के जल को 100 °C की शुष्क संतृप्त भाप में बदलना (h<sub>fg</sub> = 2257 kJ/kg)। m<sub>e</sub> = m<sub>a</sub>(h − h<sub>f1</sub>)/2257; इससे किसी भी बॉयलर की तुलना होती है। जाल: 212 °F में है, °C में नहीं।"},
+{t:"Gas Turbine",up:1,
+ e:"The thermal efficiency of a simple gas-turbine plant can be increased by using a:",
+ h:"सरल गैस-टरबाइन संयंत्र की ऊष्मीय दक्षता किसके प्रयोग से बढ़ाई जा सकती है?",
+ o:[["Regenerator","पुनर्योजक (रीजनरेटर)"],["Throttle valve","थ्रॉटल वाल्व"],["Larger exhaust","बड़ा निकास"],["Wet compressor","आर्द्र कंप्रेसर"]],a:0,
+ xe:"The regenerator uses hot turbine exhaust to preheat the compressed air before the combustion chamber, so less fuel is needed (UPSSSC Dec'15). Intercooling (less compressor work) and reheating (more turbine work) are also used. Gas turbines work on the Brayton cycle: 2 isentropic + 2 constant-pressure processes.",
+ xh:"रीजनरेटर टरबाइन की गर्म निकास गैस से संपीडित वायु को दहन कक्ष से पहले गर्म करता है, इसलिए कम ईंधन लगता है। इंटरकूलिंग व रीहीटिंग भी प्रयोग होते हैं। गैस टरबाइन ब्रेटन चक्र पर: 2 समएन्ट्रॉपिक + 2 स्थिर-दाब।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – Steam & Power Plant is exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the Steam & Power Plant notes (Rankine, boilers and mountings first), then retry. / पहले नोट्स (रैंकिन, बॉयलर और माउंटिंग) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
