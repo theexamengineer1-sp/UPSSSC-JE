@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steam & Power Plant Smart MCQ Set 2 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">02</div>
+    <h1>Steam &amp; Power Plant<br>Smart MCQ Set 2</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">भाप एवं शक्ति संयंत्र – स्मार्ट MCQ सेट 2 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Rankine Cycle",adv:1,
+ e:"Working between the same maximum and minimum temperatures, the efficiency of a Rankine cycle compared with a Carnot cycle is:",
+ h:"समान अधिकतम व न्यूनतम तापमानों के बीच रैंकिन चक्र की दक्षता, कार्नो चक्र की तुलना में:",
+ o:[["Higher","अधिक"],["Lower","कम"],["Equal","बराबर"],["Double","दोगुनी"]],a:1,
+ xe:"In Rankine, part of the heat (sensible heating of feed water) is added below the maximum temperature, so its mean temperature of heat addition is lower → η is lower than Carnot. Yet Rankine is preferred: it gives higher specific work output, the pump handles only liquid, and condensation is complete (UPSSSC Dec'21 – Carnot is impractical for vapour).",
+ xh:"रैंकिन में ऊष्मा का कुछ भाग (फीड जल का संवेदी तापन) अधिकतम तापमान से नीचे दिया जाता है, इसलिए ऊष्मा योग का माध्य तापमान कम → दक्षता कार्नो से कम। फिर भी रैंकिन बेहतर है: प्रति kg अधिक कार्य, पम्प केवल द्रव संभालता है, संघनन पूर्ण होता है।"},
+{t:"Rankine Cycle",up:0,
+ e:"Dry saturated steam expanded isentropically in a turbine leaves the turbine as:",
+ h:"शुष्क संतृप्त भाप को टरबाइन में समएन्ट्रॉपिक रूप से फैलाने पर वह निकलती है:",
+ o:[["Superheated steam","अतितप्त भाप"],["Dry saturated steam","शुष्क संतृप्त भाप"],["Wet steam","आर्द्र भाप"],["Saturated liquid","संतृप्त द्रव"]],a:2,
+ xe:"On the T–s diagram the saturated-vapour line slopes so that a vertical (isentropic) drop from it enters the wet region → steam becomes wet. That is why superheating and reheating are used: to keep exit moisture below about 15 % and protect the last-stage blades. Compare: throttling dry steam to low pressure makes it superheated.",
+ xh:"T–s आरेख पर संतृप्त-वाष्प रेखा से ऊर्ध्वाधर (समएन्ट्रॉपिक) गिरावट आर्द्र क्षेत्र में जाती है → भाप आर्द्र। इसीलिए अतिताप व रीहीट किया जाता है ताकि निकास नमी लगभग 15 % से कम रहे। तुलना: शुष्क भाप थ्रॉटल करने पर अतितप्त होती है।"},
+{t:"Plant Economics · Numerical",adv:1,
+ e:"A power station has a peak load of 40 MW. The individual maximum demands of its consumers are 15, 12, 18 and 5 MW. The diversity factor is:",
+ h:"एक बिजलीघर का अधिकतम लोड 40 MW है। उपभोक्ताओं की व्यक्तिगत अधिकतम माँगें 15, 12, 18 और 5 MW हैं। विविधता गुणांक (diversity factor) है:",
+ o:[["0.80","0.80"],["1.25","1.25"],["1.60","1.60"],["0.25","0.25"]],a:1,
+ xe:"Diversity factor = Σ individual maximum demands ÷ maximum demand of the station = (15 + 12 + 18 + 5)/40 = 50/40 = 1.25. It is always > 1 because consumers do not peak together. 0.80 is the inverted ratio (trap). Load factor = average ÷ peak load, always < 1.",
+ xh:"विविधता गुणांक = व्यक्तिगत अधिकतम माँगों का योग ÷ स्टेशन की अधिकतम माँग = 50/40 = 1.25। यह सदैव > 1 होता है क्योंकि सभी उपभोक्ता एक साथ चरम पर नहीं होते। 0.80 उल्टा अनुपात (जाल)। लोड फैक्टर = औसत ÷ अधिकतम, सदैव < 1।"},
+{t:"Plant Economics · Numerical",adv:1,
+ e:"A 35 MW base-load station generates 150 × 10⁶ kWh in a year. Its capacity factor is nearly:",
+ h:"एक 35 MW बेस-लोड स्टेशन एक वर्ष में 150 × 10⁶ kWh उत्पन्न करता है। इसका क्षमता गुणांक लगभग है:",
+ o:[["49 %","49 %"],["57 %","57 %"],["43 %","43 %"],["70 %","70 %"]],a:0,
+ xe:"Capacity factor = actual energy ÷ (rated capacity × 8760 h) = 150 × 10⁶ ÷ (35 000 × 8760) = 150 ÷ 306.6 ≈ 0.49. Use 8760 hours in a year and keep units consistent (MW → kW). Plant use factor uses only the hours actually run.",
+ xh:"क्षमता गुणांक = वास्तविक ऊर्जा ÷ (रेटेड क्षमता × 8760 h) = 150 × 10⁶ ÷ (35 000 × 8760) ≈ 49 %। वर्ष में 8760 घंटे लें और MW को kW में बदलें। प्लांट यूज़ फैक्टर में केवल वास्तविक चले घंटे लिए जाते हैं।"},
+{t:"Power Plant Cycles",up:0,
+ e:"A plant in which a gas turbine is followed by a steam turbine (using the exhaust heat) works on a:",
+ h:"जिस संयंत्र में गैस टरबाइन के बाद (निकास ऊष्मा से) भाप टरबाइन चलती है, वह किस पर कार्य करता है?",
+ o:[["Binary cycle","बाइनरी चक्र"],["Combined cycle","संयुक्त चक्र"],["Reheat cycle","रीहीट चक्र"],["Regenerative cycle","पुनर्योजी चक्र"]],a:1,
+ xe:"Combined cycle = Brayton (gas) topping + Rankine (steam) bottoming, linked by a heat-recovery steam generator; overall η can exceed 55 %. Binary cycle uses two vapours (mercury + steam) with η = η₁ + η₂ − η₁η₂. Reheat and regeneration are improvements within one Rankine cycle.",
+ xh:"संयुक्त चक्र = ब्रेटन (गैस) ऊपर + रैंकिन (भाप) नीचे, हीट-रिकवरी स्टीम जनरेटर से जुड़े; समग्र η 55 % से अधिक। बाइनरी चक्र में दो वाष्प (पारा + भाप), η = η₁ + η₂ − η₁η₂।"},
+{t:"Boilers",up:0,
+ e:"A Cochran boiler is a:",
+ h:"कॉक्रन बॉयलर है:",
+ o:[["Horizontal fire-tube","क्षैतिज अग्नि-नली"],["Vertical water-tube","ऊर्ध्वाधर जल-नली"],["Horizontal water-tube","क्षैतिज जल-नली"],["Vertical fire-tube","ऊर्ध्वाधर अग्नि-नली"]],a:3,
+ xe:"Cochran = vertical, internally fired, multitubular fire-tube boiler with η ≈ 70–75 %; it is compact and needs little floor space. \"Externally fired\" is the incorrect statement asked by SSC. Horizontal fire-tube boilers are Cornish, Lancashire and Locomotive.",
+ xh:"कॉक्रन = ऊर्ध्वाधर, आंतरिक रूप से जलने वाला, बहु-नलिका अग्नि-नली बॉयलर, η ≈ 70–75 %; कम जगह लेता है। \"बाह्य रूप से जलने वाला\" गलत कथन है। क्षैतिज अग्नि-नली: कॉर्निश, लंकाशायर, लोकोमोटिव।"},
+{t:"Boilers",adv:1,
+ e:"Natural circulation of water does NOT take place in the:",
+ h:"किस बॉयलर में जल का प्राकृतिक परिसंचरण नहीं होता?",
+ o:[["Babcock & Wilcox","बैबकॉक एवं विलकॉक्स"],["Lancashire","लंकाशायर"],["La Mont","ला मॉन्ट"],["Cochran","कॉक्रन"]],a:2,
+ xe:"La Mont is a forced-circulation water-tube boiler: a pump circulates about 10 times the water actually evaporated, which allows small-bore tubes and high pressure. Benson also uses forced flow (once-through). B&W, Lancashire and Cochran rely on natural (density-difference) circulation.",
+ xh:"ला मॉन्ट बलात् परिसंचरण वाला जल-नली बॉयलर है: पम्प वाष्पित जल से लगभग 10 गुना जल घुमाता है, जिससे पतली नलियाँ और उच्च दाब संभव। बेन्सन भी बलात् प्रवाह। B&W, लंकाशायर, कॉक्रन प्राकृतिक परिसंचरण पर।"},
+{t:"Boilers",adv:1,
+ e:"Which of the following is a high-pressure boiler?",
+ h:"निम्न में से कौन उच्च-दाब बॉयलर है?",
+ o:[["Locomotive","लोकोमोटिव"],["Lancashire","लंकाशायर"],["Velox","वेलॉक्स"],["Cornish","कॉर्निश"]],a:2,
+ xe:"Velox uses pressurised combustion with gas velocity above the speed of sound, giving very high heat transfer. Other high-pressure boilers: Benson, La Mont, Loeffler (all water-tube, forced circulation). Locomotive (≈ 18 bar), Lancashire (≈ 16 bar) and Cornish are low-pressure fire-tube boilers.",
+ xh:"वेलॉक्स में दाबित दहन, गैस वेग ध्वनि से अधिक, बहुत अधिक ऊष्मा स्थानांतरण। अन्य उच्च-दाब: बेन्सन, ला मॉन्ट, लोफ्लर। लोकोमोटिव (≈ 18 bar), लंकाशायर (≈ 16 bar), कॉर्निश कम दाब वाले अग्नि-नली बॉयलर हैं।"},
+{t:"Boilers",up:1,
+ e:"The main advantage of a water-tube boiler over a fire-tube boiler is:",
+ h:"अग्नि-नली बॉयलर की तुलना में जल-नली बॉयलर का मुख्य लाभ है:",
+ o:[["Higher safe pressure","अधिक सुरक्षित दाब"],["Larger water storage","अधिक जल भंडारण"],["Lower initial cost","कम प्रारंभिक लागत"],["Easier tube cleaning","नलियों की आसान सफ़ाई"]],a:0,
+ xe:"Small-diameter tubes carry water, so they withstand high pressure (up to ~100 bar and beyond), respond quickly to load and give higher efficiency (UPSSSC Dec'21). Large water storage belongs to fire-tube boilers like Lancashire – that is why they respond slowly. \"Water-tube boilers cannot handle high pressure\" is the wrong statement asked.",
+ xh:"पतली नलियों में जल होता है, इसलिए वे उच्च दाब सह लेती हैं, लोड पर जल्दी प्रतिक्रिया देती हैं और दक्षता अधिक होती है। बड़ा जल भंडार अग्नि-नली (लंकाशायर) में होता है – इसलिए वे धीमे हैं।"},
+{t:"Boilers",up:0,
+ e:"As per IBR, a closed vessel is treated as a boiler when its capacity exceeds:",
+ h:"IBR के अनुसार कोई बंद पात्र बॉयलर माना जाता है जब उसकी क्षमता अधिक हो:",
+ o:[["2.275 litres","2.275 लीटर"],["10 litres","10 लीटर"],["227.5 litres","227.5 लीटर"],["22.75 litres","22.75 लीटर"]],a:3,
+ xe:"Indian Boiler Regulations apply to a closed vessel of more than 22.75 litres (5 gallons) used to generate steam under pressure. Boiler rating is expressed as steam output in kg/h; a high-pressure boiler works above about 80 bar.",
+ xh:"भारतीय बॉयलर विनियम 22.75 लीटर (5 गैलन) से अधिक क्षमता वाले दाब पर भाप बनाने वाले बंद पात्र पर लागू होते हैं। बॉयलर रेटिंग kg/h भाप उत्पादन में; उच्च-दाब बॉयलर लगभग 80 bar से ऊपर।"},
+{t:"Accessories",up:0,
+ e:"The function of a steam trap is to:",
+ h:"स्टीम ट्रैप का कार्य है:",
+ o:[["Raise steam dryness","भाप की शुष्कता बढ़ाना"],["Remove air from steam","भाप से वायु हटाना"],["Stop steam backflow","भाप का उल्टा प्रवाह रोकना"],["Drain condensate only","केवल संघनित जल निकालना"]],a:3,
+ xe:"A steam trap automatically drains condensed water from steam lines without letting live steam escape – asked in three SSC papers. Raising dryness by removing water particles is the steam separator's job (fitted close to the engine). Backflow is stopped by a non-return / feed check valve.",
+ xh:"स्टीम ट्रैप भाप लाइनों से संघनित जल को अपने-आप निकालता है, भाप को बाहर नहीं जाने देता। जल कण हटाकर शुष्कता बढ़ाना स्टीम सेपरेटर का कार्य है (इंजन के पास)। उल्टा प्रवाह नॉन-रिटर्न / फीड चेक वाल्व रोकता है।"},
+{t:"Mountings",up:0,
+ e:"The type of safety valve generally used on locomotive boilers is:",
+ h:"लोकोमोटिव बॉयलरों पर सामान्यतः प्रयुक्त सेफ्टी वाल्व है:",
+ o:[["Dead-weight","डेड-वेट"],["Lever type","लीवर प्रकार"],["Spring-loaded","स्प्रिंग-लोडेड"],["Low-water type","लो-वॉटर प्रकार"]],a:2,
+ xe:"A moving, vibrating boiler cannot use weights, so a spring-loaded valve is used (SSC'12). Dead-weight and lever types suit stationary boilers. The high-steam low-water safety valve cannot be used on a locomotive. Regulations require two safety valves on a boiler.",
+ xh:"चलते, कंपन वाले बॉयलर पर भार नहीं लगाए जा सकते, इसलिए स्प्रिंग-लोडेड वाल्व। डेड-वेट व लीवर प्रकार स्थिर बॉयलरों के लिए। हाई-स्टीम लो-वॉटर वाल्व लोकोमोटिव पर नहीं लगता। नियमानुसार दो सेफ्टी वाल्व चाहिए।"},
+{t:"Accessories",adv:1,
+ e:"In the flue-gas path of a large boiler, the air preheater is placed:",
+ h:"बड़े बॉयलर के फ्लू-गैस पथ में एयर प्रीहीटर लगाया जाता है:",
+ o:[["Before superheater","अतितापक से पहले"],["Before economiser","इकोनोमाइज़र से पहले"],["Inside furnace","भट्टी के अंदर"],["After economiser","इकोनोमाइज़र के बाद"]],a:3,
+ xe:"Sequence: furnace → superheater → economiser → air preheater → ID fan → chimney. The hottest gas meets the superheater; the coolest gas is still useful for warming combustion air. Economiser heats feed water, air preheater heats air – both recover flue-gas heat.",
+ xh:"क्रम: भट्टी → अतितापक → इकोनोमाइज़र → एयर प्रीहीटर → ID फैन → चिमनी। सबसे गर्म गैस अतितापक को, सबसे ठंडी गैस भी दहन वायु गर्म करने में काम आती है।"},
+{t:"Mountings",up:0,
+ e:"Which of the following is NOT a boiler mounting?",
+ h:"निम्न में से कौन बॉयलर माउंटिंग नहीं है?",
+ o:[["Safety valve","सेफ्टी वाल्व"],["Pressure gauge","दाब गेज"],["Feed pump","फीड पम्प"],["Fusible plug","फ्यूज़िबल प्लग"]],a:2,
+ xe:"The feed pump is an accessory (like superheater, economiser, air preheater, injector). Mountings are for safety and control: safety valve, pressure gauge, fusible plug, water-level indicator, blow-off cock, steam stop valve and feed check valve. A condenser is neither.",
+ xh:"फीड पम्प एक्सेसरी है (अतितापक, इकोनोमाइज़र, एयर प्रीहीटर, इंजेक्टर की तरह)। माउंटिंग सुरक्षा व नियंत्रण के लिए: सेफ्टी वाल्व, दाब गेज, फ्यूज़िबल प्लग, जल-स्तर संकेतक, ब्लो-ऑफ कॉक, स्टॉप वाल्व, फीड चेक वाल्व।"},
+{t:"Steam Nozzles",adv:1,
+ e:"Supersaturated (metastable) flow of steam through a nozzle results in:",
+ h:"नोज़ल में भाप के अतिसंतृप्त (मेटास्टेबल) प्रवाह का परिणाम है:",
+ o:[["Mass flow increases","द्रव्यमान प्रवाह बढ़ता है"],["Mass flow decreases","द्रव्यमान प्रवाह घटता है"],["Entropy stays same","एन्ट्रॉपी समान रहती है"],["Velocity doubles","वेग दोगुना होता है"]],a:0,
+ xe:"Steam expands too fast to condense, so it stays as vapour below its saturation temperature – denser than in equilibrium → more mass flows through the nozzle. It is an irreversible state, so entropy and dryness fraction increase. The limit of supersaturation is the Wilson line.",
+ xh:"भाप इतनी तेज़ी से फैलती है कि संघनित नहीं हो पाती, संतृप्ति ताप से नीचे भी वाष्प रहती है – अधिक घनी → अधिक द्रव्यमान प्रवाह। यह अनुत्क्रमणीय है, इसलिए एन्ट्रॉपी व शुष्कता बढ़ती है। सीमा = विल्सन रेखा।"},
+{t:"Steam Nozzles",adv:1,
+ e:"In a convergent nozzle, if the back pressure is reduced below the critical pressure, the mass flow rate:",
+ h:"अभिसारी नोज़ल में बैक प्रेशर को क्रांतिक दाब से नीचे करने पर द्रव्यमान प्रवाह दर:",
+ o:[["Increases further","और बढ़ती है"],["Decreases sharply","तेज़ी से घटती है"],["Becomes zero","शून्य हो जाती है"],["Remains constant","स्थिर रहती है"]],a:3,
+ xe:"Once the throat reaches sonic velocity at the critical pressure, the nozzle is choked – pressure signals cannot travel upstream, so further lowering of back pressure does not raise the flow. To expand below the critical pressure and get supersonic flow, a convergent–divergent nozzle is needed.",
+ xh:"क्रांतिक दाब पर थ्रोट में ध्वनि वेग आते ही नोज़ल चोक हो जाता है – दाब संकेत ऊपर नहीं जा पाते, इसलिए बैक प्रेशर और घटाने पर प्रवाह नहीं बढ़ता। क्रांतिक से नीचे फैलाव व पराध्वनिक प्रवाह के लिए अभिसारी-अपसारी नोज़ल चाहिए।"},
+{t:"Nozzles · Numerical",up:1,
+ e:"Steam enters a nozzle with negligible velocity and undergoes an enthalpy drop of 400 kJ/kg. The ideal exit velocity is nearly:",
+ h:"भाप नगण्य वेग से नोज़ल में आती है और एन्थैल्पी में 400 kJ/kg की कमी होती है। आदर्श निकास वेग लगभग है:",
+ o:[["894.4 m/s","894.4 m/s"],["28.3 m/s","28.3 m/s"],["632.5 m/s","632.5 m/s"],["400 m/s","400 m/s"]],a:0,
+ xe:"From SFEE (UPSSSC Apr'22): C₂ = √(2000 Δh) = 44.72 √Δh = 44.72 × 20 = 894.4 m/s (Δh in kJ/kg). Traps: 632.5 m/s forgets the factor 2; 28.3 m/s forgets to convert kJ to J.",
+ xh:"SFEE से: C₂ = √(2000 Δh) = 44.72 √Δh = 44.72 × 20 = 894.4 m/s। जाल: 632.5 m/s (2 भूलना); 28.3 m/s (kJ को J न करना)।"},
+{t:"Steam Nozzles",up:0,
+ e:"In a convergent–divergent nozzle, the Mach number exceeds 1 in the:",
+ h:"अभिसारी-अपसारी नोज़ल में मैक संख्या 1 से अधिक कहाँ होती है?",
+ o:[["Converging part","अभिसारी भाग"],["Throat","थ्रोट"],["Inlet","प्रवेश"],["Diverging part","अपसारी भाग"]],a:3,
+ xe:"Subsonic flow speeds up in the converging part, reaches M = 1 at the throat (smallest section, critical pressure), and becomes supersonic in the diverging part. Used when inlet velocity is low and outlet must be supersonic. A fire-hose nozzle is simply convergent.",
+ xh:"अभिसारी भाग में अवध्वनिक प्रवाह तेज़ होता है, थ्रोट (सबसे छोटा भाग, क्रांतिक दाब) पर M = 1, और अपसारी भाग में पराध्वनिक। फायर-होज़ नोज़ल केवल अभिसारी होता है।"},
+{t:"Steam Turbines",up:0,
+ e:"Compounding of a steam turbine is done mainly to:",
+ h:"भाप टरबाइन में संयोजन (compounding) मुख्यतः किसलिए किया जाता है?",
+ o:[["Reduce rotor speed","रोटर गति घटाने"],["Raise rotor speed","रोटर गति बढ़ाने"],["Raise steam pressure","भाप दाब बढ़ाने"],["Change blade angle","ब्लेड कोण बदलने"]],a:0,
+ xe:"A single-stage (de Laval) impulse turbine runs at an impractically high speed. Splitting the pressure or velocity drop over several stages lowers rotor speed – asked in three SSC papers. Velocity compounding = Curtis; pressure compounding = Rateau; both = pressure–velocity compounding.",
+ xh:"एकल-चरण (डी लावल) इम्पल्स टरबाइन बहुत अधिक गति पर चलता है। दाब या वेग पतन को कई चरणों में बाँटने से रोटर गति घटती है। वेग संयोजन = कर्टिस; दाब संयोजन = रेटो।"},
+{t:"Steam Turbines",adv:1,
+ e:"The degree of reaction of a Parsons reaction turbine is:",
+ h:"पार्सन्स रिएक्शन टरबाइन की रिएक्शन की मात्रा (degree of reaction) है:",
+ o:[["0","0"],["0.25","0.25"],["1.0","1.0"],["0.5","0.5"]],a:3,
+ xe:"Degree of reaction = enthalpy drop in moving blades ÷ enthalpy drop in the stage. Parsons: half in fixed, half in moving blades → 0.5, with symmetrical blades. Pure impulse = 0. Max efficiency of 50 % reaction = 2cos²α/(1 + cos²α) at u/V = cos α.",
+ xh:"रिएक्शन की मात्रा = गतिशील ब्लेडों में एन्थैल्पी पतन ÷ चरण का कुल पतन। पार्सन्स: आधा स्थिर, आधा गतिशील ब्लेडों में → 0.5। शुद्ध इम्पल्स = 0। अधिकतम दक्षता = 2cos²α/(1 + cos²α)।"},
+{t:"Turbines · Numerical",adv:1,
+ e:"In a de Laval turbine, (V<sub>w1</sub> + V<sub>w2</sub>) = 1200 m/s and steam flow is 15 kg/min. The tangential force on the blades is:",
+ h:"एक डी लावल टरबाइन में (V<sub>w1</sub> + V<sub>w2</sub>) = 1200 m/s और भाप प्रवाह 15 kg/min है। ब्लेडों पर स्पर्शरेखीय बल है:",
+ o:[["18 000 N","18 000 N"],["300 N","300 N"],["80 N","80 N"],["1200 N","1200 N"]],a:1,
+ xe:"F = ṁ (V<sub>w1</sub> + V<sub>w2</sub>) with ṁ in kg/s: 15/60 = 0.25 kg/s → F = 0.25 × 1200 = 300 N. 18 000 N uses kg/min directly (trap). Power = F × u, and torque T = 60P/(2πN).",
+ xh:"F = ṁ (V<sub>w1</sub> + V<sub>w2</sub>), ṁ kg/s में: 15/60 = 0.25 kg/s → F = 300 N। 18 000 N kg/min सीधे लेने पर (जाल)। शक्ति = F × u।"},
+{t:"Boiler Efficiency · Numerical",adv:1,
+ e:"A boiler produces 9 kg of steam per kg of coal (CV = 27 MJ/kg). Feed-water enthalpy is 300 kJ/kg and steam enthalpy is 3000 kJ/kg. Boiler efficiency is:",
+ h:"एक बॉयलर प्रति kg कोयले (CV = 27 MJ/kg) से 9 kg भाप बनाता है। फीड जल की एन्थैल्पी 300 kJ/kg और भाप की 3000 kJ/kg है। बॉयलर दक्षता:",
+ o:[["90 %","90 %"],["100 %","100 %"],["81 %","81 %"],["11 %","11 %"]],a:0,
+ xe:"η<sub>b</sub> = m<sub>a</sub>(h − h<sub>f1</sub>)/CV = 9 × (3000 − 300)/27 000 = 24 300/27 000 = 0.90. 100 % comes from ignoring the feed-water enthalpy – a physical impossibility. Equivalent evaporation of the same boiler = 9 × 2700/2257 ≈ 10.8 kg/kg.",
+ xh:"η<sub>b</sub> = m<sub>a</sub>(h − h<sub>f1</sub>)/CV = 9 × 2700/27 000 = 90 %। फीड जल की एन्थैल्पी भूलने पर 100 % आता है – जो असंभव है। इसी बॉयलर का समतुल्य वाष्पन = 9 × 2700/2257 ≈ 10.8 kg/kg।"},
+{t:"Draught",up:0,
+ e:"Balanced draught in a boiler is obtained by using:",
+ h:"बॉयलर में बैलेंस्ड ड्राफ्ट किसके प्रयोग से मिलता है?",
+ o:[["Forced fan only","केवल फोर्स्ड पंखा"],["Induced fan only","केवल इंड्यूस्ड पंखा"],["Forced + induced","फोर्स्ड + इंड्यूस्ड"],["Steam jet","भाप जेट"]],a:2,
+ xe:"Forced draught pushes air into the furnace (positive pressure); induced draught sucks gases at the chimney base; balanced draught uses both so the furnace stays near atmospheric pressure. Natural draught comes from the chimney height and gas density difference – no power needed.",
+ xh:"फोर्स्ड ड्राफ्ट भट्टी में वायु धकेलता है; इंड्यूस्ड चिमनी के आधार पर गैसें खींचता है; बैलेंस्ड दोनों प्रयोग करता है ताकि भट्टी का दाब लगभग वायुमंडलीय रहे। प्राकृतिक ड्राफ्ट चिमनी की ऊँचाई से – कोई शक्ति नहीं।"},
+{t:"Condensers",up:1,
+ e:"Compared with a jet condenser, in a surface condenser:",
+ h:"जेट कंडेंसर की तुलना में सरफेस कंडेंसर में:",
+ o:[["Steam and water mix","भाप और जल मिलते हैं"],["Condensate is reused","संघनित जल पुनः प्रयुक्त"],["It is always cheaper","यह सदैव सस्ता होता है"],["Condensate is lost","संघनित जल नष्ट होता है"]],a:1,
+ xe:"In a surface (shell-and-tube) condenser steam and cooling water never mix, so pure condensate returns to the boiler – used in large plants. A jet condenser mixes them: cheaper, but condensate is lost. A condenser lowers back pressure, recovers condensate and removes air (UPSSSC Dec'15: \"all of these\").",
+ xh:"सरफेस (शेल-एंड-ट्यूब) कंडेंसर में भाप और शीतलन जल नहीं मिलते, शुद्ध संघनित जल बॉयलर में लौटता है – बड़े संयंत्रों में। जेट कंडेंसर सस्ता पर जल नष्ट। कंडेंसर: बैक प्रेशर घटाना, जल पुनः प्राप्त करना, वायु हटाना।"},
+{t:"Nuclear Plant",up:0,
+ e:"In a nuclear power plant, the moderator is used to:",
+ h:"परमाणु शक्ति संयंत्र में मॉडरेटर का प्रयोग होता है:",
+ o:[["Absorb the neutrons","न्यूट्रॉन अवशोषित करने"],["Slow down neutrons","न्यूट्रॉन धीमे करने"],["Carry away heat","ऊष्मा ले जाने"],["Shield radiation","विकिरण रोकने"]],a:1,
+ xe:"The moderator (graphite, heavy water, ordinary water) slows fast neutrons to thermal speed so they can sustain fission. Control rods (cadmium, boron) absorb neutrons to control the reaction; the coolant carries heat; the shield stops radiation.",
+ xh:"मॉडरेटर (ग्रेफाइट, भारी जल, साधारण जल) तेज़ न्यूट्रॉनों को धीमा करता है ताकि विखंडन चलता रहे। नियंत्रण छड़ें (कैडमियम, बोरॉन) न्यूट्रॉन अवशोषित करती हैं; शीतलक ऊष्मा ले जाता है; कवच विकिरण रोकता है।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – Steam & Power Plant is exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the Steam & Power Plant notes (Rankine, boilers and mountings first), then retry. / पहले नोट्स (रैंकिन, बॉयलर और माउंटिंग) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
