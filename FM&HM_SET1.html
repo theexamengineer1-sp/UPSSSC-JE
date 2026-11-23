@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluid Mechanics & Hydraulic Machines Smart MCQ Set 1 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">01</div>
+    <h1>Fluid Mechanics &amp; Hydraulic Machines<br>Smart MCQ Set 1</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">तरल यांत्रिकी एवं हाइड्रोलिक मशीनें – स्मार्ट MCQ सेट 1 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Fluid Properties",up:1,
+ e:"A fluid is a substance that cannot resist which of the following when at rest?",
+ h:"तरल (fluid) वह पदार्थ है जो विरामावस्था में किसका प्रतिरोध नहीं कर सकता?",
+ o:[["Compression","संपीडन"],["Shear stress","अपरूपण प्रतिबल"],["Normal stress","अभिलंब प्रतिबल"],["Gravity","गुरुत्व"]],a:1,
+ xe:"A fluid deforms continuously under even a tiny shear force, so it cannot resist shear at rest. That is why, in a static fluid, shear stress is zero and only normal (pressure) stress exists (UPSSSC Dec'15). Fluids do resist compression – that is what bulk modulus measures.",
+ xh:"तरल अत्यल्प अपरूपण बल से भी लगातार विकृत होता है, इसलिए विराम में अपरूपण का प्रतिरोध नहीं कर सकता। स्थिर तरल में अपरूपण प्रतिबल शून्य, केवल अभिलंब (दाब) प्रतिबल होता है। संपीडन का प्रतिरोध तरल करते हैं – यही आयतन प्रत्यास्थता गुणांक है।"},
+{t:"Viscosity",up:1,
+ e:"Kinematic viscosity is defined as:",
+ h:"शुद्धगतिक श्यानता (kinematic viscosity) की परिभाषा है:",
+ o:[["μ × ρ","μ × ρ"],["ρ / μ","ρ / μ"],["μ × g","μ × g"],["μ / ρ","μ / ρ"]],a:3,
+ xe:"ν = μ/ρ (UPSSSC Dec'15). Unit m²/s, CGS unit stoke (1 St = 10⁻⁴ m²/s), dimension L²T⁻¹ – no mass, so it is a \"kinematic\" quantity. Dynamic viscosity μ: N·s/m² = Pa·s, poise, dimension ML⁻¹T⁻¹.",
+ xh:"ν = μ/ρ। इकाई m²/s, CGS इकाई स्टोक (1 St = 10⁻⁴ m²/s), विमा L²T⁻¹ – द्रव्यमान नहीं, इसलिए \"शुद्धगतिक\"। गतिक श्यानता μ: N·s/m² = Pa·s, पॉइज़, विमा ML⁻¹T⁻¹।"},
+{t:"Viscosity",up:0,
+ e:"With an increase in temperature, the viscosity of liquids and gases respectively:",
+ h:"तापमान बढ़ने पर द्रवों और गैसों की श्यानता क्रमशः:",
+ o:[["Both decrease","दोनों घटती हैं"],["Both increase","दोनों बढ़ती हैं"],["Liquid ↓, gas ↑","द्रव ↓, गैस ↑"],["Liquid ↑, gas ↓","द्रव ↑, गैस ↓"]],a:2,
+ xe:"Liquid viscosity comes from cohesion, which weakens on heating → μ falls (hot oil flows easily). Gas viscosity comes from molecular momentum exchange, which grows with temperature → μ rises. Surface tension of water also falls with temperature.",
+ xh:"द्रव की श्यानता संसंजन (cohesion) से आती है, जो गर्म करने पर घटती है → μ घटती है। गैस की श्यानता अणुओं के संवेग आदान-प्रदान से आती है, जो ताप के साथ बढ़ता है → μ बढ़ती है।"},
+{t:"Viscosity",up:0,
+ e:"One poise is equal to:",
+ h:"एक पॉइज़ (poise) बराबर है:",
+ o:[["0.1 N·s/m²","0.1 N·s/m²"],["1 N·s/m²","1 N·s/m²"],["10 N·s/m²","10 N·s/m²"],["0.01 N·s/m²","0.01 N·s/m²"]],a:0,
+ xe:"1 poise = 1 dyne·s/cm² = 0.1 N·s/m² = 0.1 Pa·s. The reverse is also asked: 1 Pa·s (1 poiseuille) = 10 poise. Water at 20 °C ≈ 1 centipoise = 10⁻³ Pa·s.",
+ xh:"1 पॉइज़ = 1 dyne·s/cm² = 0.1 N·s/m² = 0.1 Pa·s। उल्टा भी पूछा जाता है: 1 Pa·s (1 पॉइज़ुइल) = 10 पॉइज़। 20 °C पर जल ≈ 1 सेंटीपॉइज़।"},
+{t:"Fluid Types",adv:1,
+ e:"Blood, paper pulp and paint are examples of which type of fluid?",
+ h:"रक्त, कागज़ की लुगदी और पेंट किस प्रकार के तरल के उदाहरण हैं?",
+ o:[["Newtonian","न्यूटोनियन"],["Dilatant","डाइलेटेंट"],["Bingham plastic","बिंघम प्लास्टिक"],["Pseudoplastic","स्यूडोप्लास्टिक"]],a:3,
+ xe:"Pseudoplastic (shear-thinning): viscosity falls as the shear rate rises – paint flows when brushed. Dilatant (shear-thickening): viscosity rises – starch in water. Bingham plastic: needs a yield stress first – toothpaste, sewage sludge. Newtonian: τ ∝ du/dy, a straight line – water, air.",
+ xh:"स्यूडोप्लास्टिक (अपरूपण-पतला): अपरूपण दर बढ़ने पर श्यानता घटती है – ब्रश करने पर पेंट बहता है। डाइलेटेंट: श्यानता बढ़ती है – पानी में स्टार्च। बिंघम: पहले यील्ड प्रतिबल – टूथपेस्ट। न्यूटोनियन: सीधी रेखा – जल, वायु।"},
+{t:"Capillarity · Numerical",up:1,
+ e:"A liquid rises 10 cm in a capillary tube. In a tube of half the radius, the rise will be:",
+ h:"एक केशिका नली में द्रव 10 cm चढ़ता है। आधी त्रिज्या वाली नली में चढ़ाव होगा:",
+ o:[["5 cm","5 cm"],["40 cm","40 cm"],["10 cm","10 cm"],["20 cm","20 cm"]],a:3,
+ xe:"h = 4σ cos θ/(ρgd), so h ∝ 1/d. Half the radius → double the rise = 20 cm (UPSSSC Dec'21). 40 cm would need h ∝ 1/d² (trap). Capillarity is caused by surface tension (adhesion vs cohesion).",
+ xh:"h = 4σ cos θ/(ρgd), अतः h ∝ 1/d। आधी त्रिज्या → दोगुना चढ़ाव = 20 cm। 40 cm तब होता जब h ∝ 1/d² (जाल)। केशिकत्व पृष्ठ तनाव के कारण होता है।"},
+{t:"Surface Tension",adv:1,
+ e:"The excess pressure inside a soap bubble of diameter d and surface tension σ is:",
+ h:"व्यास d और पृष्ठ तनाव σ वाले साबुन के बुलबुले के अंदर अतिरिक्त दाब है:",
+ o:[["4σ/d","4σ/d"],["2σ/d","2σ/d"],["8σ/d","8σ/d"],["σ/d","σ/d"]],a:2,
+ xe:"A soap bubble has two surfaces (inside and outside film) → 8σ/d. A liquid droplet has one surface → 4σ/d. A liquid jet (cylinder) → 2σ/d. In terms of radius R: bubble 4σ/R, droplet 2σ/R.",
+ xh:"साबुन के बुलबुले की दो सतहें होती हैं → 8σ/d। द्रव बूँद की एक सतह → 4σ/d। द्रव जेट (बेलन) → 2σ/d। त्रिज्या R में: बुलबुला 4σ/R, बूँद 2σ/R।"},
+{t:"Compressibility",up:1,
+ e:"The bulk modulus of a perfectly incompressible fluid is:",
+ h:"पूर्णतः असंपीड्य तरल का आयतन प्रत्यास्थता गुणांक (bulk modulus) है:",
+ o:[["Zero","शून्य"],["Unity","इकाई"],["Infinity","अनंत"],["Negative","ऋणात्मक"]],a:2,
+ xe:"K = −dp/(dV/V). If volume does not change at all (dV = 0), K → ∞ (UPSSSC Apr'22). Compressibility = 1/K, so it is zero for such a fluid. K of a real liquid increases with pressure; K is needed for the Mach number.",
+ xh:"K = −dp/(dV/V)। आयतन बिल्कुल न बदले (dV = 0) तो K → ∞। संपीड्यता = 1/K, इसलिए ऐसे तरल के लिए शून्य। वास्तविक द्रव का K दाब के साथ बढ़ता है।"},
+{t:"Fluid Statics",up:1,
+ e:"The shear stress in a fluid at rest is:",
+ h:"विरामावस्था में तरल में अपरूपण प्रतिबल होता है:",
+ o:[["Zero","शून्य"],["Maximum","अधिकतम"],["Equal to pressure","दाब के बराबर"],["Depends on μ","μ पर निर्भर"]],a:0,
+ xe:"τ = μ(du/dy); at rest there is no relative motion, du/dy = 0 → τ = 0 for any fluid, viscous or not (UPSSSC Dec'15). But a real fluid moving with a constant velocity gradient has τ > 0 (UPSSSC Dec'21). This is why pressure at a point in a static fluid is the same in all directions.",
+ xh:"τ = μ(du/dy); विराम में सापेक्ष गति नहीं, du/dy = 0 → τ = 0, चाहे तरल श्यान हो या नहीं। पर स्थिर वेग प्रवणता से बहते वास्तविक तरल में τ > 0। इसीलिए स्थिर तरल में एक बिंदु पर दाब सभी दिशाओं में समान होता है।"},
+{t:"Capillarity",adv:1,
+ e:"When a clean glass capillary tube is dipped in mercury, the mercury level inside the tube:",
+ h:"साफ़ काँच की केशिका नली को पारे में डुबाने पर नली के अंदर पारे का स्तर:",
+ o:[["Rises","ऊपर चढ़ता है"],["Falls","नीचे गिरता है"],["Stays same","समान रहता है"],["Rises, then falls","चढ़कर गिरता है"]],a:1,
+ xe:"For mercury, cohesion > adhesion with glass; contact angle ≈ 130° (> 90°), so cos θ is negative → capillary depression, convex meniscus. Water in clean glass: θ = 0°, it rises with a concave meniscus (UPSSSC Dec'21). Mercury does not wet glass.",
+ xh:"पारे में संसंजन > काँच से आसंजन; संपर्क कोण ≈ 130° (> 90°), cos θ ऋणात्मक → केशिका अवनमन, उत्तल मेनिस्कस। साफ़ काँच में जल: θ = 0°, चढ़ता है, अवतल मेनिस्कस।"},
+{t:"Fluid Properties",up:1,
+ e:"The standard densities (kg/m³) of water, air and mercury are respectively:",
+ h:"जल, वायु और पारे का मानक घनत्व (kg/m³) क्रमशः है:",
+ o:[["1000, 1.225, 13 600","1000, 1.225, 13 600"],["1000, 12.25, 1360","1000, 12.25, 1360"],["100, 1.225, 13 600","100, 1.225, 13 600"],["1000, 0.1225, 13 600","1000, 0.1225, 13 600"]],a:0,
+ xe:"Water 1000, air 1.225, mercury 13 600 kg/m³ (UPSSSC Apr'22). Specific gravity: water 1, mercury 13.6. Specific weight of water = 9810 N/m³ = 1000 kgf/m³ (UPSSSC Jul'16). Water is densest at 4 °C.",
+ xh:"जल 1000, वायु 1.225, पारा 13 600 kg/m³। आपेक्षिक घनत्व: जल 1, पारा 13.6। जल का विशिष्ट भार = 9810 N/m³ = 1000 kgf/m³। जल 4 °C पर सबसे घना।"},
+{t:"Pascal's Law",up:1,
+ e:"Which of the following works on Pascal's law?",
+ h:"निम्न में से कौन पास्कल के नियम पर कार्य करता है?",
+ o:[["Venturimeter","वेंचुरीमीटर"],["Pitot-static tube","पिटो-स्टैटिक ट्यूब"],["Siphon pipe","साइफन पाइप"],["Hydraulic press","हाइड्रोलिक प्रेस"]],a:3,
+ xe:"Pascal's law: pressure applied at a point in a fluid at rest is transmitted equally in all directions (p<sub>x</sub> = p<sub>y</sub> = p<sub>z</sub>). Applications: hydraulic press, lift, jack and brakes (UPSSSC Dec'21). Venturimeter and pitot tube work on Bernoulli's equation.",
+ xh:"पास्कल नियम: विराम में तरल के एक बिंदु पर लगाया दाब सभी दिशाओं में समान रूप से संचरित होता है। अनुप्रयोग: हाइड्रोलिक प्रेस, लिफ़्ट, जैक, ब्रेक। वेंचुरीमीटर व पिटो ट्यूब बर्नूली समीकरण पर।"},
+{t:"Pressure",up:1,
+ e:"Gauge pressure is equal to:",
+ h:"गेज दाब बराबर है:",
+ o:[["Absolute + atmospheric","निरपेक्ष + वायुमंडलीय"],["Absolute − atmospheric","निरपेक्ष − वायुमंडलीय"],["Atmospheric − absolute","वायुमंडलीय − निरपेक्ष"],["Absolute × atmospheric","निरपेक्ष × वायुमंडलीय"]],a:1,
+ xe:"p<sub>gauge</sub> = p<sub>abs</sub> − p<sub>atm</sub> (asked in UPSSSC and three RRB CBT-2 papers). Atmospheric − absolute = vacuum pressure (option C). So p<sub>abs</sub> = p<sub>atm</sub> + p<sub>gauge</sub>; absolute 2 atm → gauge 1 atm.",
+ xh:"p<sub>गेज</sub> = p<sub>निरपेक्ष</sub> − p<sub>वायु</sub>। वायुमंडलीय − निरपेक्ष = निर्वात दाब (विकल्प C)। अतः p<sub>निरपेक्ष</sub> = p<sub>वायु</sub> + p<sub>गेज</sub>।"},
+{t:"Pressure · Numerical",up:0,
+ e:"The pressure equivalent to a 25 m head of water (g = 9.8 m/s²) is:",
+ h:"25 m जल शीर्ष के तुल्य दाब (g = 9.8 m/s²) है:",
+ o:[["245 kPa","245 kPa"],["25 kPa","25 kPa"],["2.45 kPa","2.45 kPa"],["2450 kPa","2450 kPa"]],a:0,
+ xe:"p = ρgh = 1000 × 9.8 × 25 = 245 000 Pa = 245 kPa (asked in three exams). Quick check: 1 m of water ≈ 9.81 kPa, and 10.3 m of water ≈ 1 atm.",
+ xh:"p = ρgh = 1000 × 9.8 × 25 = 245 kPa। त्वरित जाँच: 1 m जल ≈ 9.81 kPa, और 10.3 m जल ≈ 1 atm।"},
+{t:"Pressure Head · Numerical",adv:1,
+ e:"A pressure head of 20 m of water is equivalent to what head of oil of specific gravity 0.9?",
+ h:"20 m जल का दाब शीर्ष, 0.9 आपेक्षिक घनत्व वाले तेल के कितने शीर्ष के बराबर है?",
+ o:[["18 m","18 m"],["22.22 m","22.22 m"],["20 m","20 m"],["180 m","180 m"]],a:1,
+ xe:"Same pressure: ρ<sub>w</sub>gh<sub>w</sub> = ρ<sub>o</sub>gh<sub>o</sub> → h<sub>o</sub> = h<sub>w</sub>/S = 20/0.9 = 22.22 m. A lighter liquid needs a taller column for the same pressure; multiplying (18 m) is the trap.",
+ xh:"समान दाब: h<sub>o</sub> = h<sub>w</sub>/S = 20/0.9 = 22.22 m। हल्के द्रव को समान दाब के लिए ऊँचा स्तंभ चाहिए; गुणा करना (18 m) जाल है।"},
+{t:"Fluid Statics",up:1,
+ e:"The pressure at a point in a liquid at rest depends on:",
+ h:"विरामावस्था में द्रव के किसी बिंदु पर दाब निर्भर करता है:",
+ o:[["Shape of the vessel","पात्र के आकार पर"],["Area of the base","आधार के क्षेत्रफल पर"],["Depth and density","गहराई और घनत्व पर"],["Base material","आधार के पदार्थ पर"]],a:2,
+ xe:"p = ρgh – only density and vertical depth below the free surface matter, not the vessel's shape, size or base material (UPSSSC Dec'21; hydrostatic paradox). The net force on a fluid element at rest is zero.",
+ xh:"p = ρgh – केवल घनत्व और मुक्त सतह से ऊर्ध्वाधर गहराई मायने रखती है, पात्र का आकार, आकार-माप या आधार पदार्थ नहीं (हाइड्रोस्टेटिक विरोधाभास)।"},
+{t:"Fluid Statics",adv:1,
+ e:"A tank of liquid is in a lift accelerating upward at a. The gauge pressure at depth h is:",
+ h:"द्रव का एक टैंक a त्वरण से ऊपर जाती लिफ़्ट में है। गहराई h पर गेज दाब है:",
+ o:[["ρgh","ρgh"],["ρ(g + a)h","ρ(g + a)h"],["ρ(g − a)h","ρ(g − a)h"],["ρah","ρah"]],a:1,
+ xe:"Upward acceleration adds to gravity, so effective g = g + a → p = ρ(g + a)h (RRB CBT-2 Jul'26). Accelerating downward: ρ(g − a)h; free fall (a = g): pressure becomes zero.",
+ xh:"ऊपर का त्वरण गुरुत्व में जुड़ता है, प्रभावी g = g + a → p = ρ(g + a)h। नीचे त्वरण: ρ(g − a)h; मुक्त पतन (a = g): दाब शून्य।"},
+{t:"Pressure · Numerical",up:1,
+ e:"A pressure gauge reads 21 bar and the atmospheric pressure is 1.013 bar. The absolute pressure is:",
+ h:"एक दाब गेज 21 bar पढ़ता है और वायुमंडलीय दाब 1.013 bar है। निरपेक्ष दाब है:",
+ o:[["19.987 bar","19.987 bar"],["21 bar","21 bar"],["1.013 bar","1.013 bar"],["22.013 bar","22.013 bar"]],a:3,
+ xe:"p<sub>abs</sub> = p<sub>atm</sub> + p<sub>gauge</sub> = 1.013 + 21 = 22.013 bar (UPSSSC Jul'16 concept). Subtracting (19.987 bar) treats the reading as a vacuum. 1 atm = 101.325 kPa = 1.013 bar = 760 mm Hg.",
+ xh:"p<sub>निरपेक्ष</sub> = 1.013 + 21 = 22.013 bar। घटाना (19.987 bar) रीडिंग को निर्वात मानना है। 1 atm = 101.325 kPa = 760 mm Hg।"},
+{t:"Pressure Measurement",up:1,
+ e:"A piezometer can NOT be used to measure:",
+ h:"पीज़ोमीटर से किसे नहीं मापा जा सकता?",
+ o:[["Small water pressure","कम जल दाब"],["Liquid gauge pressure","द्रव का गेज दाब"],["Vacuum pressure","निर्वात दाब"],["Pressure in pipes","पाइपों में दाब"]],a:2,
+ xe:"A piezometer is the simplest manometer – an open vertical tube. It cannot measure vacuum (liquid would be sucked in), gas pressure (gas escapes) or high pressure (tube too tall) – UPSSSC Dec'21. For these, use a U-tube manometer.",
+ xh:"पीज़ोमीटर सबसे सरल मैनोमीटर – खुली ऊर्ध्वाधर नली। यह निर्वात (द्रव अंदर खिंच जाएगा), गैस दाब (गैस निकल जाएगी) या उच्च दाब (बहुत लंबी नली) नहीं माप सकता। इनके लिए U-ट्यूब मैनोमीटर।"},
+{t:"Manometers · Numerical",up:1,
+ e:"A mercury U-tube manometer connected to an air vessel shows a level difference of 12 cm. The gauge pressure of air is nearly:",
+ h:"वायु पात्र से जुड़ा पारा U-ट्यूब मैनोमीटर 12 cm का स्तर अंतर दिखाता है। वायु का गेज दाब लगभग है:",
+ o:[["0.012 bar","0.012 bar"],["1.6 bar","1.6 bar"],["0.16 bar","0.16 bar"],["0.0163 bar","0.0163 bar"]],a:2,
+ xe:"p = ρ<sub>Hg</sub>gh = 13 600 × 9.81 × 0.12 ≈ 16 000 Pa ≈ 0.16 bar (UPSSSC Dec'21). Air's own weight in the limb is negligible. 0.0163 bar forgets the specific gravity 13.6 of mercury.",
+ xh:"p = 13 600 × 9.81 × 0.12 ≈ 16 kPa ≈ 0.16 bar। नली में वायु का भार नगण्य। 0.0163 bar पारे का आपेक्षिक घनत्व 13.6 भूलने पर।"},
+{t:"Manometers · Numerical",adv:1,
+ e:"A differential mercury manometer connected to a water pipe shows a reading of 30 cm. The pressure difference in metres of water is:",
+ h:"जल पाइप से जुड़ा अवकल पारा मैनोमीटर 30 cm पढ़ता है। दाब अंतर, मीटर जल में:",
+ o:[["3.78 m","3.78 m"],["4.08 m","4.08 m"],["0.30 m","0.30 m"],["4.38 m","4.38 m"]],a:0,
+ xe:"h = x(S<sub>m</sub>/S − 1) = 0.30 × (13.6 − 1) = 3.78 m of water. Forgetting the \"−1\" (water above mercury in both limbs) gives 4.08 m – the common trap.",
+ xh:"h = x(S<sub>m</sub>/S − 1) = 0.30 × 12.6 = 3.78 m जल। \"−1\" भूलने पर (दोनों भुजाओं में पारे के ऊपर जल) 4.08 m – सामान्य जाल।"},
+{t:"Manometers",up:0,
+ e:"An inclined single-column manometer is mainly used to measure:",
+ h:"झुका हुआ एकल-स्तंभ मैनोमीटर मुख्यतः मापने के लिए प्रयुक्त होता है:",
+ o:[["Very high pressure","बहुत उच्च दाब"],["Vacuum only","केवल निर्वात"],["Flow rate","प्रवाह दर"],["Small pressures","कम दाब"]],a:3,
+ xe:"Tilting the limb makes a small vertical rise produce a long reading along the tube → higher sensitivity for small pressures; sensitivity depends on the angle of inclination. A differential manometer gives the pressure difference between two points.",
+ xh:"भुजा झुकाने से छोटा ऊर्ध्वाधर चढ़ाव नली में लंबी रीडिंग देता है → कम दाब के लिए अधिक संवेदनशीलता; यह झुकाव कोण पर निर्भर।"},
+{t:"Manometers",up:1,
+ e:"Mercury is preferred as a manometric liquid for high pressures mainly because of its:",
+ h:"उच्च दाब के लिए मैनोमीटर द्रव के रूप में पारा मुख्यतः किस कारण पसंद किया जाता है?",
+ o:[["Low density","कम घनत्व"],["High density","अधिक घनत्व"],["High viscosity","अधिक श्यानता"],["Low cost","कम लागत"]],a:1,
+ xe:"High density gives a short column for a large pressure (UPSSSC Dec'21); its very low vapour pressure also suits barometers. For small pressures a low-density liquid like alcohol gives a longer, more sensitive column. Saline water is unsuitable as a manometric liquid.",
+ xh:"अधिक घनत्व से अधिक दाब के लिए छोटा स्तंभ; बहुत कम वाष्प दाब से बैरोमीटर के लिए भी उपयुक्त। कम दाब के लिए ऐल्कोहॉल जैसे हल्के द्रव से लंबा, संवेदनशील स्तंभ। लवणीय जल अनुपयुक्त।"},
+{t:"Pressure Measurement",up:1,
+ e:"Which of the following is NOT a pressure-measuring device?",
+ h:"निम्न में से कौन दाब मापने की युक्ति नहीं है?",
+ o:[["Bourdon gauge","बोर्डन गेज"],["Piezometer","पीज़ोमीटर"],["Gyroscope","जाइरोस्कोप"],["Manometer","मैनोमीटर"]],a:2,
+ xe:"A gyroscope measures orientation / angular velocity (UPSSSC Dec'21). The Bourdon gauge (elliptical tube) reads gauge pressure; McLeod gauge measures very low vacuum. A venturimeter measures discharge, not vessel pressure.",
+ xh:"जाइरोस्कोप दिशा / कोणीय वेग मापता है। बोर्डन गेज (दीर्घवृत्तीय नली) गेज दाब; मैकलियोड गेज बहुत कम निर्वात। वेंचुरीमीटर प्रवाह मापता है, पात्र का दाब नहीं।"},
+{t:"Pressure",up:0,
+ e:"One standard atmosphere is equal to:",
+ h:"एक मानक वायुमंडल बराबर है:",
+ o:[["10.3 m of water","10.3 m जल"],["760 cm of Hg","760 cm पारा"],["10.3 cm of water","10.3 cm जल"],["76 mm of Hg","76 mm पारा"]],a:0,
+ xe:"1 atm = 101.325 kPa = 1.013 bar = 760 mm Hg = 10.3 m of water ≈ 1 kgf/cm². The traps shift units: 760 cm and 10.3 cm are 10 times off. 1 torr = 1 mm of Hg.",
+ xh:"1 atm = 101.325 kPa = 1.013 bar = 760 mm Hg = 10.3 m जल ≈ 1 kgf/cm²। जाल इकाइयाँ बदलते हैं: 760 cm और 10.3 cm दस गुना गलत। 1 टॉर = 1 mm Hg।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – fluid properties and statics are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the FM notes (properties, pressure and manometers first), then retry. / पहले नोट्स (गुणधर्म, दाब और मैनोमीटर) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
