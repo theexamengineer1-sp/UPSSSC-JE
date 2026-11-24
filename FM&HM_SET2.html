@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluid Mechanics & Hydraulic Machines Smart MCQ Set 2 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">02</div>
+    <h1>Fluid Mechanics &amp; Hydraulic Machines<br>Smart MCQ Set 2</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">तरल यांत्रिकी एवं हाइड्रोलिक मशीनें – स्मार्ट MCQ सेट 2 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Hydrostatic Forces",adv:1,
+ e:"The total hydrostatic force on a plane surface immersed in a liquid is (h̄ = depth of centroid, h<sub>cp</sub> = depth of centre of pressure):",
+ h:"द्रव में डूबी समतल सतह पर कुल द्रवस्थैतिक बल है (h̄ = केंद्रक की गहराई, h<sub>cp</sub> = दाब केंद्र की गहराई):",
+ o:[["ρgA h<sub>cp</sub>","ρgA h<sub>cp</sub>"],["½ ρgA h̄","½ ρgA h̄"],["ρgA h̄","ρgA h̄"],["ρg h̄","ρg h̄"]],a:2,
+ xe:"Total pressure F = area × pressure at the centroid = ρgAh̄, acting normal to the surface – true for horizontal, vertical and inclined surfaces. Using h<sub>cp</sub> is the classic trap: the centre of pressure tells you where F acts, not how big it is. ρgh̄ alone is pressure, not force.",
+ xh:"कुल दाब F = क्षेत्रफल × केंद्रक पर दाब = ρgAh̄, सतह के लंबवत – क्षैतिज, ऊर्ध्वाधर, झुकी सभी सतहों के लिए। h<sub>cp</sub> लेना जाल है: दाब केंद्र बताता है F कहाँ लगता है, कितना नहीं। ρgh̄ केवल दाब है, बल नहीं।"},
+{t:"Hydrostatic Forces",up:1,
+ e:"For a vertical plane surface immersed in a liquid, the centre of pressure lies:",
+ h:"द्रव में डूबी ऊर्ध्वाधर समतल सतह के लिए दाब केंद्र स्थित होता है:",
+ o:[["At free surface","मुक्त सतह पर"],["Above centroid","केंद्रक के ऊपर"],["At centroid","केंद्रक पर"],["Below centroid","केंद्रक के नीचे"]],a:3,
+ xe:"h<sub>cp</sub> = h̄ + I<sub>G</sub>sin²θ/(Ah̄) > h̄, because pressure increases with depth, so the resultant shifts downward (RRB CBT-2 Jul'26). For a horizontal surface, pressure is uniform, so CP = centroid (UPSSSC Dec'21). The deeper the surface, the closer CP comes to the centroid.",
+ xh:"h<sub>cp</sub> = h̄ + I<sub>G</sub>sin²θ/(Ah̄) > h̄, क्योंकि दाब गहराई के साथ बढ़ता है, परिणामी बल नीचे खिसकता है। क्षैतिज सतह पर दाब समान, इसलिए CP = केंद्रक। सतह जितनी गहरी, CP केंद्रक के उतना पास।"},
+{t:"Hydrostatics · Numerical",adv:1,
+ e:"A 3 m × 3 m square plate is held vertical in water with its top edge at the free surface. The total hydrostatic force on one face is nearly:",
+ h:"3 m × 3 m की वर्गाकार प्लेट जल में ऊर्ध्वाधर रखी है, इसका ऊपरी किनारा मुक्त सतह पर है। एक फलक पर कुल द्रवस्थैतिक बल लगभग है:",
+ o:[["88.3 kN","88.3 kN"],["264.9 kN","264.9 kN"],["44.1 kN","44.1 kN"],["132.4 kN","132.4 kN"]],a:3,
+ xe:"F = ρgAh̄ = 9810 × 9 × 1.5 = 132 435 N ≈ 132.4 kN (centroid at 1.5 m). 264.9 kN uses the full depth 3 m instead of the centroid depth. This force acts at the centre of pressure, at depth 2d/3 = 2 m.",
+ xh:"F = ρgAh̄ = 9810 × 9 × 1.5 ≈ 132.4 kN (केंद्रक 1.5 m पर)। 264.9 kN पूरी गहराई 3 m लेने से। यह बल दाब केंद्र पर, 2d/3 = 2 m गहराई पर लगता है।"},
+{t:"Hydrostatic Forces",up:0,
+ e:"A vertical rectangular gate of depth d has its top edge at the free surface. The depth of its centre of pressure is:",
+ h:"d गहराई वाले ऊर्ध्वाधर आयताकार गेट का ऊपरी किनारा मुक्त सतह पर है। इसके दाब केंद्र की गहराई है:",
+ o:[["2d/3","2d/3"],["d/2","d/2"],["d/3","d/3"],["3d/4","3d/4"]],a:0,
+ xe:"h<sub>cp</sub> = h̄ + I<sub>G</sub>/(Ah̄) = d/2 + (bd³/12)/(bd · d/2) = d/2 + d/6 = 2d/3 (SSC'07). The pressure diagram is a triangle, and a triangle's centroid is at 2/3 of its height from the apex. d/2 is the centroid, not the CP.",
+ xh:"h<sub>cp</sub> = d/2 + (bd³/12)/(bd · d/2) = d/2 + d/6 = 2d/3। दाब आरेख त्रिभुज है, जिसका केंद्रक शीर्ष से 2/3 ऊँचाई पर। d/2 केंद्रक है, दाब केंद्र नहीं।"},
+{t:"Hydrostatic Forces",up:0,
+ e:"The vertical component of hydrostatic force on a submerged curved surface is equal to the:",
+ h:"डूबी वक्र सतह पर द्रवस्थैतिक बल का ऊर्ध्वाधर घटक बराबर होता है:",
+ o:[["Force on its projection","इसके प्रक्षेप पर बल"],["Weight of liquid above","ऊपर के द्रव का भार"],["Buoyancy of the body","पिंड का उत्प्लावन"],["Pressure × curved area","दाब × वक्र क्षेत्रफल"]],a:1,
+ xe:"Vertical component = weight of liquid supported vertically above the curved surface (up to the free surface). Horizontal component = force on the vertical projection of the surface (option A is the horizontal one – the swap the examiner uses). Asked in three Railway papers.",
+ xh:"ऊर्ध्वाधर घटक = वक्र सतह के ठीक ऊपर (मुक्त सतह तक) स्थित द्रव का भार। क्षैतिज घटक = सतह के ऊर्ध्वाधर प्रक्षेप पर बल (विकल्प A क्षैतिज वाला है – यही अदला-बदली पूछी जाती है)।"},
+{t:"Buoyancy",up:0,
+ e:"The centre of buoyancy of a floating or submerged body is the:",
+ h:"तैरते या डूबे पिंड का उत्प्लावन केंद्र (centre of buoyancy) है:",
+ o:[["CG of displaced fluid","विस्थापित द्रव का गुरुत्व केंद्र"],["CG of the whole body","पूरे पिंड का गुरुत्व केंद्र"],["Metacentre of body","पिंड का मेटासेंटर"],["Centre of pressure","दाब केंद्र"]],a:0,
+ xe:"Buoyant force (Archimedes) = weight of fluid displaced, acting upward through the centroid of the displaced volume – the centre of buoyancy B (asked in three Railway papers). It coincides with the body's CG only for a fully submerged body of uniform density.",
+ xh:"उत्प्लावन बल (आर्किमिडीज़) = विस्थापित द्रव का भार, ऊपर की ओर, विस्थापित आयतन के केंद्रक से होकर – यही उत्प्लावन केंद्र B है। समान घनत्व वाले पूर्णतः डूबे पिंड में ही यह CG से मिलता है।"},
+{t:"Stability",up:0,
+ e:"A fully submerged body is in stable equilibrium when its centre of gravity G is:",
+ h:"एक पूर्णतः डूबा पिंड स्थायी साम्य में होता है जब उसका गुरुत्व केंद्र G:",
+ o:[["Above B","B के ऊपर हो"],["Below B","B के नीचे हो"],["At B","B पर हो"],["At metacentre","मेटासेंटर पर हो"]],a:1,
+ xe:"For a submerged body B stays fixed relative to the body, so a tilt creates a restoring couple only if G is below B (SSC asked in three papers). G at B → neutral. For a floating body the rule changes: it is stable when the metacentre M is above G.",
+ xh:"डूबे पिंड में B पिंड के सापेक्ष स्थिर रहता है, इसलिए झुकाव पर पुनःस्थापक युग्म तभी बनता है जब G, B के नीचे हो। G = B → उदासीन। तैरते पिंड का नियम अलग: M, G के ऊपर हो तो स्थायी।"},
+{t:"Stability",adv:1,
+ e:"A floating body is in stable equilibrium when:",
+ h:"एक तैरता पिंड स्थायी साम्य में होता है जब:",
+ o:[["M is below G","M, G के नीचे हो"],["M is at G","M, G पर हो"],["B is above G","B, G के ऊपर हो"],["M is above G","M, G के ऊपर हो"]],a:3,
+ xe:"A floating body can be stable even with G above B, because B shifts when it tilts. Stability depends on metacentric height GM: M above G (GM > 0) → stable; M at G → neutral; M below G → unstable. Trap: \"B above G\" is the rule for submerged bodies, not floating ones.",
+ xh:"तैरता पिंड G के B से ऊपर होने पर भी स्थायी हो सकता है, क्योंकि झुकने पर B खिसकता है। M, G के ऊपर (GM > 0) → स्थायी; M = G → उदासीन; M, G के नीचे → अस्थायी। जाल: \"B, G के ऊपर\" डूबे पिंड का नियम है।"},
+{t:"Stability",up:0,
+ e:"Metacentric height is the distance between the:",
+ h:"मेटासेंट्रिक ऊँचाई किनके बीच की दूरी है?",
+ o:[["Metacentre and B","मेटासेंटर और B"],["G and B","G और B"],["Metacentre and G","मेटासेंटर और G"],["B and free surface","B और मुक्त सतह"]],a:2,
+ xe:"GM = distance from the centre of gravity G to the metacentre M; GM = I/V − BG. Metacentre = point about which a floating body oscillates for small tilts. Typical GM: sailing ships 0.45–1.25 m, battleships 1.0–1.5 m. Rolling is more dangerous than pitching.",
+ xh:"GM = गुरुत्व केंद्र G से मेटासेंटर M की दूरी; GM = I/V − BG। मेटासेंटर = वह बिंदु जिसके परितः तैरता पिंड छोटे झुकाव पर दोलन करता है। रोलिंग, पिचिंग से अधिक खतरनाक।"},
+{t:"Floatation · Numerical",up:1,
+ e:"A cuboid 44 cm high, of specific gravity 0.85, floats upright in water. The depth of the cuboid immersed is:",
+ h:"44 cm ऊँचा, 0.85 आपेक्षिक घनत्व वाला घनाभ जल में सीधा तैरता है। घनाभ का डूबा भाग कितनी गहराई तक है?",
+ o:[["6.6 cm","6.6 cm"],["44 cm","44 cm"],["37.4 cm","37.4 cm"],["51.8 cm","51.8 cm"]],a:2,
+ xe:"Floating: weight = buoyancy → ρ<sub>b</sub>gAH = ρ<sub>w</sub>gAh → h = S × H = 0.85 × 44 = 37.4 cm (UPSSSC Dec'21). 6.6 cm is the part above water. Same idea: ice (920 kg/m³) has 8 % above water.",
+ xh:"तैरना: भार = उत्प्लावन → h = S × H = 0.85 × 44 = 37.4 cm। 6.6 cm जल के ऊपर का भाग है। इसी तरह बर्फ (920 kg/m³) का 8 % भाग ऊपर रहता है।"},
+{t:"Buoyancy · Numerical",up:0,
+ e:"A body weighs 60 N in air and 55 N when fully immersed in water. Its specific gravity is:",
+ h:"एक पिंड वायु में 60 N और जल में पूर्णतः डूबा होने पर 55 N तौलता है। इसका आपेक्षिक घनत्व है:",
+ o:[["1.09","1.09"],["11","11"],["5","5"],["12","12"]],a:3,
+ xe:"Loss of weight = buoyancy = weight of equal volume of water = 60 − 55 = 5 N. S = W<sub>air</sub>/(W<sub>air</sub> − W<sub>water</sub>) = 60/5 = 12. 1.09 (60/55) is the trap. UPSSSC Dec'21 asked the same with 15 g and 12 g → S = 5.",
+ xh:"भार में कमी = उत्प्लावन = 60 − 55 = 5 N। S = W<sub>वायु</sub>/(W<sub>वायु</sub> − W<sub>जल</sub>) = 60/5 = 12। 1.09 (60/55) जाल है। UPSSSC में 15 g व 12 g → S = 5।"},
+{t:"Buoyancy",adv:1,
+ e:"A block of ice floats in a glass filled to the brim with water. When the ice melts completely, the water level:",
+ h:"किनारे तक भरे पानी के गिलास में बर्फ का टुकड़ा तैर रहा है। बर्फ पूरी पिघलने पर पानी का स्तर:",
+ o:[["Rises slightly","थोड़ा बढ़ता है"],["Falls slightly","थोड़ा घटता है"],["Overflows","छलक जाता है"],["Remains same","समान रहता है"]],a:3,
+ xe:"Floating ice displaces water equal to its own weight. On melting it becomes exactly that much water, which fills the volume it had displaced – so the level stays the same and nothing overflows. (Ice in a liquid denser than water, like brine, would raise the level.)",
+ xh:"तैरती बर्फ अपने भार के बराबर जल विस्थापित करती है। पिघलकर वह ठीक उतना ही जल बनती है, जो विस्थापित आयतन भर देता है – इसलिए स्तर समान रहता है, पानी नहीं छलकता।"},
+{t:"Fluid Flow",up:1,
+ e:"The continuity equation is based on the principle of conservation of:",
+ h:"सांतत्य समीकरण (continuity equation) किसके संरक्षण के सिद्धांत पर आधारित है?",
+ o:[["Mass","द्रव्यमान"],["Energy","ऊर्जा"],["Momentum","संवेग"],["Angular momentum","कोणीय संवेग"]],a:0,
+ xe:"ρ₁A₁V₁ = ρ₂A₂V₂ (mass in = mass out); for incompressible flow, Q = A₁V₁ = A₂V₂. It needs density, area and velocity (UPSSSC Apr'22). Bernoulli → energy; impulse-momentum equation → momentum.",
+ xh:"ρ₁A₁V₁ = ρ₂A₂V₂ (आने वाला द्रव्यमान = जाने वाला); असंपीड्य प्रवाह में Q = A₁V₁ = A₂V₂। इसके लिए घनत्व, क्षेत्रफल, वेग चाहिए। बर्नूली → ऊर्जा; आवेग-संवेग समीकरण → संवेग।"},
+{t:"Bernoulli",up:0,
+ e:"Which of the following is NOT an assumption of Bernoulli's equation?",
+ h:"निम्न में से कौन बर्नूली समीकरण की मान्यता नहीं है?",
+ o:[["Steady flow","स्थिर प्रवाह"],["Incompressible fluid","असंपीड्य तरल"],["Rotational flow","घूर्णी प्रवाह"],["Frictionless flow","घर्षणरहित प्रवाह"]],a:2,
+ xe:"Bernoulli (conservation of energy) assumes steady, incompressible, non-viscous (frictionless), irrotational flow along a streamline (asked in five SSC papers). \"The flow is rotational\" is the wrong assumption (SSC'22). Each term has the unit of length: p/ρg + V²/2g + z = constant.",
+ xh:"बर्नूली (ऊर्जा संरक्षण) मानता है: स्थिर, असंपीड्य, अश्यान (घर्षणरहित), अघूर्णी प्रवाह, धारारेखा के साथ। \"प्रवाह घूर्णी है\" गलत मान्यता है। हर पद की इकाई लंबाई: p/ρg + V²/2g + z = स्थिरांक।"},
+{t:"Bernoulli",up:1,
+ e:"In a horizontal pipe, at a section where the area decreases, the static pressure:",
+ h:"एक क्षैतिज पाइप में जिस खंड पर क्षेत्रफल घटता है, वहाँ स्थैतिक दाब:",
+ o:[["Increases","बढ़ता है"],["Decreases","घटता है"],["Unchanged","अपरिवर्तित"],["Becomes zero","शून्य हो जाता है"]],a:1,
+ xe:"Continuity: smaller area → higher velocity (UPSSSC Apr'22). Bernoulli with z constant: higher V²/2g → lower p/ρg. This is the venturi effect – the throat of a venturimeter has the lowest static pressure (RRB CBT-2 Jun'25).",
+ xh:"सांतत्य: कम क्षेत्रफल → अधिक वेग। बर्नूली (z स्थिर): अधिक V²/2g → कम p/ρg। यही वेंचुरी प्रभाव है – वेंचुरीमीटर के थ्रोट पर स्थैतिक दाब सबसे कम।"},
+{t:"Flow Regimes",up:0,
+ e:"Reynolds number is the ratio of:",
+ h:"रेनॉल्ड्स संख्या किसका अनुपात है?",
+ o:[["Viscous ÷ inertia","श्यान ÷ जड़त्व"],["Inertia ÷ gravity","जड़त्व ÷ गुरुत्व"],["Inertia ÷ viscous","जड़त्व ÷ श्यान"],["Inertia ÷ elastic","जड़त्व ÷ प्रत्यास्थ"]],a:2,
+ xe:"Re = ρVd/μ = inertia force ÷ viscous force (asked in three SSC papers). Froude number → gravity, Mach number → √(inertia/elastic), Weber number → surface tension. Pipe: Re < 2000 laminar, > 4000 turbulent.",
+ xh:"Re = ρVd/μ = जड़त्व बल ÷ श्यान बल। फ्राउड → गुरुत्व, मैक → √(जड़त्व/प्रत्यास्थ), वेबर → पृष्ठ तनाव। पाइप: Re < 2000 स्तरीय, > 4000 विक्षुब्ध।"},
+{t:"Flow · Numerical",up:1,
+ e:"Water flows at 8 cm³/s through a pipe of 5 cm diameter. If μ = 1.6 × 10⁻² Pa·s and ρ = 1000 kg/m³, the flow is:",
+ h:"5 cm व्यास के पाइप में 8 cm³/s जल बहता है। यदि μ = 1.6 × 10⁻² Pa·s और ρ = 1000 kg/m³ हो, तो प्रवाह है:",
+ o:[["Turbulent","विक्षुब्ध"],["Transitional","संक्रमणकालीन"],["Critical","क्रांतिक"],["Laminar","स्तरीय"]],a:3,
+ xe:"V = Q/A = 8/(π/4 × 5²) = 0.41 cm/s = 0.0041 m/s. Re = ρVd/μ = 1000 × 0.0041 × 0.05/0.016 ≈ 13 – far below 2000 → laminar (UPSSSC Dec'21). Keep units consistent: cm³/s → m³/s or work fully in cm.",
+ xh:"V = Q/A = 8/(π/4 × 25) = 0.41 cm/s = 0.0041 m/s। Re = 1000 × 0.0041 × 0.05/0.016 ≈ 13 – 2000 से बहुत कम → स्तरीय। इकाइयाँ एक जैसी रखें।"},
+{t:"Pipe Flow",adv:1,
+ e:"In laminar flow through a pipe, the head loss due to friction is proportional to:",
+ h:"पाइप में स्तरीय प्रवाह में घर्षण से शीर्ष हानि किसके समानुपाती होती है?",
+ o:[["V","V"],["V²","V²"],["√V","√V"],["V³","V³"]],a:0,
+ xe:"Laminar (Hagen–Poiseuille): h<sub>f</sub> = 32μLV/(ρgd²) → h<sub>f</sub> ∝ V, with f = 64/Re and a parabolic velocity profile. Turbulent: h<sub>f</sub> ∝ V² (UPSSSC Dec'15), logarithmic profile. Darcy: h<sub>f</sub> = fLV²/(2gd).",
+ xh:"स्तरीय (हेगन–पॉइज़ुइल): h<sub>f</sub> = 32μLV/(ρgd²) → h<sub>f</sub> ∝ V, f = 64/Re, परवलयिक वेग प्रोफ़ाइल। विक्षुब्ध: h<sub>f</sub> ∝ V², लघुगणकीय प्रोफ़ाइल।"},
+{t:"Pipe Flow",up:1,
+ e:"In flow through a circular pipe, the shear stress is:",
+ h:"वृत्ताकार पाइप में प्रवाह के दौरान अपरूपण प्रतिबल:",
+ o:[["Maximum at centre","केंद्र पर अधिकतम"],["Zero at centre","केंद्र पर शून्य"],["Uniform everywhere","हर जगह समान"],["Zero at the wall","दीवार पर शून्य"]],a:1,
+ xe:"τ = (−dp/dx)(r/2): it varies linearly with radius – zero at the centre, maximum at the wall (UPSSSC Jul'16). Velocity is the opposite: maximum at the centre, zero at the wall (no-slip). Don't mix the two profiles.",
+ xh:"τ = (−dp/dx)(r/2): त्रिज्या के साथ रैखिक – केंद्र पर शून्य, दीवार पर अधिकतम। वेग इसका उलटा: केंद्र पर अधिकतम, दीवार पर शून्य। दोनों प्रोफ़ाइल न मिलाएँ।"},
+{t:"Flow Measurement",up:1,
+ e:"A pitot tube is used to measure the:",
+ h:"पिटो ट्यूब से मापा जाता है:",
+ o:[["Point velocity","किसी बिंदु पर वेग"],["Discharge rate","प्रवाह दर"],["Fluid viscosity","श्यानता"],["Fluid density","घनत्व"]],a:0,
+ xe:"A pitot tube converts kinetic energy to pressure at its tip: stagnation pressure = static + dynamic, so V = √(2gh) at that point (UPSSSC Jul'16, Apr'22). Used for aircraft speed and large pipes. Discharge → venturimeter, orifice meter, rotameter.",
+ xh:"पिटो ट्यूब अपनी नोक पर गतिज ऊर्जा को दाब में बदलती है: ठहराव दाब = स्थैतिक + गतिक, अतः उस बिंदु पर V = √(2gh)। वायुयान गति हेतु। प्रवाह दर → वेंचुरीमीटर, ओरिफ़िस मीटर, रोटामीटर।"},
+{t:"Flow Measurement",up:0,
+ e:"In a venturimeter:",
+ h:"वेंचुरीमीटर में:",
+ o:[["Divergent part shorter","अपसारी भाग छोटा"],["Convergent part shorter","अभिसारी भाग छोटा"],["Both parts equal","दोनों भाग बराबर"],["Throat is longest","थ्रोट सबसे लंबा"]],a:1,
+ xe:"Flow can accelerate quickly, but must decelerate slowly to avoid separation – so the divergent cone is long with a small angle (5°–7°) and the convergent part is short (asked in four SSC papers). A venturimeter can be fitted in any position, horizontal, vertical or inclined.",
+ xh:"प्रवाह जल्दी त्वरित हो सकता है, पर पृथक्करण से बचने के लिए धीरे मंद होना चाहिए – इसलिए अपसारी शंकु लंबा, छोटे कोण (5°–7°) वाला और अभिसारी भाग छोटा। वेंचुरीमीटर किसी भी स्थिति में लगाया जा सकता है।"},
+{t:"Orifice",up:1,
+ e:"The coefficient of discharge C<sub>d</sub> of an orifice is related to C<sub>c</sub> and C<sub>v</sub> as:",
+ h:"ओरिफ़िस का निस्सरण गुणांक C<sub>d</sub>, C<sub>c</sub> और C<sub>v</sub> से संबंधित है:",
+ o:[["C<sub>c</sub> ÷ C<sub>v</sub>","C<sub>c</sub> ÷ C<sub>v</sub>"],["C<sub>v</sub> ÷ C<sub>c</sub>","C<sub>v</sub> ÷ C<sub>c</sub>"],["C<sub>c</sub> + C<sub>v</sub>","C<sub>c</sub> + C<sub>v</sub>"],["C<sub>c</sub> × C<sub>v</sub>","C<sub>c</sub> × C<sub>v</sub>"]],a:3,
+ xe:"Q<sub>actual</sub> = (actual area) × (actual velocity) = C<sub>c</sub>a × C<sub>v</sub>√(2gH) → C<sub>d</sub> = C<sub>c</sub> × C<sub>v</sub> (UPSSSC Jul'16). C<sub>d</sub> = actual ÷ theoretical discharge, C<sub>v</sub> = actual ÷ theoretical velocity at vena contracta. Since C<sub>c</sub> < 1, C<sub>d</sub> < C<sub>v</sub>.",
+ xh:"Q<sub>वास्तविक</sub> = C<sub>c</sub>a × C<sub>v</sub>√(2gH) → C<sub>d</sub> = C<sub>c</sub> × C<sub>v</sub>। C<sub>d</sub> = वास्तविक ÷ सैद्धांतिक प्रवाह; C<sub>v</sub> = वेना कॉन्ट्रैक्टा पर वास्तविक ÷ सैद्धांतिक वेग। C<sub>c</sub> < 1, इसलिए C<sub>d</sub> < C<sub>v</sub>।"},
+{t:"Flow Measurement",up:1,
+ e:"Compared with a venturimeter, an orifice meter is:",
+ h:"वेंचुरीमीटर की तुलना में ओरिफ़िस मीटर है:",
+ o:[["Cheaper, higher loss","सस्ता, अधिक हानि"],["Costlier, lower loss","महँगा, कम हानि"],["Cheaper, lower loss","सस्ता, कम हानि"],["Costlier, higher loss","महँगा, अधिक हानि"]],a:0,
+ xe:"An orifice plate is simple and cheap, but the sudden contraction and expansion waste much more energy (UPSSSC Jul'16 for nozzle meter). Its C<sub>d</sub> (≈ 0.6) is lower than a venturimeter's (0.95–0.99). Venturi is preferred where head loss matters.",
+ xh:"ओरिफ़िस प्लेट सरल व सस्ती है, पर अचानक संकुचन-प्रसार से बहुत अधिक ऊर्जा हानि होती है। इसका C<sub>d</sub> (≈ 0.6) वेंचुरी (0.95–0.99) से कम। जहाँ शीर्ष हानि मायने रखे, वहाँ वेंचुरी।"},
+{t:"Orifice",up:0,
+ e:"The vena contracta of a jet issuing from an orifice is the section where:",
+ h:"ओरिफ़िस से निकलते जेट का वेना कॉन्ट्रैक्टा वह खंड है जहाँ:",
+ o:[["Area max, velocity min","क्षेत्रफल अधिकतम, वेग न्यूनतम"],["Area min, velocity max","क्षेत्रफल न्यूनतम, वेग अधिकतम"],["Area = orifice area","क्षेत्रफल = ओरिफ़िस क्षेत्रफल"],["Pressure is maximum","दाब अधिकतम"]],a:1,
+ xe:"Streamlines keep converging just after the orifice, so the jet reaches its minimum area (and maximum velocity) a little downstream – the vena contracta. C<sub>c</sub> = jet area there ÷ orifice area (< 1). Pressure there is atmospheric for a free jet.",
+ xh:"ओरिफ़िस के बाद भी धारारेखाएँ सिकुड़ती रहती हैं, इसलिए जेट थोड़ा आगे न्यूनतम क्षेत्रफल (अधिकतम वेग) पर पहुँचता है – यही वेना कॉन्ट्रैक्टा है। C<sub>c</sub> = वहाँ जेट क्षेत्रफल ÷ ओरिफ़िस क्षेत्रफल।"},
+{t:"Flow · Numerical",adv:1,
+ e:"Water from a main at 4 bar (gauge) issues as a vertical jet. Neglecting losses, the maximum height the jet can reach is nearly:",
+ h:"4 bar (गेज) दाब वाली मुख्य लाइन से जल ऊर्ध्वाधर जेट के रूप में निकलता है। हानियाँ नगण्य मानें, तो जेट की अधिकतम ऊँचाई लगभग है:",
+ o:[["4.08 m","4.08 m"],["408 m","408 m"],["40.8 m","40.8 m"],["20.4 m","20.4 m"]],a:2,
+ xe:"All pressure head converts to height: h = p/ρg = 4 × 10⁵/9810 = 40.8 m (Metro'19). Quick check: 1 bar ≈ 10.2 m of water. 20.4 m wrongly halves it as if using V²/2g twice.",
+ xh:"पूरा दाब शीर्ष ऊँचाई में बदलता है: h = p/ρg = 4 × 10⁵/9810 = 40.8 m। त्वरित जाँच: 1 bar ≈ 10.2 m जल। 20.4 m गलत तरीके से आधा करने पर।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – hydrostatics, buoyancy and flow are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the FM notes (buoyancy, Bernoulli and flow meters first), then retry. / पहले नोट्स (उत्प्लावन, बर्नूली और प्रवाह मीटर) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
