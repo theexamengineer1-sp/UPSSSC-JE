@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluid Mechanics & Hydraulic Machines Smart MCQ Set 3 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">03</div>
+    <h1>Fluid Mechanics &amp; Hydraulic Machines<br>Smart MCQ Set 3</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">तरल यांत्रिकी एवं हाइड्रोलिक मशीनें – स्मार्ट MCQ सेट 3 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Impact of Jets",up:0,
+ e:"A jet of water (area a, velocity V, density ρ) strikes a stationary flat plate held normal to the jet. The force on the plate is:",
+ h:"जल का एक जेट (क्षेत्रफल a, वेग V, घनत्व ρ) जेट के लंबवत रखी स्थिर समतल प्लेट से टकराता है। प्लेट पर बल है:",
+ o:[["ρaV","ρaV"],["½ ρaV²","½ ρaV²"],["2ρaV²","2ρaV²"],["ρaV²","ρaV²"]],a:3,
+ xe:"Force = rate of change of momentum = (ρaV) × (V − 0) = ρaV² (SSC'19). The jet loses all its velocity in its own direction. A hemispherical (curved) vane turns the jet back, so force can reach 2ρaV². ρaV is mass flow rate, and ½ρaV³ is the jet's kinetic energy per second.",
+ xh:"बल = संवेग परिवर्तन की दर = (ρaV) × (V − 0) = ρaV²। जेट अपनी दिशा में पूरा वेग खो देता है। अर्धगोलीय वक्र फलक जेट को उलट देता है, बल 2ρaV² तक। ρaV द्रव्यमान प्रवाह दर है।"},
+{t:"Impact of Jets",up:0,
+ e:"The maximum efficiency of a jet striking a series of flat vanes mounted on a wheel is:",
+ h:"पहिये पर लगे समतल फलकों की श्रृंखला से टकराते जेट की अधिकतम दक्षता है:",
+ o:[["8/27","8/27"],["100 %","100 %"],["50 %","50 %"],["33.3 %","33.3 %"]],a:2,
+ xe:"Series of vanes: F = ρaV(V − u) (all the jet's mass is used); η = 2u(V − u)/V², maximum 50 % at u = V/2 (SSC'08). A single moving plate only receives ρa(V − u)² and gives η<sub>max</sub> = 8/27 (≈ 29.6 %) at u = V/3 – that is the trap option.",
+ xh:"फलक श्रृंखला: F = ρaV(V − u) (जेट का पूरा द्रव्यमान उपयोग); η = 2u(V − u)/V², u = V/2 पर अधिकतम 50 %। एकल गतिशील प्लेट पर η<sub>max</sub> = 8/27, u = V/3 पर – यही जाल विकल्प है।"},
+{t:"Impact of Jets",adv:1,
+ e:"For a jet striking a single flat plate moving in the direction of the jet, efficiency is maximum when the plate velocity u equals:",
+ h:"जेट की दिशा में चलती एकल समतल प्लेट पर टकराते जेट की दक्षता अधिकतम होती है जब प्लेट वेग u बराबर हो:",
+ o:[["V/2","V/2"],["V/3","V/3"],["V/4","V/4"],["V","V"]],a:1,
+ xe:"For a single plate the jet keeps lengthening, so only ρa(V − u) mass per second strikes it: work = ρa(V − u)²u. Differentiating gives u = V/3 and η<sub>max</sub> = 8/27. For a wheel of vanes (and the Pelton wheel) the optimum is u = V/2.",
+ xh:"एकल प्लेट में जेट लंबा होता जाता है, इसलिए केवल ρa(V − u) द्रव्यमान प्रति सेकंड टकराता है: कार्य = ρa(V − u)²u। अवकलन से u = V/3, η<sub>max</sub> = 8/27। फलक-पहिये (पेल्टन) में u = V/2।"},
+{t:"Impact of Jets",adv:1,
+ e:"The maximum hydraulic efficiency of an impulse (Pelton) bucket that deflects the jet through an outlet angle φ is:",
+ h:"आउटलेट कोण φ से जेट को मोड़ने वाली इम्पल्स (पेल्टन) बकेट की अधिकतम हाइड्रोलिक दक्षता है:",
+ o:[["(1 − cos φ)/2","(1 − cos φ)/2"],["cos² φ","cos² φ"],["(1 + sin φ)/2","(1 + sin φ)/2"],["(1 + cos φ)/2","(1 + cos φ)/2"]],a:3,
+ xe:"At u = V/2, η<sub>max</sub> = (1 + cos φ)/2 (SSC'18). If φ = 0° (jet turned through 180°), η = 100 % in theory; in practice φ ≈ 15° to keep the water clear of the next bucket. Don't confuse with the steam-turbine result cos²α for symmetric impulse blading.",
+ xh:"u = V/2 पर η<sub>max</sub> = (1 + cos φ)/2। φ = 0° (जेट 180° मुड़े) पर सैद्धांतिक 100 %; व्यवहार में φ ≈ 15° ताकि जल अगली बकेट से न टकराए। भाप टरबाइन का cos²α इससे भिन्न है।"},
+{t:"Jets · Numerical",adv:1,
+ e:"A jet of water of area 0.01 m² and velocity 20 m/s strikes a stationary flat plate held normal to it. The force on the plate is:",
+ h:"0.01 m² क्षेत्रफल और 20 m/s वेग वाला जल जेट लंबवत रखी स्थिर समतल प्लेट से टकराता है। प्लेट पर बल है:",
+ o:[["2000 N","2000 N"],["8000 N","8000 N"],["4000 N","4000 N"],["200 N","200 N"]],a:2,
+ xe:"F = ρaV² = 1000 × 0.01 × 20² = 4000 N. 8000 N would be the hemispherical-vane value (2ρaV²); 2000 N wrongly uses ½ρaV²; 200 N is ρaV (mass flow, kg/s) – not a force.",
+ xh:"F = ρaV² = 1000 × 0.01 × 400 = 4000 N। 8000 N अर्धगोलीय फलक (2ρaV²) का मान; 2000 N गलत ½ρaV²; 200 N ρaV (द्रव्यमान प्रवाह) – बल नहीं।"},
+{t:"Turbine Types",up:1,
+ e:"Which of the following are reaction turbines?",
+ h:"निम्न में से कौन-से रिएक्शन टरबाइन हैं?",
+ o:[["Pelton and Francis","पेल्टन और फ्रांसिस"],["Francis and Kaplan","फ्रांसिस और कैप्लन"],["Pelton and Kaplan","पेल्टन और कैप्लन"],["Pelton and Turgo","पेल्टन और टर्गो"]],a:1,
+ xe:"Reaction turbines receive water with both pressure and kinetic energy and run full: Francis (mixed flow), Kaplan and propeller (axial) – UPSSSC Dec'21. Impulse turbines receive only kinetic energy: Pelton (tangential), Turgo and cross-flow.",
+ xh:"रिएक्शन टरबाइन में जल दाब + गतिज ऊर्जा दोनों के साथ आता है और रनर पूरा भरा रहता है: फ्रांसिस, कैप्लन, प्रोपेलर। इम्पल्स टरबाइन में केवल गतिज ऊर्जा: पेल्टन, टर्गो, क्रॉस-फ्लो।"},
+{t:"Turbine Types",up:1,
+ e:"In an impulse turbine, the pressure of water on the two sides of the runner is:",
+ h:"इम्पल्स टरबाइन में रनर के दोनों ओर जल का दाब होता है:",
+ o:[["Same on both sides","दोनों ओर समान"],["Higher at inlet","प्रवेश पर अधिक"],["Higher at outlet","निकास पर अधिक"],["Zero absolute","शून्य निरपेक्ष"]],a:0,
+ xe:"All pressure head is converted to velocity in the nozzle, so the jet strikes the buckets at atmospheric pressure on both sides (UPSSSC Dec'15). In a reaction turbine the inlet pressure is higher than the outlet pressure (p₁ > p₂), because pressure keeps dropping inside the runner.",
+ xh:"पूरा दाब शीर्ष नोज़ल में वेग में बदल जाता है, इसलिए जेट दोनों ओर वायुमंडलीय दाब पर बकेट से टकराता है। रिएक्शन टरबाइन में प्रवेश दाब निकास से अधिक (p₁ > p₂)।"},
+{t:"Turbine Basics",up:1,
+ e:"A hydraulic turbine converts:",
+ h:"हाइड्रोलिक टरबाइन बदलता है:",
+ o:[["Mechanical → hydraulic","यांत्रिक → हाइड्रोलिक"],["Kinetic → pressure","गतिज → दाब"],["Hydraulic → mechanical","हाइड्रोलिक → यांत्रिक"],["Heat → work","ऊष्मा → कार्य"]],a:2,
+ xe:"A turbine takes energy from flowing water and delivers shaft (mechanical) energy (UPSSSC Apr'22); it works on Newton's second law (impulse-momentum). The reverse – mechanical to hydraulic – is a pump. Kinetic → pressure is what a diffuser or draft tube does.",
+ xh:"टरबाइन बहते जल से ऊर्जा लेकर शाफ्ट (यांत्रिक) ऊर्जा देता है; यह न्यूटन के द्वितीय नियम पर कार्य करता है। उलटा – यांत्रिक से हाइड्रोलिक – पम्प है। गतिज → दाब डिफ्यूज़र या ड्राफ्ट ट्यूब करते हैं।"},
+{t:"Specific Speed",up:0,
+ e:"The correct decreasing order of specific speed of hydraulic turbines is:",
+ h:"हाइड्रोलिक टरबाइनों की विशिष्ट गति का सही घटता क्रम है:",
+ o:[["Pelton > Francis > Kaplan","पेल्टन > फ्रांसिस > कैप्लन"],["Kaplan > Francis > Pelton","कैप्लन > फ्रांसिस > पेल्टन"],["Francis > Kaplan > Pelton","फ्रांसिस > कैप्लन > पेल्टन"],["Kaplan > Pelton > Francis","कैप्लन > पेल्टन > फ्रांसिस"]],a:1,
+ xe:"N<sub>s</sub> = N√P/H<sup>5/4</sup> – low head and large flow give high N<sub>s</sub>. Kaplan (≈ 300–1000) > Francis (≈ 50–300) > Pelton (≈ 8.5–30) – SSC'20. Head order is exactly the reverse: Pelton > Francis > Kaplan (option A is the head order – the trap).",
+ xh:"N<sub>s</sub> = N√P/H<sup>5/4</sup> – कम शीर्ष, अधिक प्रवाह → अधिक N<sub>s</sub>। कैप्लन > फ्रांसिस > पेल्टन। शीर्ष का क्रम बिल्कुल उलटा: पेल्टन > फ्रांसिस > कैप्लन (विकल्प A – जाल)।"},
+{t:"Pelton Wheel",up:0,
+ e:"A Pelton wheel is a:",
+ h:"पेल्टन व्हील है:",
+ o:[["Radial-flow reaction","त्रिज्य-प्रवाह रिएक्शन"],["Axial-flow reaction","अक्षीय-प्रवाह रिएक्शन"],["Mixed-flow reaction","मिश्रित-प्रवाह रिएक्शन"],["Tangential impulse","स्पर्शरेखीय इम्पल्स"]],a:3,
+ xe:"The jet strikes the buckets tangentially to the wheel, and only kinetic energy is used → tangential-flow impulse turbine (asked in four SSC papers). It suits high head and low flow; water in the wheel is at atmospheric pressure; it needs no draft tube. Overall efficiency ≈ 85 %.",
+ xh:"जेट पहिये पर स्पर्शरेखीय रूप से बकेट से टकराता है, केवल गतिज ऊर्जा → स्पर्शरेखीय-प्रवाह इम्पल्स टरबाइन। उच्च शीर्ष, कम प्रवाह के लिए; ड्राफ्ट ट्यूब नहीं। समग्र दक्षता ≈ 85 %।"},
+{t:"Pelton Wheel",up:0,
+ e:"The hydraulic efficiency of a Pelton wheel is maximum when the bucket speed u equals:",
+ h:"पेल्टन व्हील की हाइड्रोलिक दक्षता अधिकतम होती है जब बकेट वेग u बराबर हो:",
+ o:[["V","V"],["V/2","V/2"],["V/3","V/3"],["2V","2V"]],a:1,
+ xe:"u = V/2 (asked in four SSC papers), i.e. speed ratio u/√(2gH) ≈ 0.46 in practice (0.43–0.47). V/3 is the single-moving-plate result. Jet velocity V = C<sub>v</sub>√(2gH) with C<sub>v</sub> ≈ 0.98.",
+ xh:"u = V/2, यानी गति अनुपात u/√(2gH) ≈ 0.46 (व्यवहार में 0.43–0.47)। V/3 एकल गतिशील प्लेट का परिणाम है। जेट वेग V = C<sub>v</sub>√(2gH)।"},
+{t:"Pelton Wheel",up:1,
+ e:"An impulse turbine (Pelton wheel) is generally installed:",
+ h:"इम्पल्स टरबाइन (पेल्टन व्हील) सामान्यतः लगाया जाता है:",
+ o:[["Below the tail race","टेल रेस के नीचे"],["At tail-race level","टेल रेस के स्तर पर"],["Above the tail race","टेल रेस से थोड़ा ऊपर"],["Inside the draft tube","ड्राफ्ट ट्यूब के अंदर"]],a:2,
+ xe:"The runner works in air at atmospheric pressure, so it is placed a little above the tail race to keep the wheel from dragging in water (UPSSSC Dec'15) – no draft tube is used. Reaction turbines run full and may be set below the tail race (reduces cavitation), with a draft tube.",
+ xh:"रनर वायुमंडलीय दाब पर हवा में चलता है, इसलिए पहिया पानी में न घिसटे इसलिए टेल रेस से थोड़ा ऊपर लगाया जाता है – ड्राफ्ट ट्यूब नहीं। रिएक्शन टरबाइन पूरे भरे चलते हैं, ड्राफ्ट ट्यूब के साथ।"},
+{t:"Pelton Wheel",up:0,
+ e:"The jet ratio of a Pelton wheel is defined as:",
+ h:"पेल्टन व्हील का जेट अनुपात (jet ratio) परिभाषित है:",
+ o:[["D ÷ d","D ÷ d"],["d ÷ D","d ÷ D"],["u ÷ V","u ÷ V"],["V ÷ u","V ÷ u"]],a:0,
+ xe:"Jet ratio m = pitch diameter of wheel (D) ÷ jet diameter (d); it is more than 6, typically about 12 (asked in three SSC papers). Number of buckets ≈ 15 + D/(2d). u ÷ V is the speed ratio (≈ 0.46). Maximum jets without interference = 6.",
+ xh:"जेट अनुपात m = पहिये का पिच व्यास (D) ÷ जेट व्यास (d); 6 से अधिक, सामान्यतः लगभग 12। बकेट संख्या ≈ 15 + D/(2d)। u ÷ V गति अनुपात है।"},
+{t:"Turbine Materials",up:1,
+ e:"The runner material of a water turbine must mainly have high resistance to:",
+ h:"जल टरबाइन के रनर पदार्थ में मुख्यतः किसका उच्च प्रतिरोध होना चाहिए?",
+ o:[["Creep at high temps","उच्च ताप पर क्रीप"],["Thermal shock","तापीय आघात"],["Magnetic hysteresis","चुंबकीय शैथिल्य"],["Corrosion & erosion","संक्षारण व अपरदन"]],a:3,
+ xe:"Water with silt, high velocity and cavitation pitting attack the runner, so it needs high resistance to corrosion, erosion and cavitation (UPSSSC Jul'16) – stainless steel is preferred. Creep and thermal shock matter in steam and gas turbines, not water turbines.",
+ xh:"गाद युक्त जल, उच्च वेग और कैविटेशन रनर को नुकसान पहुँचाते हैं, इसलिए संक्षारण, अपरदन व कैविटेशन का उच्च प्रतिरोध चाहिए – स्टेनलेस स्टील बेहतर। क्रीप व तापीय आघात भाप/गैस टरबाइन में मायने रखते हैं।"},
+{t:"Francis Turbine",up:0,
+ e:"A Francis turbine is an:",
+ h:"फ्रांसिस टरबाइन है:",
+ o:[["Inward-flow reaction","आंतरिक-प्रवाह रिएक्शन"],["Outward-flow impulse","बाह्य-प्रवाह इम्पल्स"],["Axial-flow impulse","अक्षीय-प्रवाह इम्पल्स"],["Tangential reaction","स्पर्शरेखीय रिएक्शन"]],a:0,
+ xe:"Water enters at the outer periphery and flows towards the centre → inward radial-flow reaction turbine; modern Francis turbines are mixed flow (radial in, axial out). Guide vanes direct the flow and govern the load. A centrifugal pump is the reverse of an inward-flow reaction turbine.",
+ xh:"जल बाहरी परिधि से प्रवेश कर केंद्र की ओर बहता है → आंतरिक त्रिज्य-प्रवाह रिएक्शन टरबाइन; आधुनिक फ्रांसिस मिश्रित प्रवाह। गाइड वेन प्रवाह दिशा व लोड नियंत्रित करते हैं। अपकेंद्री पम्प इसका उलटा है।"},
+{t:"Kaplan Turbine",up:0,
+ e:"A Kaplan turbine is best described as a:",
+ h:"कैप्लन टरबाइन का सबसे सही वर्णन है:",
+ o:[["High head, tangential","उच्च शीर्ष, स्पर्शरेखीय"],["Medium head, radial","मध्यम शीर्ष, त्रिज्य"],["High head, axial flow","उच्च शीर्ष, अक्षीय"],["Low head, axial flow","निम्न शीर्ष, अक्षीय"]],a:3,
+ xe:"Kaplan = low-head, high-discharge, axial-flow reaction turbine (asked in four SSC papers) with high specific speed; flow velocity is constant along the radius and the degree of reaction lies between ½ and 1. A bulb turbine is a type of Kaplan.",
+ xh:"कैप्लन = निम्न शीर्ष, अधिक प्रवाह, अक्षीय-प्रवाह रिएक्शन टरबाइन, उच्च विशिष्ट गति; प्रवाह वेग त्रिज्या के साथ स्थिर, रिएक्शन की मात्रा ½ और 1 के बीच। बल्ब टरबाइन कैप्लन का प्रकार है।"},
+{t:"Kaplan Turbine",adv:1,
+ e:"The main feature that distinguishes a Kaplan turbine from a propeller turbine is that its runner blades are:",
+ h:"कैप्लन टरबाइन को प्रोपेलर टरबाइन से अलग करने वाली मुख्य विशेषता है कि उसके रनर ब्लेड:",
+ o:[["Fixed","स्थिर"],["Adjustable","समायोज्य"],["Bucket-shaped","बकेट आकार के"],["Radial","त्रिज्य"]],a:1,
+ xe:"Both are axial-flow reaction turbines; Kaplan has adjustable (pivoted) runner blades (4–8 blades), the propeller turbine has fixed blades. Adjusting the blades with load keeps efficiency high over a wide range – that is why Kaplan and Pelton have good part-load efficiency.",
+ xh:"दोनों अक्षीय-प्रवाह रिएक्शन टरबाइन हैं; कैप्लन के रनर ब्लेड समायोज्य (4–8), प्रोपेलर के स्थिर। लोड के साथ ब्लेड समायोजन से विस्तृत सीमा में दक्षता अधिक रहती है।"},
+{t:"Turbine Selection",up:0,
+ e:"The most suitable turbine for a site with a head of about 10 m and large discharge is:",
+ h:"लगभग 10 m शीर्ष और अधिक प्रवाह वाले स्थान के लिए सबसे उपयुक्त टरबाइन है:",
+ o:[["Pelton","पेल्टन"],["Francis","फ्रांसिस"],["Kaplan","कैप्लन"],["Turgo","टर्गो"]],a:2,
+ xe:"Low head (< 30 m) with large flow → Kaplan (SSC'18). Head guide: Pelton > 250 m (high), Francis ≈ 30/50–250/400 m (medium – UPSSSC Dec'21), Kaplan < 30 m (low). Turgo is an impulse turbine for medium head.",
+ xh:"निम्न शीर्ष (< 30 m), अधिक प्रवाह → कैप्लन। शीर्ष मार्गदर्शक: पेल्टन > 250 m, फ्रांसिस ≈ 30/50–250/400 m (मध्यम), कैप्लन < 30 m। टर्गो मध्यम शीर्ष का इम्पल्स टरबाइन।"},
+{t:"Draft Tube",up:1,
+ e:"The main function of a draft tube in a reaction turbine is to:",
+ h:"रिएक्शन टरबाइन में ड्राफ्ट ट्यूब का मुख्य कार्य है:",
+ o:[["Raise exit velocity","निकास वेग बढ़ाना"],["Recover outlet KE","निकास की गतिज ऊर्जा प्राप्त करना"],["Govern the speed","गति नियंत्रित करना"],["Stop water hammer","वॉटर हैमर रोकना"]],a:1,
+ xe:"The diverging draft tube slows the water leaving the runner and converts that residual kinetic energy into pressure, minimising exit loss; it also lets the turbine be set above the tail race without losing head (UPSSSC Dec'21). \"It increases the velocity of discharged water\" is the incorrect statement asked. Surge tanks handle water hammer.",
+ xh:"अपसारी ड्राफ्ट ट्यूब रनर से निकलते जल को धीमा कर शेष गतिज ऊर्जा को दाब में बदलती है, निकास हानि घटाती है; टरबाइन को टेल रेस से ऊपर रखने देती है। \"निकास वेग बढ़ाती है\" गलत कथन है। वॉटर हैमर के लिए सर्ज टैंक।"},
+{t:"Draft Tube",adv:1,
+ e:"Along the direction of flow, the cross-sectional area of a draft tube:",
+ h:"प्रवाह की दिशा में ड्राफ्ट ट्यूब का अनुप्रस्थ काट क्षेत्रफल:",
+ o:[["Decreases","घटता है"],["Stays constant","स्थिर रहता है"],["Increases","बढ़ता है"],["First decreases","पहले घटता है"]],a:2,
+ xe:"Area increases (diverging tube) so that velocity falls and pressure recovers (SSC'19). A tapered (conical) draft tube converts more kinetic head than a cylindrical one. Too large a cone angle causes flow separation, so the angle is kept small.",
+ xh:"क्षेत्रफल बढ़ता है (अपसारी नली) ताकि वेग घटे और दाब वापस मिले। शंक्वाकार ड्राफ्ट ट्यूब बेलनाकार से अधिक गतिज शीर्ष बदलती है। अधिक शंकु कोण पर प्रवाह पृथक्करण।"},
+{t:"Cavitation",up:0,
+ e:"Cavitation in a hydraulic turbine occurs when the local pressure falls below the:",
+ h:"हाइड्रोलिक टरबाइन में कैविटेशन तब होता है जब स्थानीय दाब नीचे गिर जाए:",
+ o:[["Vapour pressure","वाष्प दाब"],["Atmospheric pressure","वायुमंडलीय दाब"],["Critical pressure","क्रांतिक दाब"],["Zero gauge pressure","शून्य गेज दाब"]],a:0,
+ xe:"Below vapour pressure the water boils locally; the vapour bubbles collapse in high-pressure zones → pitting, noise, vibration and loss of efficiency. Thoma's factor σ = (H<sub>a</sub> − H<sub>v</sub> − H<sub>s</sub>)/H. Avoid it with polished stainless-steel blades and by setting the runner low (below the tail race).",
+ xh:"वाष्प दाब से नीचे जल स्थानीय रूप से उबलता है; बुलबुले उच्च दाब में फूटते हैं → गड्ढे, शोर, कंपन, दक्षता हानि। थोमा गुणांक σ = (H<sub>a</sub> − H<sub>v</sub> − H<sub>s</sub>)/H। पॉलिश्ड स्टेनलेस स्टील ब्लेड व नीचे रनर से बचाव।"},
+{t:"Specific Speed",up:0,
+ e:"The specific speed of a hydraulic turbine is given by:",
+ h:"हाइड्रोलिक टरबाइन की विशिष्ट गति दी जाती है:",
+ o:[["N√P / H<sup>5/4</sup>","N√P / H<sup>5/4</sup>"],["N√Q / H<sup>3/4</sup>","N√Q / H<sup>3/4</sup>"],["N√P / H<sup>3/4</sup>","N√P / H<sup>3/4</sup>"],["N√Q / H<sup>5/4</sup>","N√Q / H<sup>5/4</sup>"]],a:0,
+ xe:"Turbine: N<sub>s</sub> = N√P/H<sup>5/4</sup> – speed at which a geometrically similar turbine develops unit power under unit head. Pump: N<sub>s</sub> = N√Q/H<sup>3/4</sup> (UPSSSC Dec'15) – unit discharge under unit head. The examiner swaps P↔Q and 5/4↔3/4.",
+ xh:"टरबाइन: N<sub>s</sub> = N√P/H<sup>5/4</sup> – एकांक शीर्ष पर एकांक शक्ति देने वाली गति। पम्प: N<sub>s</sub> = N√Q/H<sup>3/4</sup> – एकांक शीर्ष पर एकांक प्रवाह। परीक्षक P↔Q और 5/4↔3/4 बदलते हैं।"},
+{t:"Unit Quantities",up:1,
+ e:"For a given turbine working under different heads, the discharge Q is proportional to:",
+ h:"विभिन्न शीर्षों पर चलने वाले किसी टरबाइन के लिए प्रवाह Q समानुपाती है:",
+ o:[["H","H"],["H<sup>3/2</sup>","H<sup>3/2</sup>"],["H²","H²"],["√H","√H"]],a:3,
+ xe:"V ∝ √H, so Q ∝ √H and speed N ∝ √H; power P = ρgQH ∝ H<sup>3/2</sup> (UPSSSC Jul'16, SSC'17). Unit speed = N/√H, unit discharge = Q/√H, unit power = P/H<sup>3/2</sup>.",
+ xh:"V ∝ √H, अतः Q ∝ √H और N ∝ √H; शक्ति P = ρgQH ∝ H<sup>3/2</sup>। एकांक गति = N/√H, एकांक प्रवाह = Q/√H, एकांक शक्ति = P/H<sup>3/2</sup>।"},
+{t:"Turbine Efficiency",up:0,
+ e:"The overall efficiency of a hydraulic turbine is the ratio of:",
+ h:"हाइड्रोलिक टरबाइन की समग्र दक्षता किसका अनुपात है?",
+ o:[["Shaft ÷ water power","शाफ्ट ÷ जल शक्ति"],["Runner ÷ water power","रनर ÷ जल शक्ति"],["Shaft ÷ runner power","शाफ्ट ÷ रनर शक्ति"],["Water ÷ shaft power","जल ÷ शाफ्ट शक्ति"]],a:0,
+ xe:"η<sub>o</sub> = shaft power ÷ water power (ρgQH) – asked in three SSC papers. Hydraulic η<sub>h</sub> = runner power ÷ water power; mechanical η<sub>m</sub> = shaft ÷ runner power; so η<sub>o</sub> = η<sub>h</sub> × η<sub>m</sub> and η<sub>h</sub> = η<sub>o</sub>/η<sub>m</sub>.",
+ xh:"η<sub>o</sub> = शाफ्ट शक्ति ÷ जल शक्ति (ρgQH)। हाइड्रोलिक = रनर ÷ जल शक्ति; यांत्रिक = शाफ्ट ÷ रनर शक्ति; अतः η<sub>o</sub> = η<sub>h</sub> × η<sub>m</sub>।"},
+{t:"Turbine Selection",up:1,
+ e:"A Francis turbine is best suited for:",
+ h:"फ्रांसिस टरबाइन सबसे उपयुक्त है:",
+ o:[["High head, low flow","उच्च शीर्ष, कम प्रवाह"],["Medium head, flow","मध्यम शीर्ष व प्रवाह"],["Low head, high flow","निम्न शीर्ष, अधिक प्रवाह"],["Very low head only","केवल बहुत कम शीर्ष"]],a:1,
+ xe:"Francis works under medium head and medium discharge (UPSSSC Dec'21 key: about 50–400 m), with medium specific speed. High head & low flow → Pelton; low head & high flow → Kaplan. Its flow ratio is about 0.15–0.30.",
+ xh:"फ्रांसिस मध्यम शीर्ष व मध्यम प्रवाह पर (लगभग 50–400 m), मध्यम विशिष्ट गति। उच्च शीर्ष, कम प्रवाह → पेल्टन; निम्न शीर्ष, अधिक प्रवाह → कैप्लन।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – jets and hydraulic turbines are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the HM notes (jets, Pelton, Francis, Kaplan first), then retry. / पहले नोट्स (जेट, पेल्टन, फ्रांसिस, कैप्लन) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
