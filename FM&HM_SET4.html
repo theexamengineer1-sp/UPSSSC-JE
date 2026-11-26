@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluid Mechanics & Hydraulic Machines Smart MCQ Set 4 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">04</div>
+    <h1>Fluid Mechanics &amp; Hydraulic Machines<br>Smart MCQ Set 4</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">तरल यांत्रिकी एवं हाइड्रोलिक मशीनें – स्मार्ट MCQ सेट 4 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+{t:"Pump Basics",up:1,
+ e:"A centrifugal pump converts:",
+ h:"अपकेंद्री पम्प बदलता है:",
+ o:[["Hydraulic → mechanical","हाइड्रोलिक → यांत्रिक"],["Mechanical → hydraulic","यांत्रिक → हाइड्रोलिक"],["Pressure → kinetic","दाब → गतिज"],["Heat → pressure","ऊष्मा → दाब"]],a:1,
+ xe:"A pump takes shaft (mechanical) energy and gives it to the liquid as pressure energy – it works on the principle of forced vortex (centrifugal action). It is the reverse of a turbine (hydraulic → mechanical). An inward-flow reaction turbine run in reverse acts as a centrifugal pump.",
+ xh:"पम्प शाफ्ट (यांत्रिक) ऊर्जा लेकर द्रव को दाब ऊर्जा देता है – बलात् भँवर (अपकेंद्री क्रिया) के सिद्धांत पर। यह टरबाइन (हाइड्रोलिक → यांत्रिक) का उलटा है। आंतरिक-प्रवाह रिएक्शन टरबाइन को उलटा चलाने पर अपकेंद्री पम्प।"},
+{t:"Centrifugal Pump",up:1,
+ e:"Priming of a centrifugal pump means:",
+ h:"अपकेंद्री पम्प की प्राइमिंग (priming) का अर्थ है:",
+ o:[["Filling with liquid","द्रव से भरना"],["Lubricating bearings","बेयरिंग में स्नेहन"],["Raising the speed","गति बढ़ाना"],["Removing the impeller","इम्पेलर निकालना"]],a:0,
+ xe:"The suction pipe, casing and delivery pipe up to the valve are filled with liquid before starting, to drive out air (UPSSSC). Pressure developed ∝ density, so with air in the casing the head produced is negligible and water is not lifted. A reciprocating pump does not need priming.",
+ xh:"चालू करने से पहले सक्शन पाइप, केसिंग और डिलीवरी वाल्व तक पाइप को द्रव से भरा जाता है ताकि वायु निकल जाए। उत्पन्न दाब ∝ घनत्व, इसलिए केसिंग में हवा हो तो शीर्ष नगण्य, जल नहीं उठता। प्रत्यागामी पम्प को प्राइमिंग नहीं चाहिए।"},
+{t:"Centrifugal Pump",adv:1,
+ e:"A centrifugal pump is started with the delivery valve:",
+ h:"अपकेंद्री पम्प को डिलीवरी वाल्व किस स्थिति में रखकर चालू किया जाता है?",
+ o:[["Fully open","पूरा खुला"],["Half open","आधा खुला"],["Closed","बंद"],["Removed","हटाकर"]],a:2,
+ xe:"At zero discharge the power taken by a centrifugal pump is minimum, so it is started with the delivery valve closed to reduce starting load on the motor; the valve is then opened slowly. A reciprocating pump is never started against a closed valve – pressure would build up and burst the pipe.",
+ xh:"शून्य प्रवाह पर अपकेंद्री पम्प की शक्ति न्यूनतम होती है, इसलिए मोटर पर प्रारंभिक भार घटाने हेतु डिलीवरी वाल्व बंद रखकर चालू करते हैं, फिर धीरे खोलते हैं। प्रत्यागामी पम्प को बंद वाल्व पर कभी नहीं चलाते – दाब से पाइप फट सकता है।"},
+{t:"Centrifugal Pump",up:1,
+ e:"In a centrifugal pump, the liquid enters the impeller:",
+ h:"अपकेंद्री पम्प में द्रव इम्पेलर में प्रवेश करता है:",
+ o:[["At the outer periphery","बाहरी परिधि पर"],["Tangentially","स्पर्शरेखीय रूप से"],["Through the volute","वॉल्यूट से होकर"],["At the eye (centre)","आई (केंद्र) पर"]],a:3,
+ xe:"Liquid enters axially at the eye (centre) and leaves radially at the outer periphery – centrifugal pumps are outward radial-flow machines. Velocity of whirl at inlet is taken as zero (radial entry), which maximises the head. The volute casing then converts kinetic energy into pressure.",
+ xh:"द्रव आई (केंद्र) पर अक्षीय रूप से प्रवेश कर बाहरी परिधि पर त्रिज्य रूप से निकलता है – बाह्य त्रिज्य-प्रवाह मशीन। प्रवेश पर भँवर वेग शून्य माना जाता है (त्रिज्य प्रवेश)। वॉल्यूट केसिंग गतिज ऊर्जा को दाब में बदलती है।"},
+{t:"Centrifugal Pump",up:0,
+ e:"The function of the volute casing of a centrifugal pump is to:",
+ h:"अपकेंद्री पम्प की वॉल्यूट केसिंग का कार्य है:",
+ o:[["Convert KE to pressure","गतिज ऊर्जा को दाब में बदलना"],["Raise the jet velocity","जेट वेग बढ़ाना"],["Prime the pump casing","केसिंग की प्राइमिंग करना"],["Hold the impeller","इम्पेलर को थामना"]],a:0,
+ xe:"The spiral volute has a gradually increasing area, so the high-velocity water leaving the impeller slows down and its kinetic energy becomes pressure; it also reduces eddy losses. A vortex (whirlpool) chamber or diffuser guide vanes do the same job more efficiently.",
+ xh:"सर्पिल वॉल्यूट का क्षेत्रफल धीरे-धीरे बढ़ता है, इसलिए इम्पेलर से निकलता तेज़ जल धीमा होकर दाब में बदलता है; भँवर हानि भी घटती है। वॉर्टेक्स चैंबर या डिफ्यूज़र गाइड वेन यही कार्य अधिक दक्षता से करते हैं।"},
+{t:"Centrifugal Pump",adv:1,
+ e:"Multistage centrifugal pumps with impellers in series are used to obtain:",
+ h:"श्रेणी में इम्पेलर वाले बहुचरणीय अपकेंद्री पम्प किसके लिए प्रयुक्त होते हैं?",
+ o:[["High discharge","अधिक प्रवाह"],["Low head","कम शीर्ष"],["High head","अधिक शीर्ष"],["Low speed","कम गति"]],a:2,
+ xe:"Impellers in series (on one shaft) add their heads: total H = n × H₁ for the same discharge – used for high-head work like boiler feed. Impellers (or pumps) in parallel add discharge at the same head: Q = n × Q₁.",
+ xh:"श्रेणी में इम्पेलर (एक शाफ्ट पर) अपने शीर्ष जोड़ते हैं: समान प्रवाह पर H = n × H₁ – बॉयलर फीड जैसे उच्च शीर्ष हेतु। समांतर में पम्प समान शीर्ष पर प्रवाह जोड़ते हैं: Q = n × Q₁।"},
+{t:"Centrifugal Pump",adv:1,
+ e:"For a centrifugal pump, if the speed N is doubled, the power required becomes:",
+ h:"अपकेंद्री पम्प की गति N दोगुनी करने पर आवश्यक शक्ति हो जाती है:",
+ o:[["2 times","2 गुना"],["4 times","4 गुना"],["16 times","16 गुना"],["8 times","8 गुना"]],a:3,
+ xe:"Affinity laws (same pump): Q ∝ N, H ∝ N², P ∝ N³. Doubling N → Q × 2, H × 4, P × 8. With diameter: Q ∝ D³, H ∝ D², P ∝ D⁵ (same speed). 4 times is the head, not the power.",
+ xh:"समानता नियम (वही पम्प): Q ∝ N, H ∝ N², P ∝ N³। N दोगुना → Q × 2, H × 4, P × 8। व्यास के साथ: Q ∝ D³, H ∝ D², P ∝ D⁵। 4 गुना शीर्ष है, शक्ति नहीं।"},
+{t:"Centrifugal Pump",up:0,
+ e:"Manometric efficiency of a centrifugal pump is the ratio of:",
+ h:"अपकेंद्री पम्प की मैनोमेट्रिक दक्षता किसका अनुपात है?",
+ o:[["gH<sub>m</sub> ÷ V<sub>w2</sub>u₂","gH<sub>m</sub> ÷ V<sub>w2</sub>u₂"],["V<sub>w2</sub>u₂ ÷ gH<sub>m</sub>","V<sub>w2</sub>u₂ ÷ gH<sub>m</sub>"],["H<sub>m</sub> ÷ H<sub>static</sub>","H<sub>m</sub> ÷ H<sub>static</sub>"],["Shaft ÷ water power","शाफ्ट ÷ जल शक्ति"]],a:0,
+ xe:"η<sub>mano</sub> = manometric head ÷ head imparted by impeller = gH<sub>m</sub>/(V<sub>w2</sub>u₂). Overall η<sub>o</sub> = water power (ρgQH<sub>m</sub>) ÷ shaft power – option D is its inverse. Manometric head H<sub>m</sub> = h<sub>s</sub> + h<sub>d</sub> + h<sub>fs</sub> + h<sub>fd</sub> + V<sub>d</sub>²/2g.",
+ xh:"η<sub>मैनो</sub> = मैनोमेट्रिक शीर्ष ÷ इम्पेलर द्वारा दिया गया शीर्ष = gH<sub>m</sub>/(V<sub>w2</sub>u₂)। समग्र η<sub>o</sub> = जल शक्ति ÷ शाफ्ट शक्ति – विकल्प D उसका उलटा है।"},
+{t:"Centrifugal Pump",adv:1,
+ e:"For the highest efficiency, the impeller vanes of a centrifugal pump are generally:",
+ h:"अधिकतम दक्षता के लिए अपकेंद्री पम्प के इम्पेलर वेन सामान्यतः होते हैं:",
+ o:[["Radial","त्रिज्य"],["Forward-curved","आगे की ओर मुड़े"],["Straight and axial","सीधे और अक्षीय"],["Backward-curved","पीछे की ओर मुड़े"]],a:3,
+ xe:"Backward-curved vanes (outlet angle β₂ < 90°) give a stable, falling head–discharge curve and the highest efficiency, with non-overloading power. Forward-curved vanes give more head but unstable, overloading characteristics. Radial vanes lie in between.",
+ xh:"पीछे मुड़े वेन (आउटलेट कोण β₂ < 90°) स्थिर, गिरता शीर्ष–प्रवाह वक्र और अधिकतम दक्षता देते हैं, ओवरलोड नहीं होता। आगे मुड़े वेन अधिक शीर्ष पर अस्थिर। त्रिज्य वेन बीच में।"},
+{t:"Specific Speed",up:1,
+ e:"The specific speed of a centrifugal pump is given by:",
+ h:"अपकेंद्री पम्प की विशिष्ट गति दी जाती है:",
+ o:[["N√P / H<sup>5/4</sup>","N√P / H<sup>5/4</sup>"],["N√Q / H<sup>5/4</sup>","N√Q / H<sup>5/4</sup>"],["N√Q / H<sup>3/4</sup>","N√Q / H<sup>3/4</sup>"],["N√P / H<sup>3/4</sup>","N√P / H<sup>3/4</sup>"]],a:2,
+ xe:"Pump: N<sub>s</sub> = N√Q/H<sup>3/4</sup> – speed of a similar pump delivering unit discharge against unit head (UPSSSC Dec'15). Turbine: N<sub>s</sub> = N√P/H<sup>5/4</sup> (option A). Low N<sub>s</sub> → radial (centrifugal) pump; high N<sub>s</sub> → axial-flow pump.",
+ xh:"पम्प: N<sub>s</sub> = N√Q/H<sup>3/4</sup> – एकांक शीर्ष पर एकांक प्रवाह देने वाली गति। टरबाइन: N<sub>s</sub> = N√P/H<sup>5/4</sup> (विकल्प A)। कम N<sub>s</sub> → त्रिज्य पम्प; अधिक N<sub>s</sub> → अक्षीय पम्प।"},
+{t:"Cavitation & NPSH",up:0,
+ e:"To avoid cavitation in a centrifugal pump, the available NPSH should be:",
+ h:"अपकेंद्री पम्प में कैविटेशन से बचने के लिए उपलब्ध NPSH होना चाहिए:",
+ o:[["Equal to zero","शून्य के बराबर"],["Less than required","आवश्यक से कम"],["Negative","ऋणात्मक"],["More than required","आवश्यक से अधिक"]],a:3,
+ xe:"NPSH = (p<sub>atm</sub> − p<sub>v</sub>)/ρg − h<sub>s</sub> − h<sub>fs</sub> – the head above vapour pressure at pump inlet. Keep NPSH<sub>available</sub> > NPSH<sub>required</sub>. Cavitation is most likely at the impeller eye (inlet), where pressure is lowest – reduce suction height and suction-pipe losses.",
+ xh:"NPSH = (p<sub>atm</sub> − p<sub>v</sub>)/ρg − h<sub>s</sub> − h<sub>fs</sub> – पम्प प्रवेश पर वाष्प दाब से ऊपर का शीर्ष। NPSH<sub>उपलब्ध</sub> > NPSH<sub>आवश्यक</sub> रखें। कैविटेशन इम्पेलर आई (प्रवेश) पर सबसे अधिक संभव, जहाँ दाब न्यूनतम।"},
+{t:"Cavitation & NPSH",adv:1,
+ e:"In a centrifugal pump, cavitation is most likely to occur at the:",
+ h:"अपकेंद्री पम्प में कैविटेशन सबसे अधिक कहाँ होने की संभावना है?",
+ o:[["Impeller inlet (eye)","इम्पेलर प्रवेश (आई)"],["Impeller outlet tip","इम्पेलर निकास सिरा"],["Delivery pipe end","डिलीवरी पाइप सिरा"],["Volute casing throat","वॉल्यूट केसिंग थ्रोट"]],a:0,
+ xe:"Pressure is lowest at the suction side, just as liquid enters the impeller eye – there it may fall below vapour pressure. In a turbine it is the opposite: cavitation occurs at the runner outlet / draft-tube inlet. Pressure rises through the pump, so the outlet is safe.",
+ xh:"दाब सक्शन की ओर, इम्पेलर आई में प्रवेश करते समय सबसे कम होता है – वहाँ वाष्प दाब से नीचे जा सकता है। टरबाइन में उलटा: रनर निकास / ड्राफ्ट ट्यूब प्रवेश पर। पम्प में दाब बढ़ता है, इसलिए निकास सुरक्षित।"},
+{t:"Reciprocating Pump",up:1,
+ e:"A reciprocating pump is best suited for:",
+ h:"प्रत्यागामी पम्प सबसे उपयुक्त है:",
+ o:[["High flow, low head","अधिक प्रवाह, कम शीर्ष"],["Low flow, high head","कम प्रवाह, अधिक शीर्ष"],["High flow, high head","अधिक प्रवाह, अधिक शीर्ष"],["Viscous slurries","श्यान घोल"]],a:1,
+ xe:"Reciprocating (positive-displacement) pumps deliver small quantities against high heads (UPSSSC). Centrifugal pumps handle large discharge at moderate head and also cope with dirty or viscous liquids better. A reciprocating pump is self-priming.",
+ xh:"प्रत्यागामी (धनात्मक विस्थापन) पम्प कम मात्रा को अधिक शीर्ष पर देते हैं। अपकेंद्री पम्प अधिक प्रवाह, मध्यम शीर्ष पर और गंदे/श्यान द्रव बेहतर संभालते हैं। प्रत्यागामी पम्प स्वतः प्राइमिंग वाला।"},
+{t:"Reciprocating Pump",up:1,
+ e:"Air vessels are fitted to a reciprocating pump to:",
+ h:"प्रत्यागामी पम्प में एयर वेसल किसलिए लगाए जाते हैं?",
+ o:[["Increase its speed","इसकी गति बढ़ाने"],["Prime the pump","पम्प की प्राइमिंग करने"],["Lower its discharge","इसका प्रवाह घटाने"],["Get uniform flow","एकसमान प्रवाह पाने"]],a:3,
+ xe:"Air vessels near the cylinder on suction and delivery sides smooth out the pulsating flow, give nearly uniform discharge, save power wasted on acceleration head and allow higher speeds without separation (UPSSSC). Work saved by fitting air vessels in a single-acting pump ≈ 84.8 %; double-acting ≈ 39.2 %.",
+ xh:"सक्शन व डिलीवरी ओर सिलिंडर के पास एयर वेसल स्पंदित प्रवाह को समतल करते हैं, लगभग एकसमान प्रवाह देते हैं, त्वरण शीर्ष पर व्यर्थ शक्ति बचाते हैं और अधिक गति संभव। एकल-क्रिया पम्प में लगभग 84.8 % कार्य बचत।"},
+{t:"Reciprocating Pump",adv:1,
+ e:"If the actual discharge of a reciprocating pump exceeds its theoretical discharge, the slip is:",
+ h:"यदि प्रत्यागामी पम्प का वास्तविक प्रवाह सैद्धांतिक प्रवाह से अधिक हो, तो स्लिप होती है:",
+ o:[["Positive","धनात्मक"],["Zero","शून्य"],["Negative","ऋणात्मक"],["Infinite","अनंत"]],a:2,
+ xe:"Slip = Q<sub>th</sub> − Q<sub>act</sub>; % slip = (1 − C<sub>d</sub>) × 100. Negative slip (C<sub>d</sub> > 1) occurs with a long suction pipe, short delivery pipe and high speed – the delivery valve opens before the suction stroke ends and the water's inertia pushes extra liquid through.",
+ xh:"स्लिप = Q<sub>सैद्धांतिक</sub> − Q<sub>वास्तविक</sub>; % स्लिप = (1 − C<sub>d</sub>) × 100। ऋणात्मक स्लिप (C<sub>d</sub> > 1) लंबे सक्शन पाइप, छोटे डिलीवरी पाइप व उच्च गति पर – जड़त्व से अतिरिक्त जल निकलता है।"},
+{t:"Reciprocating · Numerical",adv:1,
+ e:"A single-acting reciprocating pump has plunger area 0.02 m², stroke 0.3 m and runs at 60 rpm. Its theoretical discharge is:",
+ h:"एकल-क्रिया प्रत्यागामी पम्प का प्लंजर क्षेत्रफल 0.02 m², स्ट्रोक 0.3 m है और यह 60 rpm पर चलता है। इसका सैद्धांतिक प्रवाह है:",
+ o:[["0.012 m³/s","0.012 m³/s"],["0.36 m³/s","0.36 m³/s"],["0.006 m³/s","0.006 m³/s"],["0.003 m³/s","0.003 m³/s"]],a:2,
+ xe:"Single-acting: Q = ALN/60 = 0.02 × 0.3 × 60/60 = 0.006 m³/s. Double-acting would give 2ALN/60 = 0.012 m³/s (trap). 0.36 m³/s forgets to divide by 60 (that is per minute).",
+ xh:"एकल-क्रिया: Q = ALN/60 = 0.02 × 0.3 × 60/60 = 0.006 m³/s। द्वि-क्रिया में 2ALN/60 = 0.012 m³/s (जाल)। 0.36 m³/s में 60 से भाग देना भूलना (प्रति मिनट)।"},
+{t:"Reciprocating · Numerical",up:0,
+ e:"A reciprocating pump has a theoretical discharge of 0.010 m³/s and an actual discharge of 0.0096 m³/s. The percentage slip is:",
+ h:"एक प्रत्यागामी पम्प का सैद्धांतिक प्रवाह 0.010 m³/s और वास्तविक प्रवाह 0.0096 m³/s है। प्रतिशत स्लिप है:",
+ o:[["96 %","96 %"],["4 %","4 %"],["0.4 %","0.4 %"],["−4 %","−4 %"]],a:1,
+ xe:"% slip = (Q<sub>th</sub> − Q<sub>act</sub>)/Q<sub>th</sub> × 100 = 0.0004/0.010 × 100 = 4 %. C<sub>d</sub> = 0.96 (the 96 % trap is C<sub>d</sub>, not slip). Slip is negative only when Q<sub>act</sub> > Q<sub>th</sub>.",
+ xh:"% स्लिप = (0.010 − 0.0096)/0.010 × 100 = 4 %। C<sub>d</sub> = 0.96 (96 % जाल C<sub>d</sub> है, स्लिप नहीं)। स्लिप ऋणात्मक तभी जब Q<sub>वास्तविक</sub> > Q<sub>सैद्धांतिक</sub>।"},
+{t:"Reciprocating Pump",up:0,
+ e:"On the indicator diagram of a reciprocating pump, the area represents the:",
+ h:"प्रत्यागामी पम्प के इंडिकेटर आरेख का क्षेत्रफल दर्शाता है:",
+ o:[["Discharge per stroke","प्रति स्ट्रोक प्रवाह"],["Velocity of plunger","प्लंजर का वेग"],["Work done per cycle","प्रति चक्र किया गया कार्य"],["Slip of the pump","पम्प की स्लिप"]],a:2,
+ xe:"Indicator diagram = pressure head vs stroke length; its area ∝ work done by the pump per cycle. Acceleration head turns the ideal rectangle into a parallelogram but does not change the area; friction adds parabolic bulges and increases it. Work ∝ (h<sub>s</sub> + h<sub>d</sub>) without friction.",
+ xh:"इंडिकेटर आरेख = दाब शीर्ष बनाम स्ट्रोक लंबाई; क्षेत्रफल ∝ प्रति चक्र कार्य। त्वरण शीर्ष आयत को समांतर चतुर्भुज बनाता है पर क्षेत्रफल नहीं बदलता; घर्षण परवलयिक उभार जोड़कर बढ़ाता है।"},
+{t:"Pump Comparison",adv:1,
+ e:"Compared with a centrifugal pump, a reciprocating pump:",
+ h:"अपकेंद्री पम्प की तुलना में प्रत्यागामी पम्प:",
+ o:[["Needs no priming","प्राइमिंग नहीं चाहिए"],["Has lower cost","कम लागत वाला"],["Gives steady flow","स्थिर प्रवाह देता है"],["Runs at higher speed","अधिक गति पर चलता है"]],a:0,
+ xe:"A reciprocating pump creates suction by plunger displacement, so it is self-priming. But it is costlier, heavier, runs at low speed, needs more maintenance and gives pulsating flow (hence air vessels). Centrifugal pumps run at high speed and give steady, continuous flow.",
+ xh:"प्रत्यागामी पम्प प्लंजर विस्थापन से सक्शन बनाता है, इसलिए स्वतः प्राइमिंग। पर यह महँगा, भारी, कम गति, अधिक रखरखाव वाला और स्पंदित प्रवाह देता है (इसलिए एयर वेसल)। अपकेंद्री पम्प उच्च गति, स्थिर प्रवाह।"},
+{t:"Pump Basics",up:0,
+ e:"Which of the following is a positive-displacement (rotary) pump?",
+ h:"निम्न में से कौन धनात्मक विस्थापन (रोटरी) पम्प है?",
+ o:[["Centrifugal pump","अपकेंद्री पम्प"],["Gear pump","गियर पम्प"],["Axial-flow pump","अक्षीय-प्रवाह पम्प"],["Jet pump","जेट पम्प"]],a:1,
+ xe:"Gear, vane, lobe and screw pumps are rotary positive-displacement pumps – they trap a fixed volume and push it out, ideal for oils and lubrication systems. Reciprocating pumps are also positive displacement. Centrifugal and axial-flow pumps are rotodynamic (dynamic).",
+ xh:"गियर, वेन, लोब और स्क्रू पम्प रोटरी धनात्मक विस्थापन पम्प हैं – निश्चित आयतन फँसाकर धकेलते हैं, तेल व स्नेहन प्रणाली हेतु। प्रत्यागामी भी धनात्मक विस्थापन। अपकेंद्री व अक्षीय पम्प रोटोडायनामिक।"},
+{t:"Special Pumps",up:1,
+ e:"A hydraulic ram is a device used to:",
+ h:"हाइड्रोलिक रैम एक युक्ति है जिसका प्रयोग होता है:",
+ o:[["Lift very heavy loads","बहुत भारी भार उठाने"],["Raise water to height","जल को ऊँचाई तक उठाने"],["Store hydraulic energy","हाइड्रोलिक ऊर्जा संग्रह"],["Measure the flow rate","प्रवाह दर मापने"]],a:1,
+ xe:"A hydraulic ram uses the water-hammer (momentum) of a large quantity of water falling through a small height to lift a small quantity to a greater height – no external power (UPSSSC). Lifting heavy loads → hydraulic jack/press; storing energy → hydraulic accumulator; increasing pressure → intensifier.",
+ xh:"हाइड्रोलिक रैम कम ऊँचाई से गिरते अधिक जल के वॉटर हैमर (संवेग) से थोड़े जल को अधिक ऊँचाई तक उठाता है – बिना बाहरी शक्ति। भारी भार → हाइड्रोलिक जैक; ऊर्जा संग्रह → एक्यूमुलेटर; दाब बढ़ाना → इंटेंसिफायर।"},
+{t:"Hydraulic Devices",up:1,
+ e:"A hydraulic accumulator is used to:",
+ h:"हाइड्रोलिक एक्यूमुलेटर का प्रयोग होता है:",
+ o:[["Raise water pressure","जल दाब बढ़ाने"],["Store pressure energy","दाब ऊर्जा संग्रहित करने"],["Lift water from wells","कुएँ से जल उठाने"],["Transmit torque","बल-आघूर्ण संचारित करने"]],a:1,
+ xe:"The accumulator stores hydraulic energy (liquid under pressure) when demand is low and supplies it when machines like presses, lifts and cranes need it. Intensifier → increases pressure; hydraulic coupling / torque converter → transmits power/torque between shafts.",
+ xh:"एक्यूमुलेटर माँग कम होने पर दाबित द्रव के रूप में ऊर्जा संग्रहित करता है और प्रेस, लिफ़्ट, क्रेन को ज़रूरत पर देता है। इंटेंसिफायर → दाब बढ़ाता है; हाइड्रोलिक कपलिंग / टॉर्क कन्वर्टर → शक्ति संचारित।"},
+{t:"Hydraulic Devices",adv:1,
+ e:"The device that can increase the torque transmitted from one shaft to another is a:",
+ h:"वह युक्ति जो एक शाफ्ट से दूसरे में संचारित बल-आघूर्ण को बढ़ा सकती है:",
+ o:[["Hydraulic coupling","हाइड्रोलिक कपलिंग"],["Hydraulic ram","हाइड्रोलिक रैम"],["Hydraulic intensifier","हाइड्रोलिक इंटेंसिफायर"],["Torque converter","टॉर्क कन्वर्टर"]],a:3,
+ xe:"A torque converter has a fixed guide (stator) between pump and turbine, so output torque can be higher than input torque. A fluid (hydraulic) coupling has no stator: output torque = input torque, and only speed slips slightly. Used in automatic transmissions.",
+ xh:"टॉर्क कन्वर्टर में पम्प व टरबाइन के बीच स्थिर गाइड (स्टेटर) होता है, इसलिए आउटपुट टॉर्क इनपुट से अधिक हो सकता है। फ्लूइड कपलिंग में स्टेटर नहीं: आउटपुट टॉर्क = इनपुट टॉर्क, केवल गति थोड़ी फिसलती है।"},
+{t:"Centrifugal · Numerical",up:0,
+ e:"A centrifugal pump delivers 0.05 m³/s of water against a manometric head of 20 m. If the overall efficiency is 80 %, the shaft power required is nearly:",
+ h:"एक अपकेंद्री पम्प 20 m मैनोमेट्रिक शीर्ष पर 0.05 m³/s जल देता है। समग्र दक्षता 80 % हो तो आवश्यक शाफ्ट शक्ति लगभग है:",
+ o:[["7.85 kW","7.85 kW"],["9.81 kW","9.81 kW"],["12.26 kW","12.26 kW"],["15.70 kW","15.70 kW"]],a:2,
+ xe:"Water power = ρgQH = 9810 × 0.05 × 20 = 9.81 kW. Shaft power = water power ÷ η<sub>o</sub> = 9.81/0.8 = 12.26 kW. 7.85 kW multiplies by η instead of dividing; 9.81 kW is the output to the water, not the input to the shaft.",
+ xh:"जल शक्ति = ρgQH = 9810 × 0.05 × 20 = 9.81 kW। शाफ्ट शक्ति = 9.81/0.8 = 12.26 kW। 7.85 kW η से गुणा करने पर; 9.81 kW जल को दी गई शक्ति है, शाफ्ट का इनपुट नहीं।"},
+{t:"Pumps in Parallel",adv:1,
+ e:"Two identical centrifugal pumps are connected in parallel. Compared with one pump, the combination gives:",
+ h:"दो समान अपकेंद्री पम्प समांतर में जुड़े हैं। एक पम्प की तुलना में यह संयोजन देता है:",
+ o:[["2× Q, same head","2× Q, समान शीर्ष"],["2× head, same Q","2× शीर्ष, समान Q"],["2× head and 2× Q","2× शीर्ष और 2× Q"],["Same head and Q","समान शीर्ष व Q"]],a:0,
+ xe:"Parallel: both pumps lift against the same head, so discharges add – Q = 2Q₁ (ideally; in a real pipe system the gain is a little less because pipe friction rises). Series: the same discharge passes through both, so heads add – H = 2H₁ (used for high head, like multistage pumps).",
+ xh:"समांतर: दोनों पम्प समान शीर्ष पर कार्य करते हैं, इसलिए प्रवाह जुड़ता है – Q = 2Q₁ (आदर्श रूप से; वास्तविक पाइप में घर्षण से थोड़ा कम)। श्रेणी: वही प्रवाह दोनों से गुज़रता है, शीर्ष जुड़ते हैं – H = 2H₁।"}
+];
+
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span><span class="hi">${o[1]}</span></span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – pumps and hydraulic devices are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the HM notes (centrifugal & reciprocating pumps first), then retry. / पहले नोट्स (अपकेंद्री व प्रत्यागामी पम्प) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
