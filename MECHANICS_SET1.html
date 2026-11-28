@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engineering Mechanics Smart MCQ Set 1 | UPSSSC JE Mains 2026 | THE EXAM ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2a5c; --ink:#14213d; --muted:#5b6478; --bg:#f3f5f9; --card:#ffffff;
+  --line:#dde2ec; --orange:#e8740c; --orange-soft:#fff3e6;
+  --ok:#15803d; --ok-soft:#e7f6ec; --bad:#b42318; --bad-soft:#fdecea;
+  --sel:#1d4ed8; --sel-soft:#e8efff; --hi:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --navy:#0a1730; --ink:#e7ecf5; --muted:#9aa5bb; --bg:#0d1424; --card:#152038;
+    --line:#26324d; --orange:#f39233; --orange-soft:#2a1f12;
+    --ok:#4ade80; --ok-soft:#10301d; --bad:#f87171; --bad-soft:#3a1616;
+    --sel:#7aa2ff; --sel-soft:#1a2a50; --hi:#fff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;line-height:1.5}
+.hi{font-family:'Noto Sans Devanagari',Inter,sans-serif;color:var(--muted)}
+header{background:var(--navy);color:var(--hi);padding:28px 18px 34px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand small{display:block;font-weight:500;opacity:.7;font-size:.75rem;letter-spacing:.08em}
+h1{font-family:Poppins,sans-serif;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.15;margin:22px 0 6px}
+.sub{opacity:.85;margin:0}
+.set-no{font-family:Poppins,sans-serif;font-weight:800;font-size:4.5rem;color:var(--orange);float:right;line-height:1;margin-top:-6px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.rules div{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:.8rem}
+.rules b{display:block;font-size:1.15rem;font-family:Poppins,sans-serif}
+@media(max-width:560px){.rules{grid-template-columns:repeat(2,1fr)}.set-no{font-size:3.2rem}}
+main{padding:20px 0 120px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem;color:var(--muted)}
+.qno{font-family:Poppins,sans-serif;font-weight:700;color:var(--orange);font-size:.95rem}
+.tag{border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.tag.up{border-color:var(--ok);color:var(--ok)}
+.tag.adv{border-color:var(--orange);color:var(--orange)}
+.stem{font-weight:600;margin:0}
+.stem-hi{margin:4px 0 12px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;cursor:pointer;color:var(--ink);font:inherit}
+.opt:hover{border-color:var(--sel)}
+.opt:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.opt .l{font-family:Poppins,sans-serif;font-weight:700;min-width:22px}
+.opt .t span{display:block}
+.opt.selected{border-color:var(--sel);background:var(--sel-soft)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.clear{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:4px 0;text-decoration:underline}
+.exp{display:none;margin-top:12px;background:var(--orange-soft);border-left:4px solid var(--orange);border-radius:8px;padding:10px 12px;font-size:.92rem}
+.exp p{margin:4px 0}
+.done .exp{display:block}
+.status{font-weight:700;font-size:.8rem}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 0;z-index:5}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:Poppins,sans-serif;font-weight:700;font-size:1.2rem}
+.timer.low{color:var(--bad)}
+.btn{background:var(--orange);color:#fff;border:none;border-radius:10px;padding:11px 18px;font:600 .95rem Poppins,sans-serif;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--sel);outline-offset:2px}
+#result{display:none;background:var(--card);border:2px solid var(--orange);border-radius:14px;padding:18px;margin-top:18px}
+#result h2{font-family:Poppins,sans-serif;margin:0 0 4px}
+.score{font-family:Poppins,sans-serif;font-size:3rem;font-weight:800;color:var(--orange);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.stats div{border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center;font-size:.8rem;color:var(--muted)}
+.stats b{display:block;font-size:1.2rem;color:var(--ink)}
+.tip{font-size:.9rem;margin:8px 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 100px}
+footer a{color:var(--orange);font-weight:600}
+.hide{display:none}
+sub,sup{font-size:.72em}
+@media (prefers-reduced-motion:no-preference){.opt{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">TE</div><div>THE EXAM ENGINEER<small>LEARN | PREPARE | ACHIEVE</small></div></div>
+    <div class="set-no">01</div>
+    <h1>Engineering Mechanics<br>Smart MCQ Set 1</h1>
+    <p class="sub">UPSSSC JE Mains 2026 (Mechanical)</p>
+    <p class="sub hi" style="color:#c9d3e6">अभियांत्रिकी यांत्रिकी – स्मार्ट MCQ सेट 1 (हिंदी + English)</p>
+    <div class="rules">
+      <div><b>25</b>Questions</div>
+      <div><b>30 min</b>Time</div>
+      <div><b>+1</b>Correct</div>
+      <div><b>−0.25</b>Wrong</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="result">
+    <h2>Your score <span class="hi" style="font-size:.9rem">/ आपका स्कोर</span></h2>
+    <div class="score" id="sc"></div>
+    <div class="stats">
+      <div><b id="sCor"></b>Correct</div>
+      <div><b id="sWr"></b>Wrong</div>
+      <div><b id="sSk"></b>Skipped</div>
+      <div><b id="sAcc"></b>Accuracy</div>
+    </div>
+    <p class="tip" id="tip"></p>
+    <div class="actions">
+      <button class="btn ghost" id="onlyWrong">Show only wrong & skipped</button>
+      <button class="btn" id="retry">Retry set</button>
+    </div>
+  </div>
+  <div id="qs"></div>
+</main>
+
+<footer>
+  More free notes, MCQ sets & PYQ banks: <a href="https://t.me/the_exam_engineer" target="_blank" rel="noopener">t.me/the_exam_engineer</a><br>
+  SSC JE AIR 14 · RRB JE 2025 (DMS) · Doubts & corrections: theexamengineer1@gmail.com<br>
+  © THE EXAM ENGINEER. All rights reserved.
+</footer>
+
+<div class="bar"><div class="wrap">
+  <div><div class="timer" id="timer">30:00</div><div style="font-size:.78rem;color:var(--muted)" id="cnt">0 / 25 answered</div></div>
+  <button class="btn" id="submit">Submit test</button>
+</div></div>
+
+<script>
+const Q=[
+ {
+  "t": "Units · Numerical",
+  "e": "A machine does 3600 kJ of work in one hour. Its power is:",
+  "h": "एक मशीन एक घंटे में 3600 kJ कार्य करती है। इसकी शक्ति है:",
+  "o": [
+   [
+    "3.6 kW",
+    "3.6 kW"
+   ],
+   [
+    "1 kW",
+    "1 kW"
+   ],
+   [
+    "60 kW",
+    "60 kW"
+   ],
+   [
+    "1 W",
+    "1 W"
+   ]
+  ],
+  "a": 1,
+  "xe": "P = W/t = 3600 kJ ÷ 3600 s = 1 kJ/s = 1 kW. This is exactly why 1 kWh = 3600 kJ (UPSSSC Jul'16), and the SI unit of power is the watt = J/s (UPSSSC Jul'16). 60 kW divides by 60 minutes instead of 3600 seconds.",
+  "xh": "P = W/t = 3600 kJ ÷ 3600 s = 1 kW। इसीलिए 1 kWh = 3600 kJ, और शक्ति का SI मात्रक वाट = J/s। 60 kW में 3600 सेकंड की जगह 60 मिनट से भाग दिया।",
+  "up": 1
+ },
+ {
+  "t": "Units · Numerical",
+  "e": "A force of 60 g·cm/s<sup>2</sup> expressed in newtons is:",
+  "h": "60 g·cm/s<sup>2</sup> बल को न्यूटन में व्यक्त करें:",
+  "o": [
+   [
+    "6 × 10<sup>−2</sup> N",
+    "6 × 10<sup>−2</sup> N"
+   ],
+   [
+    "6 × 10<sup>−4</sup> N",
+    "6 × 10<sup>−4</sup> N"
+   ],
+   [
+    "0.6 N",
+    "0.6 N"
+   ],
+   [
+    "6 × 10<sup>−5</sup> N",
+    "6 × 10<sup>−5</sup> N"
+   ]
+  ],
+  "a": 1,
+  "xe": "1 g·cm/s<sup>2</sup> = 1 dyne = 10<sup>−3</sup> kg × 10<sup>−2</sup> m/s<sup>2</sup> = 10<sup>−5</sup> N. So 60 dyne = 60 × 10<sup>−5</sup> = 6 × 10<sup>−4</sup> N (UPSSSC Dec'21). 6 × 10<sup>−5</sup> N forgets the 60.",
+  "xh": "1 g·cm/s<sup>2</sup> = 1 डाइन = 10<sup>−5</sup> N। अतः 60 डाइन = 6 × 10<sup>−4</sup> N। 6 × 10<sup>−5</sup> N में 60 भूल गए।",
+  "up": 1
+ },
+ {
+  "t": "Units",
+  "e": "Which pair of quantities has the same unit?",
+  "h": "किस युग्म की राशियों का मात्रक समान है?",
+  "o": [
+   [
+    "Torque and work done",
+    "बल-आघूर्ण और कार्य"
+   ],
+   [
+    "Impulse and momentum",
+    "आवेग और संवेग"
+   ],
+   [
+    "Power and work",
+    "शक्ति और कार्य"
+   ],
+   [
+    "Momentum and energy",
+    "संवेग और ऊर्जा"
+   ]
+  ],
+  "a": 1,
+  "xe": "Impulse = F × t → N·s; momentum = mv → kg·m/s = N·s. Same unit and dimension MLT<sup>−1</sup> (SSC'17). Trap: torque and work share the dimension ML<sup>2</sup>T<sup>−2</sup>, but torque is written N·m and work J. Power is W = J/s.",
+  "xh": "आवेग = F × t → N·s; संवेग = mv → kg·m/s = N·s। समान मात्रक और विमा MLT<sup>−1</sup>। जाल: बल-आघूर्ण और कार्य की विमा ML<sup>2</sup>T<sup>−2</sup> समान है, पर मात्रक N·m व J लिखे जाते हैं। शक्ति W = J/s।",
+  "adv": 1
+ },
+ {
+  "t": "Fundamentals",
+  "e": "If the distance between two masses is halved, the gravitational force between them becomes:",
+  "h": "यदि दो द्रव्यमानों के बीच की दूरी आधी कर दी जाए, तो उनके बीच गुरुत्वाकर्षण बल हो जाता है:",
+  "o": [
+   [
+    "2 times",
+    "2 गुना"
+   ],
+   [
+    "Half",
+    "आधा"
+   ],
+   [
+    "One-fourth",
+    "एक-चौथाई"
+   ],
+   [
+    "4 times",
+    "4 गुना"
+   ]
+  ],
+  "a": 3,
+  "xe": "F = Gm₁m₂/d<sup>2</sup> – inversely proportional to the square of distance (UPSSSC Apr'22). d → d/2 gives F → 4F. One-fourth would be the answer if the distance were doubled.",
+  "xh": "F = Gm₁m₂/d<sup>2</sup> – दूरी के वर्ग के व्युत्क्रमानुपाती। d → d/2 पर F → 4F। दूरी दोगुनी होती तो उत्तर एक-चौथाई होता।",
+  "up": 1
+ },
+ {
+  "t": "Fundamentals",
+  "e": "The principle of transmissibility of forces is valid for:",
+  "h": "बलों की संचरणीयता (transmissibility) का सिद्धांत किसके लिए मान्य है?",
+  "o": [
+   [
+    "Deformable bodies",
+    "विकृत होने वाले पिंड"
+   ],
+   [
+    "Rigid bodies only",
+    "केवल दृढ़ पिंड"
+   ],
+   [
+    "Fluids only",
+    "केवल तरल"
+   ],
+   [
+    "All bodies",
+    "सभी पिंड"
+   ]
+  ],
+  "a": 1,
+  "xe": "A force may be moved anywhere along its line of action without changing its external effect – but only on a rigid body. In a deformable body, moving the point of application changes the internal stresses and deformation.",
+  "xh": "बल को उसकी क्रिया रेखा पर कहीं भी खिसकाने से बाह्य प्रभाव नहीं बदलता – पर केवल दृढ़ पिंड पर। विकृत पिंड में बिंदु बदलने से आंतरिक प्रतिबल व विकृति बदल जाती है।",
+  "adv": 1
+ },
+ {
+  "t": "Dimensions",
+  "e": "The dimensional formula ML<sup>2</sup>T<sup>−2</sup> does NOT belong to:",
+  "h": "विमीय सूत्र ML<sup>2</sup>T<sup>−2</sup> किसका नहीं है?",
+  "o": [
+   [
+    "Work",
+    "कार्य"
+   ],
+   [
+    "Torque",
+    "बल-आघूर्ण"
+   ],
+   [
+    "Kinetic energy",
+    "गतिज ऊर्जा"
+   ],
+   [
+    "Power",
+    "शक्ति"
+   ]
+  ],
+  "a": 3,
+  "xe": "Work, energy and torque (moment) are all force × distance = ML<sup>2</sup>T<sup>−2</sup>. Power = work ÷ time = ML<sup>2</sup>T<sup>−3</sup> (watt). Force alone is MLT<sup>−2</sup> (SSC'18).",
+  "xh": "कार्य, ऊर्जा और बल-आघूर्ण सभी बल × दूरी = ML<sup>2</sup>T<sup>−2</sup>। शक्ति = कार्य ÷ समय = ML<sup>2</sup>T<sup>−3</sup> (वाट)। केवल बल MLT<sup>−2</sup>।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "Two forces of 5 N and 12 N act at a point, and their resultant is 13 N. The angle between the forces is:",
+  "h": "5 N और 12 N के दो बल एक बिंदु पर लगते हैं और उनका परिणामी 13 N है। बलों के बीच कोण है:",
+  "o": [
+   [
+    "90°",
+    "90°"
+   ],
+   [
+    "60°",
+    "60°"
+   ],
+   [
+    "45°",
+    "45°"
+   ],
+   [
+    "120°",
+    "120°"
+   ]
+  ],
+  "a": 0,
+  "xe": "R<sup>2</sup> = P<sup>2</sup> + Q<sup>2</sup> + 2PQ cos θ → 169 = 25 + 144 + 120 cos θ → cos θ = 0 → θ = 90°. Spot it fast: 5-12-13 is a Pythagorean triple, so the forces must be perpendicular.",
+  "xh": "R<sup>2</sup> = P<sup>2</sup> + Q<sup>2</sup> + 2PQ cos θ → 169 = 169 + 120 cos θ → cos θ = 0 → θ = 90°। 5-12-13 पाइथागोरस त्रिक है, इसलिए बल लंबवत।",
+  "adv": 1
+ },
+ {
+  "t": "Force Systems",
+  "e": "Forces whose lines of action lie in one plane and pass through one point are called:",
+  "h": "जिन बलों की क्रिया रेखाएँ एक तल में हों और एक बिंदु से गुज़रें, उन्हें कहते हैं:",
+  "o": [
+   [
+    "Coplanar concurrent",
+    "समतलीय संगामी"
+   ],
+   [
+    "Coplanar parallel",
+    "समतलीय समांतर"
+   ],
+   [
+    "Non-coplanar concurrent",
+    "असमतलीय संगामी"
+   ],
+   [
+    "Coplanar non-concurrent",
+    "समतलीय असंगामी"
+   ]
+  ],
+  "a": 0,
+  "xe": "Coplanar = same plane; concurrent = meet at one point. Coplanar parallel forces never meet; non-coplanar concurrent forces meet at a point but lie in different planes (3-D).",
+  "xh": "समतलीय = एक ही तल; संगामी = एक बिंदु पर मिलना। समतलीय समांतर बल कभी नहीं मिलते; असमतलीय संगामी बल एक बिंदु पर मिलते हैं पर अलग तलों में (3-D)।"
+ },
+ {
+  "t": "Resultant",
+  "e": "The parallelogram law of forces is used to find the resultant of:",
+  "h": "बलों के समांतर चतुर्भुज नियम से किसका परिणामी ज्ञात किया जाता है?",
+  "o": [
+   [
+    "Several parallel forces",
+    "अनेक समांतर बल"
+   ],
+   [
+    "Two parallel forces",
+    "दो समांतर बल"
+   ],
+   [
+    "Two concurrent forces",
+    "दो संगामी बल"
+   ],
+   [
+    "Non-coplanar forces",
+    "असमतलीय बल"
+   ]
+  ],
+  "a": 2,
+  "xe": "The parallelogram law gives the resultant of two coplanar concurrent forces (UPSSSC Dec'15, asked in three papers). For more than two concurrent forces use the polygon law; R = √(P<sup>2</sup> + Q<sup>2</sup> + 2PQ cos θ).",
+  "xh": "समांतर चतुर्भुज नियम दो समतलीय संगामी बलों का परिणामी देता है। दो से अधिक संगामी बलों के लिए बहुभुज नियम; R = √(P<sup>2</sup> + Q<sup>2</sup> + 2PQ cos θ)।",
+  "up": 1
+ },
+ {
+  "t": "Resultant",
+  "e": "The resultant of two equal forces P inclined at an angle θ is:",
+  "h": "θ कोण पर झुके दो बराबर बलों P का परिणामी है:",
+  "o": [
+   [
+    "2P sin(θ/2)",
+    "2P sin(θ/2)"
+   ],
+   [
+    "P cos(θ/2)",
+    "P cos(θ/2)"
+   ],
+   [
+    "2P cos θ",
+    "2P cos θ"
+   ],
+   [
+    "2P cos(θ/2)",
+    "2P cos(θ/2)"
+   ]
+  ],
+  "a": 3,
+  "xe": "R = √(2P<sup>2</sup> + 2P<sup>2</sup> cos θ) = √(4P<sup>2</sup> cos<sup>2</sup>(θ/2)) = 2P cos(θ/2), bisecting the angle. Checks: θ = 0° → 2P; θ = 90° → P√2; θ = 120° → P; θ = 180° → 0.",
+  "xh": "R = √(2P<sup>2</sup>(1 + cos θ)) = 2P cos(θ/2), कोण को समद्विभाजित करता है। जाँच: θ = 0° → 2P; 90° → P√2; 120° → P; 180° → 0।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "Two forces of 10 N each act at a point with an angle of 60° between them. Their resultant is about:",
+  "h": "10-10 N के दो बल एक बिंदु पर 60° के कोण पर लगते हैं। उनका परिणामी लगभग है:",
+  "o": [
+   [
+    "20.00 N",
+    "20.00 N"
+   ],
+   [
+    "17.32 N",
+    "17.32 N"
+   ],
+   [
+    "10.00 N",
+    "10.00 N"
+   ],
+   [
+    "14.14 N",
+    "14.14 N"
+   ]
+  ],
+  "a": 1,
+  "xe": "R = 2P cos(θ/2) = 2 × 10 × cos 30° = 10√3 ≈ 17.32 N. 20 N needs θ = 0°, 14.14 N is the 90° value (10√2), 10 N is the 120° value.",
+  "xh": "R = 2P cos(θ/2) = 20 × cos 30° = 10√3 ≈ 17.32 N। 20 N तब जब θ = 0°, 14.14 N 90° का मान, 10 N 120° का मान।"
+ },
+ {
+  "t": "Resultant",
+  "e": "Which of the following can NOT be the resultant of two forces of 10 N and 6 N?",
+  "h": "निम्न में से कौन 10 N और 6 N के दो बलों का परिणामी नहीं हो सकता?",
+  "o": [
+   [
+    "4 N",
+    "4 N"
+   ],
+   [
+    "10 N",
+    "10 N"
+   ],
+   [
+    "18 N",
+    "18 N"
+   ],
+   [
+    "16 N",
+    "16 N"
+   ]
+  ],
+  "a": 2,
+  "xe": "The resultant lies between 10 − 6 = 4 N (opposite) and 10 + 6 = 16 N (same direction), both ends included. 18 N exceeds the maximum, so it is impossible. 10 N is possible at a suitable angle.",
+  "xh": "परिणामी 10 − 6 = 4 N (विपरीत) और 10 + 6 = 16 N (एक दिशा) के बीच रहता है। 18 N अधिकतम से अधिक है, इसलिए असंभव। 10 N किसी कोण पर संभव है।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant",
+  "e": "Two equal forces P act at a point, and their resultant is also P. The angle between the forces is:",
+  "h": "दो बराबर बल P एक बिंदु पर लगते हैं और उनका परिणामी भी P है। बलों के बीच कोण है:",
+  "o": [
+   [
+    "60°",
+    "60°"
+   ],
+   [
+    "90°",
+    "90°"
+   ],
+   [
+    "120°",
+    "120°"
+   ],
+   [
+    "180°",
+    "180°"
+   ]
+  ],
+  "a": 2,
+  "xe": "P<sup>2</sup> = P<sup>2</sup> + P<sup>2</sup> + 2P<sup>2</sup> cos θ → cos θ = −½ → θ = 120°. Hook: equal forces at 60° give P√3, at 90° give P√2, at 120° give P, at 180° give zero.",
+  "xh": "P<sup>2</sup> = P<sup>2</sup> + P<sup>2</sup> + 2P<sup>2</sup> cos θ → cos θ = −½ → θ = 120°। याद रखें: बराबर बल 60° पर P√3, 90° पर P√2, 120° पर P, 180° पर शून्य।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "The magnitude of the force F = 4î − 3ĵ + 12k̂ N is:",
+  "h": "बल F = 4î − 3ĵ + 12k̂ N का परिमाण है:",
+  "o": [
+   [
+    "13 N",
+    "13 N"
+   ],
+   [
+    "19 N",
+    "19 N"
+   ],
+   [
+    "11 N",
+    "11 N"
+   ],
+   [
+    "169 N",
+    "169 N"
+   ]
+  ],
+  "a": 0,
+  "xe": "|F| = √(4<sup>2</sup> + 3<sup>2</sup> + 12<sup>2</sup>) = √169 = 13 N (UPSSSC Dec'21). The sign of a component does not matter because it is squared. 19 N simply adds 4 + 3 + 12; 169 forgets the square root.",
+  "xh": "|F| = √(16 + 9 + 144) = √169 = 13 N। घटक का चिह्न वर्ग होने से मायने नहीं रखता। 19 N केवल जोड़ है; 169 में वर्गमूल भूले।",
+  "up": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "Forces of 250 N and 350 N act along a line in the same direction, and 150 N acts along the same line in the opposite direction. The resultant is:",
+  "h": "250 N और 350 N के बल एक रेखा पर एक ही दिशा में और 150 N उसी रेखा पर विपरीत दिशा में लगता है। परिणामी है:",
+  "o": [
+   [
+    "750 N",
+    "750 N"
+   ],
+   [
+    "550 N",
+    "550 N"
+   ],
+   [
+    "150 N",
+    "150 N"
+   ],
+   [
+    "450 N",
+    "450 N"
+   ]
+  ],
+  "a": 3,
+  "xe": "Collinear forces add algebraically: 250 + 350 − 150 = 450 N, in the direction of the larger pair (RRB CBT-2 Jun'25). 750 N ignores the sign of the opposite force.",
+  "xh": "संरेख बल बीजगणितीय रूप से जुड़ते हैं: 250 + 350 − 150 = 450 N। 750 N में विपरीत बल का चिह्न भूल गए।"
+ },
+ {
+  "t": "Moments",
+  "e": "\"The moment of the resultant about any point equals the algebraic sum of the moments of its components.\" This is:",
+  "h": "\"किसी बिंदु के परितः परिणामी का आघूर्ण उसके घटकों के आघूर्णों के बीजगणितीय योग के बराबर होता है।\" यह है:",
+  "o": [
+   [
+    "Varignon's theorem",
+    "वैरिग्नॉन प्रमेय"
+   ],
+   [
+    "Lami's theorem",
+    "लामी प्रमेय"
+   ],
+   [
+    "D'Alembert's principle",
+    "डी'एलेम्बर्ट सिद्धांत"
+   ],
+   [
+    "Newton's first law",
+    "न्यूटन का प्रथम नियम"
+   ]
+  ],
+  "a": 0,
+  "xe": "Varignon's theorem = principle of moments for components (UPSSSC Dec'21, asked in three papers). Lami's theorem is for three concurrent forces in equilibrium; D'Alembert converts dynamics to statics with an inertia force.",
+  "xh": "वैरिग्नॉन प्रमेय = घटकों के आघूर्णों का सिद्धांत। लामी प्रमेय साम्य में तीन संगामी बलों के लिए; डी'एलेम्बर्ट जड़त्व बल जोड़कर गतिकी को स्थैतिकी बनाता है।",
+  "up": 1
+ },
+ {
+  "t": "Moments · Numerical",
+  "e": "A force of 16 N produces a moment of 64 N·m about a point. The moment arm is:",
+  "h": "16 N का बल एक बिंदु के परितः 64 N·m आघूर्ण उत्पन्न करता है। आघूर्ण भुजा है:",
+  "o": [
+   [
+    "4 m",
+    "4 m"
+   ],
+   [
+    "0.25 m",
+    "0.25 m"
+   ],
+   [
+    "48 m",
+    "48 m"
+   ],
+   [
+    "80 m",
+    "80 m"
+   ]
+  ],
+  "a": 0,
+  "xe": "Moment = F × perpendicular distance → d = 64/16 = 4 m (Rly'09). 0.25 m inverts the ratio. The arm must be measured perpendicular to the line of action.",
+  "xh": "आघूर्ण = F × लंबवत दूरी → d = 64/16 = 4 m। 0.25 m उल्टा अनुपात। भुजा क्रिया रेखा के लंबवत मापी जाती है।"
+ },
+ {
+  "t": "Couples",
+  "e": "A couple acting on a rigid body can be balanced only by:",
+  "h": "दृढ़ पिंड पर लगे बल-युग्म को केवल किससे संतुलित किया जा सकता है?",
+  "o": [
+   [
+    "A single force at the pivot",
+    "धुरी पर एक एकल बल"
+   ],
+   [
+    "An opposite equal couple",
+    "बराबर व विपरीत युग्म"
+   ],
+   [
+    "Two concurrent forces",
+    "दो संगामी बल"
+   ],
+   [
+    "Its own resultant",
+    "उसका अपना परिणामी"
+   ]
+  ],
+  "a": 1,
+  "xe": "A couple has zero resultant force and only a turning moment, so no single force (or set of concurrent forces) can cancel it – only an equal and opposite couple can. A couple produces pure rotation and is a free vector.",
+  "xh": "बल-युग्म का परिणामी बल शून्य, केवल घुमाव आघूर्ण होता है, इसलिए कोई एकल बल (या संगामी बल) इसे निरस्त नहीं कर सकता – केवल बराबर व विपरीत युग्म। यह केवल घूर्णन देता है।",
+  "adv": 1
+ },
+ {
+  "t": "Couples",
+  "e": "The moment of a couple about any point in its plane is:",
+  "h": "बल-युग्म का उसके तल के किसी भी बिंदु के परितः आघूर्ण होता है:",
+  "o": [
+   [
+    "Zero",
+    "शून्य"
+   ],
+   [
+    "Point-dependent",
+    "बिंदु पर निर्भर"
+   ],
+   [
+    "Maximum at centre",
+    "केंद्र पर अधिकतम"
+   ],
+   [
+    "Constant",
+    "स्थिर"
+   ]
+  ],
+  "a": 3,
+  "xe": "Moment of a couple = F × arm, the same about every point in its plane – that is why a couple is a free vector. A couple can be balanced only by an equal and opposite couple, never by a single force.",
+  "xh": "बल-युग्म का आघूर्ण = F × भुजा, उसके तल के हर बिंदु के परितः समान – इसलिए यह मुक्त सदिश है। बल-युग्म को केवल बराबर व विपरीत युग्म संतुलित कर सकता है, एकल बल नहीं।",
+  "adv": 1
+ },
+ {
+  "t": "Force–Couple System",
+  "e": "A force F at point A is shifted parallel to itself to point B, a perpendicular distance d away. For the same effect, one must add:",
+  "h": "बिंदु A पर लगे बल F को समांतर रूप से d लंबवत दूरी पर बिंदु B पर खिसकाया जाता है। समान प्रभाव के लिए जोड़ना होगा:",
+  "o": [
+   [
+    "A force F/d",
+    "बल F/d"
+   ],
+   [
+    "A couple F/d",
+    "युग्म F/d"
+   ],
+   [
+    "A couple F·d",
+    "युग्म F·d"
+   ],
+   [
+    "Nothing",
+    "कुछ नहीं"
+   ]
+  ],
+  "a": 2,
+  "xe": "Moving a force off its line of action changes its moment, so a couple of moment F × d is added (force–couple system). Moving it along its own line needs nothing – that is transmissibility.",
+  "xh": "बल को उसकी क्रिया रेखा से हटाने पर आघूर्ण बदलता है, इसलिए F × d आघूर्ण का युग्म जोड़ा जाता है (बल-युग्म तंत्र)। अपनी रेखा पर खिसकाने पर कुछ नहीं – यही संचरणीयता है।",
+  "adv": 1
+ },
+ {
+  "t": "Moments",
+  "e": "The moment of a force and work done have the same:",
+  "h": "बल का आघूर्ण और किया गया कार्य समान रखते हैं:",
+  "o": [
+   [
+    "Direction",
+    "दिशा"
+   ],
+   [
+    "Vector nature",
+    "सदिश प्रकृति"
+   ],
+   [
+    "Physical meaning",
+    "भौतिक अर्थ"
+   ],
+   [
+    "Dimensions",
+    "विमा"
+   ]
+  ],
+  "a": 3,
+  "xe": "Both are ML<sup>2</sup>T<sup>−2</sup> (N·m). But moment is a vector (turning effect, written N·m) while work is a scalar (energy, written joule). Same dimensions ≠ same physical quantity.",
+  "xh": "दोनों ML<sup>2</sup>T<sup>−2</sup> (N·m)। पर आघूर्ण सदिश (घुमाव प्रभाव, N·m) जबकि कार्य अदिश (ऊर्जा, जूल)। समान विमा ≠ समान भौतिक राशि।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "For a coplanar concurrent system, ΣH = 30 N and ΣV = 40 N. The resultant makes an angle with the horizontal of about:",
+  "h": "एक समतलीय संगामी तंत्र में ΣH = 30 N और ΣV = 40 N है। परिणामी क्षैतिज से लगभग कितना कोण बनाता है?",
+  "o": [
+   [
+    "53.1°",
+    "53.1°"
+   ],
+   [
+    "36.9°",
+    "36.9°"
+   ],
+   [
+    "45.0°",
+    "45.0°"
+   ],
+   [
+    "60.0°",
+    "60.0°"
+   ]
+  ],
+  "a": 0,
+  "xe": "R = √(30<sup>2</sup> + 40<sup>2</sup>) = 50 N; tan α = ΣV/ΣH = 40/30 → α = 53.1° with the horizontal. 36.9° is the angle with the vertical (using ΣH/ΣV) – the swap trap.",
+  "xh": "R = √(900 + 1600) = 50 N; tan α = ΣV/ΣH = 4/3 → α = 53.1° क्षैतिज से। 36.9° ऊर्ध्वाधर से कोण है (ΣH/ΣV) – जाल।",
+  "adv": 1
+ },
+ {
+  "t": "Resultant · Numerical",
+  "e": "Forces 2P, 3P and 4P act along the three sides of an equilateral triangle, taken in order. The magnitude of their resultant is:",
+  "h": "बल 2P, 3P और 4P एक समबाहु त्रिभुज की तीनों भुजाओं के अनुदिश क्रम से लगते हैं। उनके परिणामी का परिमाण है:",
+  "o": [
+   [
+    "9P",
+    "9P"
+   ],
+   [
+    "3P",
+    "3P"
+   ],
+   [
+    "P√3",
+    "P√3"
+   ],
+   [
+    "Zero",
+    "शून्य"
+   ]
+  ],
+  "a": 2,
+  "xe": "Taking directions 0°, 120° and 240°: ΣH = 2P − 1.5P − 2P = −1.5P, ΣV = (3P − 4P) × 0.866 = −0.866P → R = √(2.25 + 0.75) P = P√3. Equal forces along the sides in order would give zero (closed polygon) – but these are unequal.",
+  "xh": "दिशाएँ 0°, 120°, 240°: ΣH = −1.5P, ΣV = −0.866P → R = √3 P। भुजाओं पर बराबर बल क्रम से हों तो परिणामी शून्य (बंद बहुभुज) – पर ये असमान हैं।",
+  "adv": 1
+ },
+ {
+  "t": "Resolution · Numerical",
+  "e": "A 100 N force is resolved into two components making 30° and 60° with it, on opposite sides. The component along the 30° direction is about:",
+  "h": "100 N बल को उसके दोनों ओर 30° और 60° बनाने वाले दो घटकों में विभाजित किया जाता है। 30° वाली दिशा में घटक लगभग है:",
+  "o": [
+   [
+    "50.0 N",
+    "50.0 N"
+   ],
+   [
+    "57.7 N",
+    "57.7 N"
+   ],
+   [
+    "86.6 N",
+    "86.6 N"
+   ],
+   [
+    "115.5 N",
+    "115.5 N"
+   ]
+  ],
+  "a": 2,
+  "xe": "The components are 90° apart. By the sine rule, F₁ = F sin 60°/sin 90° = 86.6 N and F₂ = F sin 30°/sin 90° = 50 N. The component nearer to the force is the larger one – 50 N is the 60° component (trap).",
+  "xh": "घटक आपस में 90° पर हैं। साइन नियम से F₁ = 100 sin 60° = 86.6 N और F₂ = 100 sin 30° = 50 N। बल के निकट वाला घटक बड़ा होता है – 50 N, 60° वाला घटक है (जाल)।",
+  "adv": 1
+ },
+ {
+  "t": "Moments · Numerical",
+  "e": "A 100 N force is applied at the end of a 0.5 m spanner, at 30° to the spanner. The moment about the nut is:",
+  "h": "0.5 m स्पैनर के सिरे पर स्पैनर से 30° पर 100 N बल लगाया जाता है। नट के परितः आघूर्ण है:",
+  "o": [
+   [
+    "25.0 N·m",
+    "25.0 N·m"
+   ],
+   [
+    "50.0 N·m",
+    "50.0 N·m"
+   ],
+   [
+    "43.3 N·m",
+    "43.3 N·m"
+   ],
+   [
+    "12.5 N·m",
+    "12.5 N·m"
+   ]
+  ],
+  "a": 0,
+  "xe": "Only the component perpendicular to the spanner turns it: M = F × L × sin 30° = 100 × 0.5 × 0.5 = 25 N·m. 50 N·m assumes the force is perpendicular; 43.3 N·m wrongly uses cos 30°.",
+  "xh": "केवल स्पैनर के लंबवत घटक घुमाता है: M = 100 × 0.5 × sin 30° = 25 N·m। 50 N·m बल को लंबवत मानता है; 43.3 N·m गलत cos 30°।",
+  "adv": 1
+ }
+];
+const L="ABCD", ans=new Array(Q.length).fill(null);
+let submitted=false, left=30*60, tick;
+const qs=document.getElementById('qs');
+
+function render(){
+  qs.innerHTML=Q.map((q,i)=>`
+  <section class="q" id="q${i}">
+    <div class="qhead"><span class="qno">Q${i+1}</span>
+      <span>${q.up?'<span class="tag up">PYQ concept</span> ':''}${q.adv?'<span class="tag adv">Level-up</span> ':''}<span class="tag">${q.t}</span></span></div>
+    <p class="stem">${q.e}</p>
+    <p class="stem-hi hi">${q.h}</p>
+    ${q.o.map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}"><span class="l">${L[j]}</span><span class="t"><span>${o[0]}</span>${o[1]===o[0]?'':`<span class="hi">${o[1]}</span>`}</span></button>`).join('')}
+    <button class="clear" data-c="${i}">Clear response</button>
+    <span class="status" id="st${i}"></span>
+    <div class="exp"><p><b>Correct: ${L[q.a]}</b> – ${q.xe}</p><p class="hi">${q.xh}</p></div>
+  </section>`).join('');
+}
+render();
+
+qs.addEventListener('click',e=>{
+  if(submitted)return;
+  const b=e.target.closest('.opt'), c=e.target.closest('.clear');
+  if(b){const i=+b.dataset.q; ans[i]=+b.dataset.o; paint(i);}
+  if(c){const i=+c.dataset.c; ans[i]=null; paint(i);}
+  document.getElementById('cnt').textContent=ans.filter(x=>x!==null).length+' / '+Q.length+' answered';
+});
+function paint(i){
+  document.querySelectorAll(`#q${i} .opt`).forEach((b,j)=>b.classList.toggle('selected',ans[i]===j));
+}
+
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+tick=setInterval(()=>{left--;const t=document.getElementById('timer');t.textContent=fmt(Math.max(left,0));
+  if(left<=300)t.classList.add('low'); if(left<=0)finish();},1000);
+
+document.getElementById('submit').onclick=()=>{
+  const un=ans.filter(x=>x===null).length;
+  if(!submitted && un && !confirm(un+' question(s) unanswered. Submit anyway?'))return;
+  finish();
+};
+
+function finish(){
+  if(submitted)return; submitted=true; clearInterval(tick);
+  let c=0,w=0,s=0;
+  Q.forEach((q,i)=>{
+    const sec=document.getElementById('q'+i), st=document.getElementById('st'+i);
+    sec.classList.add('done');
+    sec.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;b.classList.remove('selected');
+      if(j===q.a)b.classList.add('correct'); else if(ans[i]===j)b.classList.add('wrong');});
+    sec.querySelector('.clear').classList.add('hide');
+    if(ans[i]===null){s++;st.textContent='Skipped';st.style.color='var(--muted)';sec.dataset.r='s';}
+    else if(ans[i]===q.a){c++;st.textContent='✓ Correct (+1)';st.style.color='var(--ok)';sec.dataset.r='c';}
+    else{w++;st.textContent='✗ Wrong (−0.25)';st.style.color='var(--bad)';sec.dataset.r='w';}
+  });
+  const score=c-0.25*w;
+  document.getElementById('sc').textContent=score.toFixed(2)+' / '+Q.length;
+  document.getElementById('sCor').textContent=c;
+  document.getElementById('sWr').textContent=w;
+  document.getElementById('sSk').textContent=s;
+  document.getElementById('sAcc').textContent=(c+w?Math.round(100*c/(c+w)):0)+'%';
+  const tip = score>=20 ? 'Excellent – force systems are exam-ready. Revise the trap options once more. / शानदार – अब बस जाल विकल्प एक बार दोहराएँ।'
+    : score>=14 ? 'Good. Re-read the Confusion Killers and Formula Wall for the questions you missed. / अच्छा। छूटे प्रश्नों के लिए Formula Wall और Confusion Killers दोबारा पढ़ें।'
+    : 'Revise the EM notes (force systems, resultant and moments first), then retry. / पहले नोट्स (बल तंत्र, परिणामी और आघूर्ण) दोहराएँ, फिर दोबारा प्रयास करें।';
+  document.getElementById('tip').textContent=tip+' With −0.25 negative marking, attempt a question when you can eliminate two options.';
+  document.getElementById('result').style.display='block';
+  document.getElementById('submit').textContent='Submitted';
+  document.getElementById('submit').disabled=true;
+  window.scrollTo({top:document.getElementById('result').offsetTop-10,behavior:'smooth'});
+}
+
+let onlyW=false;
+document.getElementById('onlyWrong').onclick=function(){
+  onlyW=!onlyW;
+  document.querySelectorAll('.q').forEach(q=>q.classList.toggle('hide',onlyW && q.dataset.r==='c'));
+  this.textContent=onlyW?'Show all questions':'Show only wrong & skipped';
+};
+document.getElementById('retry').onclick=()=>location.reload();
+</script>
+</body>
+</html>
